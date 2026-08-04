@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chrono Fish — Caso de estudio | Francesc Borràs</title>
+<meta name="description" content="Diseño de métricas de nivel y timing de parry en Chrono Fish, roguelike top-down en pixel art hecho en Unity.">
+<meta name="theme-color" content="#EDF0EA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrono Fish — Caso de estudio | Francesc Borràs">
+<meta property="og:description" content="Métricas de nivel para mapas procedurales coherentes y ajuste de timing de parry.">
+<meta property="og:image" content="https://img.itch.zone/aW1nLzE1NjgzMTE2LnBuZw==/original/LLGHZq.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="canonical" href="https://frankystyle04.github.io/FrancescBorras_Portfolio/proyectos/chrono-fish.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Navegación principal">
+  <div class="wrap">
+    <a href="../index.html" class="brand">FB<span>·</span>DESIGN</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menú</button>
+    <ul id="nav-list">
+      <li><a class="nav-link" href="../index.html#metodo">Método</a></li>
+      <li><a class="nav-link" href="../index.html#proyectos">Trabajo</a></li>
+      <li><a class="nav-link" href="../index.html#experiencia">Experiencia</a></li>
+      <li><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap">
+      <a class="back-link" href="../index.html">← Volver al trabajo</a>
+      <div class="case-title">
+        <span class="eyebrow">Roguelike top-down · Unity C#</span>
+        <h1>Chrono Fish</h1>
+      </div>
+      <div class="case-meta">
+        <div>Rol<span>Game &amp; Level Designer</span></div>
+        <div>Equipo<span>Olympia Interactive — 4 personas</span></div>
+        <div>Duración<span>2023–2024</span></div>
+        <div>Mecánica central<span>Parry, sin ataque directo</span></div>
+      </div>
+      <div class="case-hero-img">
+        <img src="https://img.itch.zone/aW1nLzE1NjgzMTE2LnBuZw==/original/LLGHZq.png" alt="Portada de Chrono Fish, un pez viajero en el tiempo en pixel art.">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap case-body">
+      <h2>Contexto</h2>
+      <p>Chrono Fish es un roguelike top-down en pixel art con una restricción de diseño poco habitual: el protagonista es un pez que no puede atacar, solo esquivar y parar. La demo se sitúa en un templo azteca cuyo jefe final es Kukulkan, la serpiente emplumada. Trabajé como Game &amp; Level Designer en un equipo de 4 personas.</p>
+
+      <div class="case-media">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4Mzc5LmdpZg==/original/PF3KGg.gif" alt="Gif del pez protagonista esquivando ataques en el templo azteca.">
+      </div>
+
+      <h2>El problema: diseñar sin la herramienta más simple</h2>
+      <p>Quitar el ataque directo obliga a que todo el reto viva en el timing y en la lectura del enemigo. Sin esa herramienta, un mapa mal calibrado se siente injusto de inmediato: el jugador no tiene forma de "forzar" una situación con daño bruto, así que cada sala tiene que estar honestamente diseñada para ser superable con solo esquivar y parar.</p>
+      <p>Para sostener eso definí <strong>métricas de nivel coherentes</strong> (distancias de aproximación de enemigo, ventanas de parry, densidad de amenazas por sala) que después usé para generar los mapas procedurales del templo, en vez de dejar la generación procedural a criterios puramente estéticos.</p>
+
+      <div class="case-media two-up">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4OTIyLmdpZg==/original/m6MO8w.gif" alt="Gif de combate dentro de una sala del templo azteca en Chrono Fish.">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4OTg3LmdpZg==/original/uHS%2B%2FJ.gif" alt="Gif mostrando el timing de parry del pez protagonista.">
+      </div>
+      <p class="marginalia">El propio juego premia parar menos veces: cuanto más limpio el parry, mejor puntuación. La mecánica y el sistema de scoring cuentan la misma historia de dominio.</p>
+
+      <h2>Ajustar el timing de parry</h2>
+      <p>El parry es la mecánica que sostiene todo el juego, así que su ventana de tiempo se iteró más que cualquier otro sistema. Un margen demasiado generoso convierte el reto en trivial; uno demasiado ajustado convierte cada muerte en frustración en vez de aprendizaje. Ajusté el timing junto a las ventanas de disparo enemigo hasta que fallar un parry se sintiera como una decisión tardía del jugador, no como una imposición del sistema.</p>
+
+      <div class="case-stats">
+        <div class="stat-row">
+          <div class="stat reveal"><span class="num" data-count="4">0</span><span class="label">personas en el equipo</span></div>
+          <div class="stat reveal"><span class="num" data-count="1">0</span><span class="label">templo jugable con jefe final</span></div>
+          <div class="stat reveal"><span class="num" data-count="0">0</span><span class="label">ataques directos disponibles: solo esquiva y parry</span></div>
+        </div>
+      </div>
+
+      <h2>Aprendizajes</h2>
+      <p>Diseñar alrededor de una restricción fuerte obliga a una disciplina que un kit de mecánicas amplio no exige: cada sala tiene que justificar por qué es superable solo con las herramientas que el jugador ya tiene. Fue mi primer proyecto real de generación procedural, y aprendí que unas métricas de nivel mal definidas se notan mucho más rápido en un sistema procedural que en uno diseñado a mano, porque los errores se repiten en cada mapa generado.</p>
+
+      <div class="case-cta">
+        <a class="btn btn-solid" href="https://franky-style.itch.io/chrono-fish" target="_blank" rel="noopener">Jugar en itch.io</a>
+        <a class="btn btn-outline" href="../index.html#proyectos">Ver más proyectos</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="contacto">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3 style="font-family:var(--font-display); font-size:1.4rem; max-width:14ch;">Hablemos de tu próximo nivel.</h3>
+        <a href="mailto:fborrasslleida@gmail.com" class="btn btn-solid" style="margin-top:1.2rem;">fborrasslleida@gmail.com</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
+        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>Francesc Borràs Lleida · Vilanova i la Geltrú, Barcelona</span>
+      <span>Diseñado y desarrollado a mano · 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

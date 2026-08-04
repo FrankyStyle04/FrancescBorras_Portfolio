@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francesc Borràs — Game &amp; Level Designer</title>
+<meta name="description" content="Portfolio de Francesc Borràs, Game &amp; Level Designer en Barcelona. Metodología data-driven en Lyra, Tumble Up y Chrono Fish, y experiencia profesional en QA/Game Design.">
+<meta name="theme-color" content="#EDF0EA">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Francesc Borràs — Game &amp; Level Designer">
+<meta property="og:description" content="Diseño de niveles y mecánicas centrado en el jugador, documentado con método propio: Pattern-Based Dictionary, curvas EDPV y validación por telemetría.">
+<meta property="og:url" content="https://frankystyle04.github.io/FrancescBorras_Portfolio/">
+<meta property="og:image" content="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Francesc Borràs — Game &amp; Level Designer">
+<meta name="twitter:description" content="Diseño de niveles y mecánicas centrado en el jugador, documentado con método propio.">
+<meta name="twitter:image" content="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="canonical" href="https://frankystyle04.github.io/FrancescBorras_Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Francesc Borràs Lleida",
+  "jobTitle": "Game Designer, Level Designer",
+  "url": "https://frankystyle04.github.io/FrancescBorras_Portfolio/",
+  "sameAs": [
+    "https://www.linkedin.com/in/francesc-borras-lleida",
+    "https://franky-style.itch.io",
+    "https://github.com/FrancescBorrasLleida"
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Vilanova i la Geltrú", "addressRegion": "Barcelona", "addressCountry": "ES" }
+}
+</script>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Navegación principal">
+  <div class="wrap">
+    <a href="#top" class="brand">FB<span>·</span>DESIGN</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menú</button>
+    <ul id="nav-list">
+      <li><a class="nav-link" href="#metodo">Método</a></li>
+      <li><a class="nav-link" href="#proyectos">Trabajo</a></li>
+      <li><a class="nav-link" href="#experiencia">Experiencia</a></li>
+      <li><a class="nav-link" href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Game &amp; Level Designer — Barcelona</span>
+      <h1>Diseño sistemas de juego que se pueden explicar, medir y volver a diseñar mejor.</h1>
+      <p class="lede">Francesc Borràs. Documento cada mecánica antes de construirla, valido con jugadores reales en vez de intuición, y reconozco lo que no funcionó tanto como lo que sí. Esta web está organizada como uno de mis propios documentos de diseño.</p>
+      <div class="hero-cta">
+        <a href="#proyectos" class="btn btn-solid">Ver casos de estudio</a>
+        <a href="assets/Francesc_Borras_Lleida_CV.pdf" class="btn btn-outline">Descargar CV</a>
+      </div>
+
+      <svg class="curve-motif" viewBox="0 0 800 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curva de aprendizaje EDPV: Exposición, Demostración, Práctica, Validación, en progresión ascendente">
+        <line x1="60" y1="180" x2="760" y2="180" stroke="var(--line)" stroke-width="1"></line>
+        <path class="curve" d="M60,150 C140,145 200,125 280,110 C350,98 430,95 500,70 C570,48 660,42 740,28"></path>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">
+          <circle cx="60" cy="150" r="4" fill="var(--pine)"></circle>
+          <text x="60" y="200" text-anchor="middle">EXPOSICIÓN</text>
+          <circle cx="280" cy="110" r="4" fill="var(--pine)"></circle>
+          <text x="280" y="200" text-anchor="middle">DEMOSTRACIÓN</text>
+          <circle cx="500" cy="70" r="4" fill="var(--pine)"></circle>
+          <text x="500" y="200" text-anchor="middle">PRÁCTICA</text>
+          <circle cx="740" cy="28" r="4" fill="var(--pine)"></circle>
+          <text x="740" y="200" text-anchor="middle">VALIDACIÓN</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- MÉTODO -->
+  <section id="metodo">
+    <div class="wrap method-columns reveal">
+      <h2>Antes de abrir el editor, escribo cómo se aprende la mecánica.</h2>
+      <div class="method-text">
+        <p>En cada proyecto parto de un <strong>Pattern-Based Dictionary</strong>: descompongo cada mecánica en sus átomos de interacción (qué botón, qué reacción, qué feedback) y los combino en patrones más complejos antes de tocar el nivel. Es la diferencia entre diseñar un puzzle a ojo y saber exactamente qué está aprendiendo el jugador en cada sala.</p>
+        <p>Ese aprendizaje lo ordeno con el modelo <strong>EDPV</strong> — Exposición, Demostración, Práctica, Validación — la curva que ves arriba. Cada nivel expone la mecánica, la demuestra en un contexto seguro, deja practicarla bajo presión creciente y valida que se ha interiorizado. Cuando algo no se aprende como esperaba, no lo intuyo: lo mido. En Lyra construí una pipeline de telemetría en C++ y análisis en Python para comprobarlo con datos reales, no solo con mi propia percepción como diseñador.</p>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="stat-row">
+        <div class="stat reveal"><span class="num" data-count="35%">0%</span><span class="label">reducción de errores de navegación tras rediseñar la guía visual</span></div>
+        <div class="stat reveal"><span class="num" data-count="33%">0%</span><span class="label">mejora en tiempo de resolución de puzzle</span></div>
+        <div class="stat reveal"><span class="num" data-count="~1.0">0</span><span class="label">tamaño del efecto (Cohen's d) en el A/B test de Lyra</span></div>
+        <div class="stat reveal"><span class="num" data-count="67">0</span><span class="label">niveles balanceados en Denshattack!</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- PROYECTOS DESTACADOS -->
+  <section id="proyectos">
+    <div class="wrap">
+      <span class="eyebrow reveal">Casos de estudio</span>
+      <h2 class="reveal" style="font-size:clamp(1.9rem,4vw,2.8rem); max-width:20ch;">Tres proyectos, tres problemas de diseño distintos.</h2>
+    </div>
+
+    <div class="wrap">
+
+      <article class="project-feature reveal">
+        <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Escena de Lyra: Pochi y Mochi, los dos dragones bebé, junto a Lyra en un entorno de colinas soleadas.">
+        <div>
+          <div class="meta-row"><span>Game &amp; Level Designer</span><span>Unreal Engine 5</span><span>2025–2026</span><span>Best TFG · ENTI DemoDay 2026</span></div>
+          <h3>Lyra</h3>
+          <p class="desc">Puzzle-adventure 3D y wholesome sobre dos dragones bebé. Diseñé y documenté cada mecánica con el Pattern-Based Dictionary, construí tres niveles temáticos con curvas EDPV, y validé la guía visual del puzzle más problemático con un A/B test propio.</p>
+          <a class="go" href="proyectos/lyra.html">Ver caso de estudio completo →</a>
+        </div>
+      </article>
+
+      <article class="project-feature reverse reveal">
+        <img src="https://img.itch.zone/aW1nLzIxMDE0NzQzLnBuZw==/original/3hNY8P.png" alt="Captura de Tumble Up: dos personajes con disfraces de animales compitiendo en un minijuego 2 contra 2.">
+        <div>
+          <div class="meta-row"><span>Producer &amp; Game Designer</span><span>Unity C#</span><span>2024–2025</span></div>
+          <h3>Tumble Up</h3>
+          <p class="desc">Party game local 2 contra 2 con 4 minijuegos y 8 mapas. Diseñé el ritmo de las partidas (loops de 2 a 7 minijuegos) para que ganar o perder nunca se sintiera definitivo, y llevé el rol de SCRUM master de un equipo de 5 personas.</p>
+          <a class="go" href="proyectos/tumble-up.html">Ver caso de estudio completo →</a>
+        </div>
+      </article>
+
+      <article class="project-feature reveal">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4Mzc5LmdpZg==/original/PF3KGg.gif" alt="Gif de Chrono Fish: el pez protagonista esquivando y parando ataques en un templo azteca en pixel art.">
+        <div>
+          <div class="meta-row"><span>Game &amp; Level Designer</span><span>Unity C#</span><span>2023–2024</span></div>
+          <h3>Chrono Fish</h3>
+          <p class="desc">Roguelike top-down en pixel art donde el pez protagonista solo puede esquivar y parar. Definí las métricas de nivel para generar mapas procedurales coherentes y ajusté el timing de parry hasta que fallar se sintiera justo, nunca injusto.</p>
+          <a class="go" href="proyectos/chrono-fish.html">Ver caso de estudio completo →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- PROYECTOS SECUNDARIOS -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow reveal">Otros proyectos</span>
+      <h2 class="reveal" style="font-size:clamp(1.6rem,3vw,2.1rem); max-width:26ch;">Otras jams y colaboraciones donde probé género y rol distintos.</h2>
+
+      <div class="side-grid">
+        <div class="side-card reveal">
+          <img src="https://img.itch.zone/aW1nLzE5NzQ1NTYxLnBuZw==/original/4oBCyp.png" alt="Escena nevada de Frost Climb, un juego de escalada en una montaña helada.">
+          <div class="body">
+            <h4>Frost Climb</h4>
+            <p class="role">Game &amp; Level Designer · 3D Platformer</p>
+            <p class="note">Mecánicas de escalada y gestión del frío como recurso de supervivencia. Aprendí a diseñar progresión vertical, un tipo de espacio que no había abordado antes.</p>
+          </div>
+        </div>
+        <div class="side-card reveal">
+          <img src="https://img.itch.zone/aW1nLzE1Nzg5NTg3LnBuZw==/original/8kEaQc.png" alt="Los dos robots protagonistas de New Dawn Odyssey explorando unas cavernas en pixel art.">
+          <div class="body">
+            <h4>New Dawn Odyssey</h4>
+            <p class="role">Colaboración · Metroidvania 2D</p>
+            <p class="note">Metroidvania de pixel art hecho en equipo dentro de ENTI. Mi aportación se centró en el diseño de encuentros y exploración.</p>
+          </div>
+        </div>
+        <div class="side-card reveal">
+          <img src="https://img.itch.zone/aW1nLzEwODQ2NzI4LnBuZw==/original/vIXLpB.png" alt="Escena de acción top-down de Línea-Caliente Sevilla, al estilo Hotline Miami.">
+          <div class="body">
+            <h4>Línea-Caliente Sevilla</h4>
+            <p class="role">Colaboración · Game Jam, Top-down Action</p>
+            <p class="note">Jam de 48h al estilo Hotline Miami. Ejercicio de diseño rápido: mecánicas mínimas, ritmo alto, entrega bajo presión de tiempo real.</p>
+          </div>
+        </div>
+        <div class="side-card reveal">
+          <img src="https://img.itch.zone/aW1nLzIxNDAwNzQyLnBuZw==/original/4E0oeI.png" alt="Lia, la protagonista de Lia's Echo, en un paisaje de montañas nevadas.">
+          <div class="body">
+            <h4>Lia's Echo</h4>
+            <p class="role">Colaboración · Aventura narrativa 2D</p>
+            <p class="note">Proyecto de un compañero de equipo de ENTI en el que colaboré puntualmente. Lo enlazo porque es un buen ejemplo de narrativa ambiental que sigo estudiando.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia" class="on-dark">
+    <div class="wrap">
+      <span class="eyebrow reveal">Experiencia profesional</span>
+      <div class="exp-block reveal">
+        <div>
+          <h3>Denshattack! — Undercoders</h3>
+          <p style="color:var(--dark-soft); margin-top:0.6rem;">QA &amp; Game Design Assistant · Unreal Engine 5 · 2025–2026</p>
+          <p style="color:var(--dark-soft); margin-top:1rem; max-width:46ch;">Publicado por Fireshine Games. Entré como puente entre diseño, programación y QA: mi trabajo tenía que sobrevivir el paso de la documentación a la implementación real, no solo leerse bien en un PDF.</p>
+        </div>
+        <ul>
+          <li>Balanceé la progresión y economía de <strong style="color:var(--dark-text)">67 niveles</strong> hechos a mano, ajustando el ritmo de desbloqueo en Excel y Google Sheets.</li>
+          <li>Redacté <strong style="color:var(--dark-text)">6 Game Design Documents</strong> completos para comunicar sistemas de juego a un equipo multidisciplinar.</li>
+          <li>Validé el flujo de niveles y el balance de dificultad mediante playtesting interno estructurado, traduciendo feedback en cambios concretos.</li>
+          <li>Mantuve la documentación de sistemas de gameplay en Confluence para dar soporte a la colaboración entre equipos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- META CASO DE ESTUDIO -->
+  <section>
+    <div class="wrap">
+      <div class="reveal" style="max-width:56ch;">
+        <span class="eyebrow">Sobre esta web</span>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">Esta página también es un proyecto de diseño.</h2>
+        <p style="color:var(--ink-soft); margin-top:1rem;">Seguí el mismo proceso que uso en un GDD: análisis del material, estudio de referencias, sistema de diseño justificado y solo entonces, desarrollo. Explico cada decisión, del porqué de la cuadrícula punteada al porqué del modelo EDPV como motivo visual.</p>
+        <a class="go" style="display:inline-block; margin-top:1.2rem;" href="proyectos/este-portfolio.html">Ver el proceso completo →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contacto">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3 style="font-family:var(--font-display); font-size:1.4rem; max-width:14ch;">Hablemos de tu próximo nivel.</h3>
+        <a href="mailto:fborrasslleida@gmail.com" class="btn btn-solid" style="margin-top:1.2rem;">fborrasslleida@gmail.com</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
+        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>Francesc Borràs Lleida · Vilanova i la Geltrú, Barcelona</span>
+      <span>Diseñado y desarrollado a mano · 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Este portfolio — Caso de estudio | Francesc Borràs</title>
+<meta name="description" content="Cómo diseñé y desarrollé esta web: investigación de referencias, sistema de diseño, decisiones técnicas de accesibilidad, rendimiento y SEO.">
+<meta name="theme-color" content="#EDF0EA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Este portfolio — Caso de estudio | Francesc Borràs">
+<meta property="og:description" content="El proceso de diseño y desarrollo de esta misma web, tratado como un proyecto más.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="canonical" href="https://frankystyle04.github.io/FrancescBorras_Portfolio/proyectos/este-portfolio.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Navegación principal">
+  <div class="wrap">
+    <a href="../index.html" class="brand">FB<span>·</span>DESIGN</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menú</button>
+    <ul id="nav-list">
+      <li><a class="nav-link" href="../index.html#metodo">Método</a></li>
+      <li><a class="nav-link" href="../index.html#proyectos">Trabajo</a></li>
+      <li><a class="nav-link" href="../index.html#experiencia">Experiencia</a></li>
+      <li><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap">
+      <a class="back-link" href="../index.html">← Volver al trabajo</a>
+      <div class="case-title">
+        <span class="eyebrow">Diseño &amp; desarrollo web · HTML/CSS/JS</span>
+        <h1>Este portfolio</h1>
+      </div>
+      <div class="case-meta">
+        <div>Rol<span>Diseño UX/UI y desarrollo</span></div>
+        <div>Stack<span>HTML5, CSS, JS vanilla</span></div>
+        <div>Publicación<span>GitHub Pages</span></div>
+        <div>Enfoque<span>Estático, sin frameworks</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap case-body">
+      <h2>El encargo, tratado como un GDD</h2>
+      <p>Le pedí a Claude que actuara como director de diseño, UX y recruiter de la industria a la vez, y que siguiera un proceso en 4 fases antes de escribir una sola línea de código: análisis del material existente, estudio de referencias, sistema de diseño con mi aprobación explícita, y solo entonces desarrollo. Es el mismo proceso que sigo en mis propios documentos de diseño: no se construye nada sin documentar primero por qué.</p>
+
+      <h2>El problema de las referencias</h2>
+      <p>Tenía dos portfolios de referencia que me gustan. Uno resolvía muy bien la credibilidad (premios visibles, roles claros por proyecto), pero sus tarjetas de proyecto eran solo imagen y una frase, sin explicar ninguna decisión de diseño. El otro tenía una estructura narrativa excelente por caso de estudio, pero su ejecución visual era la de una plantilla de Google Sites, sin ritmo editorial. Ninguno de los dos tenía algo que yo sí tengo: un método propio y documentado.</p>
+      <p>La decisión fue no hacer un híbrido de ambos, sino construir la identidad alrededor de lo único que ninguna referencia usaba: mi propio Pattern-Based Dictionary y el modelo EDPV. La curva que ves en la portada no es una animación decorativa: es el propio modelo de aprendizaje que uso para diseñar niveles, convertido en el motivo visual de la web.</p>
+
+      <h2>Sistema de diseño</h2>
+      <p>El concepto es "documento de diseño vivo": la sensación de hojear una GDD/LDD real, maquetada con cuidado editorial. Elegí un fondo papel frío en vez del típico crema cálido de tantos portfolios generados con IA, con un único acento verde pino en vez del naranja/terracota que se repite en casi todos ellos. La tipografía combina una display técnica (Space Grotesk) para titulares, una sans neutra (Inter) para el cuerpo, y una monoespaciada (JetBrains Mono) reservada solo para metadata, etiquetas y cifras, reforzando visualmente cada vez que aparece un dato real.</p>
+      <p>Los "eyebrows" numerados de cada sección no son decoración: siguen el orden real en que pienso un proyecto, de método a resultado, igual que en un documento de diseño se numeran las secciones porque hay una secuencia de lectura que importa.</p>
+
+      <div class="case-media">
+        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc1LnBuZw==/original/0l2zS8.png" alt="Ejemplo del uso de imágenes grandes intercaladas con texto en los casos de estudio del portfolio.">
+      </div>
+      <p class="marginalia">Cada caso de estudio sigue el mismo patrón narrativo (contexto → problema → decisiones → resultado → aprendizajes), pero el contenido de cada bloque es único: no es una plantilla rellenable.</p>
+
+      <h2>Decisiones técnicas</h2>
+      <p>Es una web completamente estática (HTML, CSS y JavaScript sin librerías ni frameworks) pensada para publicarse directamente en GitHub Pages. Sin build system, sin dependencias que puedan quedar desactualizadas.</p>
+      <ul style="color:var(--ink-soft); padding-left:1.2rem;">
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--ink);">Accesibilidad:</strong> navegación completa por teclado, foco visible, contraste AA verificado en cada combinación de color, HTML semántico (<code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>) y alt text descriptivo en cada imagen.</li>
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--ink);">Rendimiento:</strong> sin librerías externas de JS, animaciones basadas en <code>IntersectionObserver</code> en vez de listeners de scroll, y <code>prefers-reduced-motion</code> respetado en toda la web.</li>
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--ink);">Responsive real:</strong> el patrón editorial de imagen/texto alternado solo se activa a partir de tablet; en ultrawide el espacio lateral extra se reserva para anotaciones tipo marginalia en vez de dejarlo vacío.</li>
+        <li><strong style="color:var(--ink);">SEO:</strong> meta tags, Open Graph, Twitter Cards, datos estructurados (schema.org Person), sitemap.xml y robots.txt.</li>
+      </ul>
+
+      <h2>Aprendizajes</h2>
+      <p>Diseñar la propia herramienta de búsqueda de trabajo es un ejercicio raro: el "usuario" es un recruiter con 30-60 segundos y decenas de portfolios abiertos a la vez, así que cada decisión se midió contra esa restricción real, no contra mi propio gusto estético. Es la misma disciplina que aplico a un nivel de juego: diseñar para cómo se usa de verdad, no para cómo me gustaría que se usara.</p>
+
+      <div class="case-cta">
+        <a class="btn btn-solid" href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">Ver repositorio en GitHub</a>
+        <a class="btn btn-outline" href="../index.html#proyectos">Ver más proyectos</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="contacto">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3 style="font-family:var(--font-display); font-size:1.4rem; max-width:14ch;">Hablemos de tu próximo nivel.</h3>
+        <a href="mailto:fborrasslleida@gmail.com" class="btn btn-solid" style="margin-top:1.2rem;">fborrasslleida@gmail.com</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
+        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>Francesc Borràs Lleida · Vilanova i la Geltrú, Barcelona</span>
+      <span>Diseñado y desarrollado a mano · 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

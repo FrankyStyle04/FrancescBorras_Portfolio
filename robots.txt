@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://frankystyle04.github.io/FrancescBorras_Portfolio/sitemap.xml
