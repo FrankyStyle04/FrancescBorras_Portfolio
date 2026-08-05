@@ -1,4 +1,4 @@
-// Francesc Borràs — portfolio
+// Francesc Borras Lleida - portfolio
 // Small, purposeful interactions only: nav toggle, scroll reveals,
 // a count-up on stat callouts, and the signature EDPV curve draw-in.
 
@@ -27,9 +27,6 @@
     document.querySelectorAll(".reveal").forEach(function (el) {
       el.classList.add("is-visible");
     });
-    document.querySelectorAll(".curve-motif").forEach(function (el) {
-      el.classList.add("in-view");
-    });
     document.querySelectorAll(".stat .num[data-count]").forEach(function (el) {
       el.textContent = el.getAttribute("data-count");
     });
@@ -50,22 +47,6 @@
   );
   document.querySelectorAll(".reveal").forEach(function (el) {
     revealObserver.observe(el);
-  });
-
-  /* Signature curve draw-in */
-  var curveObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          curveObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-  document.querySelectorAll(".curve-motif").forEach(function (el) {
-    curveObserver.observe(el);
   });
 
   /* Stat count-up */

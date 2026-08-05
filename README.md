@@ -1,4 +1,4 @@
-# Francesc Borràs — Portfolio
+# Francesc Borras Lleida - Portfolio
 
 Portfolio personal de Francesc Borràs, Game & Level Designer. Web estática, sin frameworks ni build system, pensada para publicarse directamente en GitHub Pages.
 

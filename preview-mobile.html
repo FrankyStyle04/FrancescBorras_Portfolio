@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francesc Borras - Mobile preview</title><meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   FRANCESC BORRAS LLEIDA - PORTFOLIO
+   Dark-first shell (nav, hero, experience, footer) with a
+   "paper reading mode" reserved for long-form case-study text,
+   so deep-dive content still reads like an annotated design
+   document even though the outer shell is dark.
+   ========================================================= */
+
+:root {
+  /* Surface defaults = dark shell */
+  --surface-bg:   #0F1316;
+  --surface-text: #EDF0EA;
+  --surface-soft: #9AA7A3;
+  --surface-line: rgba(237, 240, 234, 0.16);
+  --surface-alt:  #1A2126;
+
+  /* Raw palette */
+  --paper:      #EDF0EA;
+  --paper-alt:  #E3E8DF;
+  --ink:        #12181D;
+  --ink-soft:   #47555D;
+  --pine:       #1F6F64;
+  --pine-soft:  #3FA391;
+  --ochre:      #C99A4E;
+  --dark:       #0F1316;
+  --dark-paper: #1A2126;
+  --dark-text:  #EDF0EA;
+  --dark-soft:  #9AA7A3;
+  --line:       rgba(18, 24, 29, 0.14);
+  --line-dark:  rgba(237, 240, 234, 0.16);
+
+  /* Type */
+  --font-display: 'Space Grotesk', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Scale */
+  --max-w: 1180px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --radius: 3px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--surface-bg);
+  color: var(--surface-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--pine-soft);
+  outline-offset: 3px;
+}
+
+/* =====================
+   PAPER READING MODE - used only for long-form case-study text
+   ===================== */
+.on-paper {
+  --surface-bg: var(--paper);
+  --surface-text: var(--ink);
+  --surface-soft: var(--ink-soft);
+  --surface-line: var(--line);
+  --surface-alt: var(--paper-alt);
+  background: var(--surface-bg);
+  color: var(--surface-text);
+}
+
+/* =====================
+   NAV
+   ===================== */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(15, 19, 22, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line-dark);
+}
+.site-nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.site-nav .brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+.site-nav .brand span { color: var(--pine-soft); font-weight: 400; }
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--dark-text);
+}
+.site-nav a.nav-link { position: relative; padding-bottom: 3px; }
+.site-nav a.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--pine-soft);
+  transition: width 0.25s ease;
+}
+.site-nav a.nav-link:hover::after,
+.site-nav a.nav-link:focus-visible::after { width: 100%; }
+
+.nav-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  background: var(--pine-soft);
+  color: var(--dark);
+  padding: 0.55rem 1.05rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.nav-cta:hover { background: var(--paper); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line-dark);
+  color: var(--dark-text);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* =====================
+   EYEBROW
+   ===================== */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pine-soft);
+  margin-bottom: 1.1rem;
+}
+.eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--pine-soft); display: inline-block; }
+.on-paper .eyebrow { color: var(--pine); }
+.on-paper .eyebrow::before { background: var(--pine); }
+
+/* =====================
+   SECTIONS
+   ===================== */
+section { padding: clamp(3.5rem, 8vw, 7rem) 0; position: relative; }
+.rule { border: none; border-top: 1px solid var(--surface-line); margin: 0; }
+
+/* =====================
+   BUTTONS
+   ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--surface-text);
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+.btn-solid { background: var(--surface-text); color: var(--surface-bg); }
+.btn-solid:hover { background: var(--pine-soft); border-color: var(--pine-soft); color: var(--dark); }
+.btn-outline:hover { background: var(--surface-text); color: var(--surface-bg); }
+
+/* =====================
+   HERO - full-bleed, video background
+   ===================== */
+.hero-video-wrap {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+.hero-video-wrap video,
+.hero-video-wrap .video-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.video-fallback {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(63,163,145,0.18), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(201,154,78,0.10), transparent 40%),
+    var(--dark);
+  background-size: cover;
+}
+.hero-video-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,19,22,0.55) 0%, rgba(15,19,22,0.72) 60%, rgba(15,19,22,0.92) 100%);
+  z-index: 1;
+}
+.hero-content { position: relative; z-index: 2; padding: 0 var(--gutter); }
+.hero-content .role-tag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--pine-soft);
+  text-transform: uppercase;
+}
+.hero-content h1 {
+  font-size: clamp(2.6rem, 9vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0.6rem;
+  text-transform: uppercase;
+}
+.hero-cta { margin-top: 2.25rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.scroll-cue {
+  position: absolute;
+  bottom: 1.75rem; left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--surface-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.1em;
+}
+.scroll-cue span.line { width: 1px; height: 26px; background: var(--surface-soft); animation: scrollcue 1.8s ease-in-out infinite; }
+@keyframes scrollcue { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* =====================
+   TOOLS MARQUEE
+   ===================== */
+.tools-marquee {
+  border-top: 1px solid var(--surface-line);
+  border-bottom: 1px solid var(--surface-line);
+  padding: 1.4rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tools-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: marquee 28s linear infinite;
+}
+.tools-marquee:hover .tools-track { animation-play-state: paused; }
+.tools-track span {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--surface-soft);
+  text-transform: uppercase;
+}
+.tools-track span strong { color: var(--surface-text); font-weight: 500; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tools-track { animation: none; overflow-x: auto; }
+}
+
+/* =====================
+   EXPERIENCE - games grid with hover reveal
+   ===================== */
+.exp-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .exp-section { grid-template-columns: 0.8fr 1.2fr; gap: 3.5rem; }
+}
+.exp-intro h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+.exp-intro p { color: var(--surface-soft); margin-top: 1rem; max-width: 34ch; }
+.exp-intro .btn { margin-top: 1.5rem; }
+
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+@media (min-width: 620px) {
+  .game-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.game-card {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-alt);
+  display: block;
+}
+.game-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+.game-card:hover img,
+.game-card:focus-visible img { transform: scale(1.06); filter: brightness(0.35); }
+
+.game-card .overlay {
+  position: absolute; inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.1rem 1.2rem;
+  background: linear-gradient(180deg, transparent 40%, rgba(15,19,22,0.92) 100%);
+}
+.game-card .always-visible { position: relative; z-index: 1; }
+.game-card .always-visible h4 { font-size: 1.05rem; color: var(--dark-text); }
+.game-card .always-visible .studio { font-family: var(--font-mono); font-size: 0.72rem; color: var(--pine-soft); margin-top: 0.2rem; }
+
+.game-card .hover-detail {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+.game-card:hover .hover-detail,
+.game-card:focus-visible .hover-detail { max-height: 8rem; opacity: 1; margin-top: 0.55rem; }
+.game-card .hover-detail p { font-size: 0.82rem; color: var(--dark-soft); }
+.game-card .hover-detail p.did { color: var(--paper); font-weight: 500; margin-top: 0.3rem; }
+
+/* =====================
+   OTHER PERSONAL PROJECTS - media/text alternating rows
+   ===================== */
+.other-project-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: center;
+  padding: clamp(1.75rem, 4vw, 2.5rem) 0;
+}
+@media (min-width: 800px) {
+  .other-project-row { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+.other-project-row + .other-project-row { border-top: 1px solid var(--surface-line); }
+.other-project-row img { border-radius: var(--radius); width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.other-project-row h4 { font-size: 1.4rem; }
+.other-project-row .role { font-family: var(--font-mono); font-size: 0.75rem; color: var(--pine-soft); margin-top: 0.4rem; }
+.other-project-row p.note { color: var(--surface-soft); margin-top: 0.7rem; max-width: 42ch; }
+
+/* =====================
+   DESIGN DOCS & ANALYSIS - hover-to-download grid
+   ===================== */
+.docs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+@media (min-width: 700px) {
+  .docs-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.doc-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-alt);
+  display: block;
+  border: 1px solid var(--surface-line);
+}
+.doc-card .doc-body {
+  position: absolute; inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem;
+}
+.doc-card .doc-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--pine-soft); letter-spacing: 0.05em; }
+.doc-card h4 { font-size: 1.15rem; color: var(--dark-text); margin-top: auto; }
+.doc-card .doc-download {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--pine-soft);
+  color: var(--dark);
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius);
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 0.8rem;
+}
+.doc-card:hover .doc-download,
+.doc-card:focus-visible .doc-download { opacity: 1; transform: translateY(0); }
+
+/* =====================
+   MARGINALIA / PULL NOTE (paper mode)
+   ===================== */
+.marginalia {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--ochre);
+  border-left: 2px solid var(--ochre);
+  padding-left: 0.9rem;
+  margin-top: 0.75rem;
+}
+.pull-note {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ochre);
+  font-size: 1.15rem;
+  max-width: 40ch;
+  margin: 2.5rem auto;
+  border-left: 2px solid var(--ochre);
+  padding-left: 1.1rem;
+}
+
+/* =====================
+   STAT CALLOUT (used inside project pages)
+   ===================== */
+.stat { font-family: var(--font-mono); }
+.stat .num { display: block; font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 500; color: var(--pine); line-height: 1; }
+.stat .label { display: block; margin-top: 0.5rem; font-size: 0.82rem; color: var(--surface-soft); letter-spacing: 0.01em; }
+.stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; margin-top: 2.5rem; }
+@media (min-width: 700px) { .stat-row { grid-template-columns: repeat(4, 1fr); } }
+
+/* =====================
+   PROJECT CASE-STUDY PAGES (paper reading mode)
+   ===================== */
+.case-hero { padding-top: clamp(2rem, 5vw, 3.5rem); padding-bottom: 0; }
+.back-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--surface-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-bottom: 2rem;
+}
+.back-link:hover { color: var(--pine); }
+.case-title h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); }
+.case-meta {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--surface-soft);
+  border-top: 1px solid var(--surface-line);
+  border-bottom: 1px solid var(--surface-line);
+  padding: 1rem 0;
+}
+.case-meta div span { display: block; color: var(--surface-text); font-size: 0.95rem; margin-top: 0.15rem; }
+.case-hero-img { margin-top: 2.5rem; border-radius: var(--radius); overflow: hidden; }
+.case-body { max-width: 68ch; margin: 0 auto; }
+.case-body h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 3.5rem; margin-bottom: 1rem; }
+.case-body h2:first-child { margin-top: 0; }
+.case-body p { color: var(--surface-soft); font-size: 1.03rem; }
+.case-body p strong { color: var(--surface-text); font-weight: 600; }
+.case-media { max-width: var(--max-w); margin: 2.5rem auto; }
+.case-media img { border-radius: var(--radius); width: 100%; }
+.case-media.two-up { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 700px) { .case-media.two-up { grid-template-columns: 1fr 1fr; } }
+.case-stats { margin: 3rem auto; padding: 2rem 0; border-top: 1px solid var(--surface-line); border-bottom: 1px solid var(--surface-line); }
+.case-cta { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--surface-line); display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* =====================
+   FOOTER - multi-column
+   ===================== */
+footer.site-footer { background: var(--dark); color: var(--dark-text); border-top: 1px solid var(--line-dark); }
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--line-dark);
+  text-align: center;
+}
+.footer-contact div { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--dark-soft); }
+.footer-contact div a { color: var(--dark-text); display: block; margin-top: 0.3rem; }
+.footer-contact div a:hover { color: var(--pine-soft); }
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+@media (min-width: 760px) {
+  .footer-columns { grid-template-columns: repeat(4, 1fr); }
+}
+.footer-columns h5 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pine-soft);
+  margin-bottom: 0.9rem;
+}
+.footer-columns p { color: var(--dark-soft); font-size: 0.88rem; }
+.footer-columns ul { list-style: none; margin: 0; padding: 0; }
+.footer-columns li { margin-bottom: 0.55rem; font-size: 0.88rem; }
+.footer-columns a:hover { color: var(--pine-soft); }
+
+.footer-bottom-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--dark-soft);
+}
+.footer-bottom-bar .socials { display: flex; gap: 1rem; }
+.footer-bottom-bar .socials a:hover { color: var(--pine-soft); }
+
+/* =====================
+   REVEAL ON SCROLL
+   ===================== */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* =====================
+   RESPONSIVE NAV
+   ===================== */
+@media (max-width: 760px) {
+  .nav-toggle { display: inline-block; }
+  .site-nav ul {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--dark);
+    border-bottom: 1px solid var(--line-dark);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    display: none;
+    padding: 0.5rem var(--gutter) 1rem;
+  }
+  .site-nav ul.open { display: flex; }
+  .site-nav ul li { width: 100%; padding: 0.7rem 0; border-top: 1px solid var(--line-dark); }
+  .site-nav ul li:first-child { border-top: none; }
+  .nav-cta { margin-top: 0.4rem; }
+}
+
+@media (min-width: 1700px) {
+  .wrap { max-width: 1320px; }
+}
+
+/* Doc cards awaiting their PDF: still readable, but clearly not clickable */
+.doc-card.is-pending { cursor: default; }
+.doc-card.is-pending .doc-download {
+  opacity: 1;
+  transform: none;
+  background: transparent;
+  color: var(--surface-soft);
+  border: 1px solid var(--surface-line);
+}
+
+</style></head><body>
+<nav class="site-nav" aria-label="Main navigation"><div class="wrap"><a href="#top" class="brand">francesc<span>borràs</span></a><button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button><ul id="nav-list"><li><a class="nav-link" href="#experience">Experience</a></li><li><a class="nav-link" href="#projects">Projects</a></li><li><a class="nav-link" href="#docs">Design Docs</a></li><li><a class="nav-cta" href="#contact">Get in touch</a></li></ul></div></nav>
+<main id="top">
+
+
+  <!-- HERO -->
+  <section class="hero-video-wrap" style="padding:0;">
+    <!--
+      To add your gameplay reel: replace the div below with
+      <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+        <source src="assets/hero-reel.mp4" type="video/mp4">
+      </video>
+      Drop the .mp4 into /assets and swap this comment out.
+    -->
+    <div class="video-fallback" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="role-tag">Game & Level Designer</span>
+      <h1>Francesc Borràs<br>Lleida</h1>
+      <div class="hero-cta">
+        <a href="#experience" class="btn btn-solid">View Case Studies</a>
+        <a href="https://franky-style.itch.io" target="_blank" rel="noopener" class="btn btn-outline">Download CV</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>SCROLL</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- TOOLS MARQUEE -->
+  <div class="tools-marquee" aria-label="Tools and software used">
+    <div class="tools-track">
+      <span><strong>Unreal Engine 5</strong></span>
+      <span><strong>Unity</strong></span>
+      <span><strong>C++</strong></span>
+      <span><strong>C#</strong></span>
+      <span><strong>Blueprints</strong></span>
+      <span><strong>Python</strong></span>
+      <span><strong>Git</strong></span>
+      <span><strong>Perforce</strong></span>
+      <span><strong>Jira</strong></span>
+      <span><strong>Confluence</strong></span>
+      <span><strong>Asana</strong></span>
+      <span><strong>Excel & Sheets</strong></span>
+      <span><strong>Unreal Engine 5</strong></span>
+      <span><strong>Unity</strong></span>
+      <span><strong>C++</strong></span>
+      <span><strong>C#</strong></span>
+      <span><strong>Blueprints</strong></span>
+      <span><strong>Python</strong></span>
+      <span><strong>Git</strong></span>
+      <span><strong>Perforce</strong></span>
+      <span><strong>Jira</strong></span>
+      <span><strong>Confluence</strong></span>
+      <span><strong>Asana</strong></span>
+      <span><strong>Excel & Sheets</strong></span>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap exp-section">
+      <div class="exp-intro reveal">
+        <span class="eyebrow">My Experience</span>
+        <h2>Games I've worked on.</h2>
+        <p>From a professionally published title to personal projects taken all the way from concept to a validated build.</p>
+        <a href="#projects" class="btn btn-outline">More projects</a>
+      </div>
+
+      <div class="game-grid">
+        <a class="game-card reveal" href="#case-denshattack">
+          <img src="https://cdn.akamai.steamstatic.com/steam/apps/2524850/header.jpg" alt="Denshattack! key art, a train-flipping arcade platformer.">
+          <div class="overlay">
+            <div class="always-visible">
+              <h4>Denshattack!</h4>
+              <div class="studio">Undercoders</div>
+            </div>
+            <div class="hover-detail">
+              <p>Arcade train-flipping platformer published by Fireshine Games.</p>
+              <p class="did">Balanced 67 levels and authored 6 Game Design Documents.</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="game-card reveal" href="#case-lyra">
+          <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Lyra with the two baby dragons, Pochi and Mochi.">
+          <div class="overlay">
+            <div class="always-visible">
+              <h4>Lyra</h4>
+              <div class="studio">La Mapachanda</div>
+            </div>
+            <div class="hover-detail">
+              <p>3D wholesome puzzle-adventure built in Unreal Engine 5.</p>
+              <p class="did">Designed every mechanic and validated a puzzle redesign with a real A/B test.</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="game-card reveal" href="#case-tumble-up">
+          <img src="https://img.itch.zone/aW1nLzIxMDE0NzQzLnBuZw==/original/3hNY8P.png" alt="Characters competing in Tumble Up.">
+          <div class="overlay">
+            <div class="always-visible">
+              <h4>Tumble Up</h4>
+              <div class="studio">Txispa's Studio</div>
+            </div>
+            <div class="hover-detail">
+              <p>Local 2v2 party game built in Unity.</p>
+              <p class="did">Designed 4 minigames and 8 maps, and led the team as SCRUM master.</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="game-card reveal" href="#case-chrono-fish">
+          <img src="https://img.itch.zone/aW1nLzE1NjgzMTE2LnBuZw==/original/LLGHZq.png" alt="Chrono Fish key art, a time-travelling fish in pixel art.">
+          <div class="overlay">
+            <div class="always-visible">
+              <h4>Chrono Fish</h4>
+              <div class="studio">Olympia Interactive</div>
+            </div>
+            <div class="hover-detail">
+              <p>Top-down roguelike where the only tools are dodge and parry.</p>
+              <p class="did">Defined level metrics for procedural maps and tuned parry timing.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- OTHER PERSONAL PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <span class="eyebrow reveal">Other Personal Projects</span>
+      <h2 class="reveal" style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:26ch;">Other jams and collaborations.</h2>
+
+      <div style="margin-top:1.5rem;">
+        <div class="other-project-row reveal">
+          <img src="https://img.itch.zone/aW1nLzE5NzQ1NTYxLnBuZw==/original/4oBCyp.png" alt="Snowy climbing scene from Frost Climb.">
+          <div>
+            <h4>Frost Climb</h4>
+            <p class="role">Game & Level Designer / 3D Platformer</p>
+            <p class="note">Climbing mechanics with cold management as a survival resource. My first time designing vertical progression.</p>
+          </div>
+        </div>
+        <div class="other-project-row reveal">
+          <img src="https://img.itch.zone/aW1nLzE1Nzg5NTg3LnBuZw==/original/8kEaQc.png" alt="The two robots from New Dawn Odyssey exploring pixel-art caverns.">
+          <div>
+            <h4>New Dawn Odyssey</h4>
+            <p class="role">Collaboration / 2D Metroidvania</p>
+            <p class="note">A pixel-art metroidvania built with a team at ENTI. My contribution focused on encounter and exploration design.</p>
+          </div>
+        </div>
+        <div class="other-project-row reveal">
+          <img src="https://img.itch.zone/aW1nLzIxNDAwNzQyLnBuZw==/original/4E0oeI.png" alt="Lia, the protagonist of Lia's Echo, in a snowy mountain landscape.">
+          <div>
+            <h4>Lia's Echo</h4>
+            <p class="role">Collaboration / 2D Narrative Adventure</p>
+            <p class="note">A teammate's project I contributed to briefly. Linked here as a strong example of environmental storytelling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- DESIGN DOCS & ANALYSIS -->
+  <section id="docs">
+    <div class="wrap">
+      <span class="eyebrow reveal">Design Docs & Analysis</span>
+      <h2 class="reveal" style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:28ch;">Documentation behind the design decisions.</h2>
+
+      <div class="docs-grid" style="margin-top:2rem;">
+        <!-- When each PDF is ready: put it in /assets, then swap this container
+             for a link: class="doc-card reveal" href="assets/FILENAME.pdf" download
+             and remove the is-pending class. -->
+        <div class="doc-card reveal is-pending">
+          <div class="doc-body">
+            <span class="doc-tag">THESIS / 230 PAGES</span>
+            <h4>Lyra: Game &amp; Level Design Thesis</h4>
+            <span class="doc-download">Available on request</span>
+          </div>
+        </div>
+        <div class="doc-card reveal is-pending">
+          <div class="doc-body">
+            <span class="doc-tag">RESEARCH</span>
+            <h4>Visual Guidance A/B Test</h4>
+            <span class="doc-download">Available on request</span>
+          </div>
+        </div>
+        <div class="doc-card reveal is-pending">
+          <div class="doc-body">
+            <span class="doc-tag">RESEARCH</span>
+            <h4>AI-Assisted Design Pipeline</h4>
+            <span class="doc-download">Available on request</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<hr class="rule"><section id="case-denshattack" style="padding-top:0;">
+  <section class="case-hero on-paper">
+    <div class="wrap">
+      <a class="back-link" href="#experience">Back to work</a>
+      <div class="case-title">
+        <span class="eyebrow">Arcade Platformer / Unreal Engine 5</span>
+        <h1>Denshattack!</h1>
+      </div>
+      <div class="case-meta">
+        <div>Role<span>QA & Game Design Assistant</span></div>
+        <div>Studio<span>Undercoders</span></div>
+        <div>Duration<span>2025-2026</span></div>
+        <div>Publisher<span>Fireshine Games</span></div>
+      </div>
+      <div class="case-hero-img">
+        <img src="https://cdn.akamai.steamstatic.com/steam/apps/2524850/header.jpg" alt="Denshattack! key art: a train grinding through a colourful Japanese dystopia.">
+      </div>
+    </div>
+  </section>
+
+  <section class="on-paper">
+    <div class="wrap case-body">
+      <h2>Overview</h2>
+      <p>Denshattack! is an arcade train-flipping platformer: you flip, trick and grind a customisable train through a colourful Japanese dystopia, outmatching rival gangs and a shady megacorp across more than 60 levels and 8 regions. It shipped on PC, Xbox and PlayStation, published by Fireshine Games. This was my internship at Undercoders, working as a bridge between design, programming and QA.</p>
+
+      <h2>My contributions</h2>
+      <p>My job had to survive the jump from documentation to real implementation, not just read well in a PDF. That meant staying close to both the design intent and the day-to-day production reality of a live project.</p>
+
+      <p><strong>Progression & economy balance:</strong> I balanced progression and economy across <strong>67 handcrafted levels</strong>, tuning the unlock pace in Excel and Google Sheets so difficulty and rewards escalated at a rate that felt earned rather than grindy.</p>
+
+      <p><strong>Documentation:</strong> I authored <strong>6 comprehensive Game Design Documents</strong> to communicate gameplay systems, progression logic and implementation requirements across a multidisciplinary team, and kept that documentation current in Confluence to support cross-team collaboration.</p>
+
+      <p><strong>Gameplay & QA:</strong> I helped design and refine gameplay features by working closely with designers, programmers and QA, keeping player experience aligned with project goals, and validated level flow and difficulty balance through structured internal playtesting, translating feedback into concrete design changes.</p>
+
+      <p class="marginalia">Working at the intersection of design and QA meant every balance change I proposed had to be re-tested by hand before it could ship, a discipline that shaped how I document changes for other projects too.</p>
+
+      <h2>Project details</h2>
+      <ul style="color:var(--surface-soft); padding-left:1.2rem;">
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--surface-text);">Studio:</strong> Undercoders</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--surface-text);">Publisher:</strong> Fireshine Games</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--surface-text);">Genre:</strong> Arcade, Action-Adventure, 3D Platformer</li>
+        <li><strong style="color:var(--surface-text);">Engine:</strong> Unreal Engine 5</li>
+      </ul>
+
+      <div class="case-stats">
+        <div class="stat-row">
+          <div class="stat reveal"><span class="num" data-count="67">0</span><span class="label">handcrafted levels balanced</span></div>
+          <div class="stat reveal"><span class="num" data-count="6">0</span><span class="label">Game Design Documents authored</span></div>
+        </div>
+      </div>
+
+      <h2>What I learned</h2>
+      <p>Working on a live, published title taught me a different kind of rigor than a personal project: every balance decision has to be validated by hand across dozens of levels before it ships, and documentation has to stay legible for people who weren't in the room when the decision was made.</p>
+
+      <div class="case-cta">
+        <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener">View on Steam</a>
+        <a class="btn btn-outline" href="#experience">More projects</a>
+      </div>
+    </div>
+  </section>
+</section><hr class="rule"><section id="case-lyra" style="padding-top:0;">
+  <section class="case-hero on-paper">
+    <div class="wrap">
+      <a class="back-link" href="#experience">Back to work</a>
+      <div class="case-title">
+        <span class="eyebrow">Puzzle-Adventure / Unreal Engine 5</span>
+        <h1>Lyra</h1>
+      </div>
+      <div class="case-meta">
+        <div>Role<span>Game & Level Designer</span></div>
+        <div>Team<span>La Mapachanda, 7 people</span></div>
+        <div>Duration<span>2025-2026</span></div>
+        <div>Recognition<span>Best Thesis, ENTI DemoDay 2026</span></div>
+      </div>
+      <div class="case-hero-img">
+        <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Lyra with the two baby dragons, Pochi and Mochi, in sunlit hills.">
+      </div>
+    </div>
+  </section>
+
+  <section class="on-paper">
+    <div class="wrap case-body">
+      <h2>Context</h2>
+      <p>Lyra is a 3D wholesome puzzle-adventure in which you accompany Pochi (fire dragon) and Mochi (water dragon) through sunlit hills and glowing crystal caves. It's my thesis project at ENTI-UB, built with a team of 7 people under the name La Mapachanda. My role covered mechanics design, level design, and validating both with real playtest data.</p>
+
+      <h2>The problem: document before you build</h2>
+      <p>With two dragons that have distinct abilities (fire to melt and ignite, water to grow bridges and fill wells, and both usable as projectiles to reach distant areas) the real risk was combinatorial: if every mechanic is designed in isolation, the player doesn't learn a system, they learn a list of unrelated tricks.</p>
+      <p>Before touching the level editor, I built a <strong>Pattern-Based Dictionary</strong>: a catalog of atomic mechanics (fire shot, water shot, dragon throw) and the patterns that emerge when they're combined. Every room in the game wasn't designed as "a puzzle idea", it was designed as the specific combination of patterns I wanted to teach at that point.</p>
+
+      <div class="case-media two-up">
+        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc1LnBuZw==/original/0l2zS8.png" alt="Lyra puzzle using fire to melt wood and water to grow a bridge.">
+        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc5LnBuZw==/original/yVLzZY.png" alt="Throwing one of the dragons across a narrow gap to reach a distant platform.">
+      </div>
+      <p class="marginalia">Each pattern in the dictionary is tagged with the EDPV stage in which it's introduced, demonstrated, practiced and validated.</p>
+
+      <h2>Level structure: the EDPV curve</h2>
+      <p>On top of that dictionary I applied the <strong>EDPV model (Exposure, Demonstration, Practice, Validation)</strong> to the game's three thematic zones, ordering difficulty and emotional pacing deliberately instead of leaving it to intuition. A new mechanic is first seen, then demonstrated in a risk-free context, then practiced with rising complexity, and finally validated in a puzzle that requires combining it with everything learned before.</p>
+
+      <h2>The Puzzle 6 problem: when design isn't enough</h2>
+      <p>During internal playtesting, one of the puzzles in the crystal cave (Puzzle 6) generated more navigation errors than expected. My hypothesis as a designer was that the visual guidance, the cues that tell the player where to look, was insufficient. Instead of redesigning it on instinct, I decided to test it.</p>
+
+      <p>I instrumented telemetry in C++ on Unreal Engine 5, capturing player position and actions as structured CSV, and designed a real <strong>A/B test</strong>: stratified random assignment, inclusion/exclusion criteria, a moderator script and informed consent. I compared the original layout against a redesign with clearer visual guidance, and analyzed the results in Python with Shapiro-Wilk, Student's t-test, and Cohen's d.</p>
+
+      <p class="pull-note">The p-value wasn't statistically significant. The effect size (Cohen's d ~1.0) was large. I reported both, not just the one that supported my hypothesis.</p>
+
+      <p>That honesty in reporting is, to me, as much a part of the design as the puzzle redesign itself: an uncomfortable data point, well documented, is worth more than a nice conclusion without evidence.</p>
+
+      <div class="case-stats">
+        <div class="stat-row">
+          <div class="stat reveal"><span class="num" data-count="35%">0%</span><span class="label">reduction in navigation errors</span></div>
+          <div class="stat reveal"><span class="num" data-count="~1.0">0</span><span class="label">Cohen's d (effect size)</span></div>
+          <div class="stat reveal"><span class="num" data-count="3">0</span><span class="label">thematic levels designed</span></div>
+          <div class="stat reveal"><span class="num" data-count="7">0</span><span class="label">people on the team</span></div>
+        </div>
+      </div>
+
+      <h2>Result</h2>
+      <p>The visual guidance redesign of Puzzle 6 reduced navigation errors by <strong>35%</strong> and improved resolution time by <strong>33%</strong> compared to the original layout, measured with the same telemetry pipeline. Lyra won Best Thesis at ENTI DemoDay 2026.</p>
+
+      <div class="case-media">
+        <img src="https://img.itch.zone/aW1nLzI2OTU1NTg2LnBuZw==/original/owdQUn.png" alt="A quiet moment between Lyra and the two dragons.">
+      </div>
+
+      <h2>What I learned</h2>
+      <p>The most valuable part wasn't confirming my design hypothesis, it was learning to separate what "feels" better from what's demonstrably better. A non-significant p-value alongside a large effect size is a real grey area in user research, and I learned how to communicate it to a design team without inflating it or dismissing it.</p>
+
+      <div class="case-cta">
+        <a class="btn btn-solid" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Play on itch.io</a>
+        <a class="btn btn-outline" href="#experience">More projects</a>
+      </div>
+    </div>
+  </section>
+</section><hr class="rule"><section id="case-tumble-up" style="padding-top:0;">
+  <section class="case-hero on-paper">
+    <div class="wrap">
+      <a class="back-link" href="#experience">Back to work</a>
+      <div class="case-title">
+        <span class="eyebrow">Local Party Game / Unity C#</span>
+        <h1>Tumble Up</h1>
+      </div>
+      <div class="case-meta">
+        <div>Role<span>Producer & Game Designer</span></div>
+        <div>Team<span>Txispa's Studio, 5 people</span></div>
+        <div>Duration<span>2024-2025</span></div>
+        <div>Players<span>2v2 local</span></div>
+      </div>
+      <div class="case-hero-img">
+        <img src="https://img.itch.zone/aW1nLzIxMDE0NzQzLnBuZw==/original/3hNY8P.png" alt="Tumble Up characters in animal costumes competing in a minigame.">
+      </div>
+    </div>
+  </section>
+
+  <section class="on-paper">
+    <div class="wrap case-body">
+      <h2>Context</h2>
+      <p>Tumble Up is a local 2v2 party game where two pairs compete across physical minigames: one moment you're high-fiving your partner, the next you're pushing them off the edge to win solo. I designed 4 minigames and 8 maps within a team of 5 people, and also served as SCRUM master for the project.</p>
+
+      <h2>The problem: matches that don't hold themselves together</h2>
+      <p>A party game lives or dies on the rhythm between matches, not within a single match. If the loop between minigames is slow, the group drifts apart; if it's too short, there's no time to register who's winning or for the rivalry and inside jokes that make a session memorable.</p>
+      <p>I designed the <strong>match loops of 2 to 7 minigames</strong> as the real unit of design, not the individual minigame. Every map was built to enter and leave rotation without breaking the group's rhythm, and the variety across 4 distinct mechanics exists so the same group can extend a session without it feeling repetitive.</p>
+
+      <div class="case-media two-up">
+        <img src="https://img.itch.zone/aW1nLzIxMDE0NjU4LnBuZw==/original/O92lL4.png" alt="Two players cooperating locally in Tumble Up right before one pushes the other.">
+        <img src="https://img.itch.zone/aW1nLzIxMDE0NzU5LnBuZw==/original/S7PMlJ.png" alt="One of Tumble Up's eight maps with varied obstacles.">
+      </div>
+      <p class="marginalia">Character customization (cat, dog, monkey) doubles as a social tool: pairs can share a skin to reinforce "we're a team" right before the minigame turns them against each other.</p>
+
+      <h2>The other role: holding the team together, not just the game</h2>
+      <p>As SCRUM master I ran the whole project's organization: tracking spreadsheets, dailies, and deciding which minigames entered each sprint. I learned that a good match loop starts with a good team loop: if the team doesn't deliver on time, the match-loop playtesting never gets validated.</p>
+
+      <div class="case-stats">
+        <div class="stat-row">
+          <div class="stat reveal"><span class="num" data-count="4">0</span><span class="label">minigames designed</span></div>
+          <div class="stat reveal"><span class="num" data-count="8">0</span><span class="label">maps designed</span></div>
+          <div class="stat reveal"><span class="num" data-count="5">0</span><span class="label">people on the team</span></div>
+          <div class="stat reveal"><span class="num" data-count="2">0</span><span class="label">simultaneous roles: design and production</span></div>
+        </div>
+      </div>
+
+      <h2>What I learned</h2>
+      <p>Designing for "fun in a group" is different from designing for a solo player: success isn't just whether the minigame works, it's whether the whole session leaves people wanting one more round. I also learned the limits of carrying design and production at once: in the heaviest SCRUM weeks, design iteration time was what suffered most, a tension I want to manage better on the next project.</p>
+
+      <div class="case-cta">
+        <a class="btn btn-solid" href="https://franky-style.itch.io/tumble-up" target="_blank" rel="noopener">Play on itch.io</a>
+        <a class="btn btn-outline" href="#experience">More projects</a>
+      </div>
+    </div>
+  </section>
+</section><hr class="rule"><section id="case-chrono-fish" style="padding-top:0;">
+  <section class="case-hero on-paper">
+    <div class="wrap">
+      <a class="back-link" href="#experience">Back to work</a>
+      <div class="case-title">
+        <span class="eyebrow">Top-Down Roguelike / Unity C#</span>
+        <h1>Chrono Fish</h1>
+      </div>
+      <div class="case-meta">
+        <div>Role<span>Game & Level Designer</span></div>
+        <div>Team<span>Olympia Interactive, 4 people</span></div>
+        <div>Duration<span>2023-2024</span></div>
+        <div>Core mechanic<span>Parry, no direct attack</span></div>
+      </div>
+      <div class="case-hero-img">
+        <img src="https://img.itch.zone/aW1nLzE1NjgzMTE2LnBuZw==/original/LLGHZq.png" alt="Chrono Fish cover art, a time-travelling fish in pixel art.">
+      </div>
+    </div>
+  </section>
+
+  <section class="on-paper">
+    <div class="wrap case-body">
+      <h2>Context</h2>
+      <p>Chrono Fish is a pixel-art top-down roguelike with an unusual design constraint: the protagonist is a fish who can't attack, only dodge and parry. The demo is set inside an Aztec temple whose final boss is Kukulkan, the feathered serpent. I worked as Game & Level Designer in a team of 4.</p>
+
+      <div class="case-media">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4Mzc5LmdpZg==/original/PF3KGg.gif" alt="The protagonist fish dodging attacks inside the Aztec temple.">
+      </div>
+
+      <h2>The problem: designing without the simplest tool</h2>
+      <p>Removing the direct attack forces all the challenge to live in timing and enemy reading. Without that tool, a poorly calibrated room feels unfair immediately: the player has no way to "force" a situation through raw damage, so every room has to be honestly designed to be beatable with dodge and parry alone.</p>
+      <p>To support that I defined <strong>coherent level metrics</strong> (enemy approach distances, parry windows, threat density per room) which I then used to generate the temple's procedural maps, instead of leaving procedural generation to purely aesthetic criteria.</p>
+
+      <div class="case-media two-up">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4OTIyLmdpZg==/original/m6MO8w.gif" alt="Combat inside one of the Aztec temple rooms in Chrono Fish.">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4OTg3LmdpZg==/original/uHS%2B%2FJ.gif" alt="The protagonist fish's parry timing in action.">
+      </div>
+      <p class="marginalia">The game itself rewards parrying less: the cleaner the parry, the higher the score. The mechanic and the scoring system tell the same story about mastery.</p>
+
+      <h2>Tuning the parry window</h2>
+      <p>Parry is the mechanic the whole game rests on, so its timing window was iterated more than any other system. Too generous a margin makes the challenge trivial; too tight turns every death into frustration instead of a lesson. I tuned the timing alongside enemy attack windows until failing a parry felt like a late decision by the player, not an imposition by the system.</p>
+
+      <div class="case-stats">
+        <div class="stat-row">
+          <div class="stat reveal"><span class="num" data-count="4">0</span><span class="label">people on the team</span></div>
+          <div class="stat reveal"><span class="num" data-count="1">0</span><span class="label">playable temple with a final boss</span></div>
+          <div class="stat reveal"><span class="num" data-count="0">0</span><span class="label">direct attacks available: dodge and parry only</span></div>
+        </div>
+      </div>
+
+      <h2>What I learned</h2>
+      <p>Designing around a strong constraint demands a discipline that a wide mechanics kit doesn't require: every room has to justify why it's beatable with only the tools the player already has. It was my first real procedural generation project, and I learned that badly defined level metrics show up much faster in a procedural system than in a hand-crafted one, because the mistakes repeat in every generated map.</p>
+
+      <div class="case-cta">
+        <a class="btn btn-solid" href="https://franky-style.itch.io/chrono-fish" target="_blank" rel="noopener">Play on itch.io</a>
+        <a class="btn btn-outline" href="#experience">More projects</a>
+      </div>
+    </div>
+  </section>
+</section>
+</main>
+<footer class="site-footer" id="contact">
+  <div class="wrap footer-contact">
+    <div>LOCATION<a href="https://www.google.com/maps/search/Vilanova+i+la+Geltru" target="_blank" rel="noopener">Vilanova i la Geltrú, Barcelona</a></div>
+    <div>EMAIL<a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a></div>
+  </div>
+  <div class="wrap footer-columns">
+    <div><h5>About Me</h5><p>Game Designer with hands-on experience in gameplay systems, level design and progression balancing. Currently looking for my first full-time role in the industry.</p></div>
+    <div><h5>Latest Projects</h5><ul><li><a href="#case-denshattack">Denshattack!</a></li><li><a href="#case-lyra">Lyra</a></li><li><a href="#case-tumble-up">Tumble Up</a></li><li><a href="#case-chrono-fish">Chrono Fish</a></li></ul></div>
+    <div><h5>Portfolio</h5><ul><li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub Repositories</a></li><li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li></ul></div>
+    <div><h5>Social Networks</h5><ul><li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li><li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li></ul></div>
+  </div>
+  <div class="wrap footer-bottom-bar">
+    <div>HOME &nbsp; EXPERIENCE &nbsp; PROJECTS &nbsp; CONTACT</div>
+    <div class="socials"><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></div>
+    <div>Copyright (c) 2026 Francesc Borras Lleida - mobile preview build</div>
+  </div>
+</footer>
+<script>
+// Francesc Borras Lleida - portfolio
+// Small, purposeful interactions only: nav toggle, scroll reveals,
+// a count-up on stat callouts, and the signature EDPV curve draw-in.
+
+(function () {
+  "use strict";
+
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Mobile nav toggle */
+  var toggle = document.querySelector(".nav-toggle");
+  var navList = document.querySelector(".site-nav ul");
+  if (toggle && navList) {
+    toggle.addEventListener("click", function () {
+      var open = navList.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    navList.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navList.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  if (prefersReduced) {
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+    document.querySelectorAll(".stat .num[data-count]").forEach(function (el) {
+      el.textContent = el.getAttribute("data-count");
+    });
+    return;
+  }
+
+  /* Scroll reveal */
+  var revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* Stat count-up */
+  function animateCount(el) {
+    var target = el.getAttribute("data-count");
+    var match = target.match(/^([^\d\-]*)(-?\d+(?:\.\d+)?)(.*)$/);
+    if (!match) { el.textContent = target; return; }
+    var prefix = match[1], endVal = parseFloat(match[2]), suffix = match[3];
+    var isFloat = match[2].indexOf(".") !== -1;
+    var duration = 900;
+    var start = null;
+
+    function step(ts) {
+      if (start === null) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = endVal * eased;
+      el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = prefix + (isFloat ? endVal.toFixed(1) : endVal) + suffix;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  var statObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+  document.querySelectorAll(".stat .num[data-count]").forEach(function (el) {
+    statObserver.observe(el);
+  });
+})();
+
+</script></body></html>

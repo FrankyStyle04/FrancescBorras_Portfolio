@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tumble Up — Caso de estudio | Francesc Borràs</title>
-<meta name="description" content="Diseño de loops de partida y organización de equipo en Tumble Up, party game local 2 contra 2 hecho en Unity.">
-<meta name="theme-color" content="#EDF0EA">
+<title>Tumble Up - Case Study | Francesc Borràs Lleida</title>
+<meta name="description" content="Designing match loops and running a five-person team as SCRUM master on Tumble Up, a local 2v2 party game built in Unity.">
+<meta name="theme-color" content="#0F1316">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tumble Up — Caso de estudio | Francesc Borràs">
-<meta property="og:description" content="Diseño de loops de partida y rol de SCRUM master en un party game local 2 contra 2.">
+<meta property="og:title" content="Tumble Up - Case Study | Francesc Borràs Lleida">
+<meta property="og:description" content="Designing match loops and running a five-person team as SCRUM master on a local 2v2 party game.">
 <meta property="og:image" content="https://img.itch.zone/aW1nLzIxMDE0NzQzLnBuZw==/original/3hNY8P.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
@@ -20,94 +20,121 @@
 </head>
 <body>
 
-<nav class="site-nav" aria-label="Navegación principal">
+<nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="../index.html" class="brand">FB<span>·</span>DESIGN</a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menú</button>
+    <a href="../index.html" class="brand">francesc<span>borràs</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
-      <li><a class="nav-link" href="../index.html#metodo">Método</a></li>
-      <li><a class="nav-link" href="../index.html#proyectos">Trabajo</a></li>
-      <li><a class="nav-link" href="../index.html#experiencia">Experiencia</a></li>
-      <li><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+      <li><a class="nav-link" href="../index.html#experience">Experience</a></li>
+      <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
+      <li><a class="nav-link" href="../index.html#docs">Design Docs</a></li>
+      <li><a class="nav-cta" href="../index.html#contact">Get in touch</a></li>
     </ul>
   </div>
 </nav>
 
 <main>
-  <section class="case-hero">
+  <section class="case-hero on-paper">
     <div class="wrap">
-      <a class="back-link" href="../index.html">← Volver al trabajo</a>
+      <a class="back-link" href="../index.html#experience">Back to work</a>
       <div class="case-title">
-        <span class="eyebrow">Party game local · Unity C#</span>
+        <span class="eyebrow">Local Party Game / Unity C#</span>
         <h1>Tumble Up</h1>
       </div>
       <div class="case-meta">
-        <div>Rol<span>Producer &amp; Game Designer</span></div>
-        <div>Equipo<span>Txispa's Studio — 5 personas</span></div>
-        <div>Duración<span>2024–2025</span></div>
-        <div>Jugadores<span>2 vs 2 local</span></div>
+        <div>Role<span>Producer & Game Designer</span></div>
+        <div>Team<span>Txispa's Studio, 5 people</span></div>
+        <div>Duration<span>2024-2025</span></div>
+        <div>Players<span>2v2 local</span></div>
       </div>
       <div class="case-hero-img">
-        <img src="https://img.itch.zone/aW1nLzIxMDE0NzQzLnBuZw==/original/3hNY8P.png" alt="Personajes de Tumble Up con disfraces de animales compitiendo en un minijuego.">
+        <img src="https://img.itch.zone/aW1nLzIxMDE0NzQzLnBuZw==/original/3hNY8P.png" alt="Tumble Up characters in animal costumes competing in a minigame.">
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="on-paper">
     <div class="wrap case-body">
-      <h2>Contexto</h2>
-      <p>Tumble Up es un party game local 2 contra 2 en el que dos parejas compiten en minijuegos físicos: un momento estás chocando la mano con tu compañero, al siguiente lo estás empujando al vacío para ganar tú solo. Diseñé 4 minijuegos y 8 mapas dentro de un equipo de 5 personas, y llevé además el rol de SCRUM master del proyecto.</p>
+      <h2>Context</h2>
+      <p>Tumble Up is a local 2v2 party game where two pairs compete across physical minigames: one moment you're high-fiving your partner, the next you're pushing them off the edge to win solo. I designed 4 minigames and 8 maps within a team of 5 people, and also served as SCRUM master for the project.</p>
 
-      <h2>El problema: partidas que no se sostienen solas</h2>
-      <p>Un party game vive o muere en el ritmo entre partidas, no dentro de una partida sola. Si el ciclo entre minijuegos es lento, el grupo se dispersa; si es demasiado corto, no hay tiempo de asimilar quién va ganando ni de que surja la broma o la rivalidad que hace memorable la sesión.</p>
-      <p>Diseñé los <strong>loops de partida entre 2 y 7 minijuegos</strong> como la unidad real de diseño, no el minijuego individual. Cada mapa se pensó para poder entrar y salir de la rotación sin romper el ritmo de grupo, y la variación entre 4 mecánicas distintas existe para que el mismo grupo de jugadores pueda alargar la sesión sin sentir repetición.</p>
+      <h2>The problem: matches that don't hold themselves together</h2>
+      <p>A party game lives or dies on the rhythm between matches, not within a single match. If the loop between minigames is slow, the group drifts apart; if it's too short, there's no time to register who's winning or for the rivalry and inside jokes that make a session memorable.</p>
+      <p>I designed the <strong>match loops of 2 to 7 minigames</strong> as the real unit of design, not the individual minigame. Every map was built to enter and leave rotation without breaking the group's rhythm, and the variety across 4 distinct mechanics exists so the same group can extend a session without it feeling repetitive.</p>
 
       <div class="case-media two-up">
-        <img src="https://img.itch.zone/aW1nLzIxMDE0NjU4LnBuZw==/original/O92lL4.png" alt="Dos jugadores en cooperación local en Tumble Up antes de que uno empuje al otro.">
-        <img src="https://img.itch.zone/aW1nLzIxMDE0NzU5LnBuZw==/original/S7PMlJ.png" alt="Vista de uno de los ocho mapas de Tumble Up con obstáculos variados.">
+        <img src="https://img.itch.zone/aW1nLzIxMDE0NjU4LnBuZw==/original/O92lL4.png" alt="Two players cooperating locally in Tumble Up right before one pushes the other.">
+        <img src="https://img.itch.zone/aW1nLzIxMDE0NzU5LnBuZw==/original/S7PMlJ.png" alt="One of Tumble Up's eight maps with varied obstacles.">
       </div>
-      <p class="marginalia">Personalización de personaje (gato, perro, mono) como herramienta social: parejas pueden compartir skin para reforzar el "somos equipo" antes de que el minijuego los enfrente.</p>
+      <p class="marginalia">Character customization (cat, dog, monkey) doubles as a social tool: pairs can share a skin to reinforce "we're a team" right before the minigame turns them against each other.</p>
 
-      <h2>El otro rol: sostener al equipo, no solo el juego</h2>
-      <p>Como SCRUM master llevé la organización del proyecto completo: excels de seguimiento, dailies y la priorización de qué minijuegos entraban en cada sprint. Aprendí que gran parte de un buen ritmo de partida empieza por un buen ritmo de equipo: si el equipo no entrega a tiempo, el playtesting del loop de partida nunca llega a validarse.</p>
+      <h2>The other role: holding the team together, not just the game</h2>
+      <p>As SCRUM master I ran the whole project's organization: tracking spreadsheets, dailies, and deciding which minigames entered each sprint. I learned that a good match loop starts with a good team loop: if the team doesn't deliver on time, the match-loop playtesting never gets validated.</p>
 
       <div class="case-stats">
         <div class="stat-row">
-          <div class="stat reveal"><span class="num" data-count="4">0</span><span class="label">minijuegos diseñados</span></div>
-          <div class="stat reveal"><span class="num" data-count="8">0</span><span class="label">mapas diseñados</span></div>
-          <div class="stat reveal"><span class="num" data-count="5">0</span><span class="label">personas en el equipo</span></div>
-          <div class="stat reveal"><span class="num" data-count="2">0</span><span class="label">roles simultáneos: diseño y producción</span></div>
+          <div class="stat reveal"><span class="num" data-count="4">0</span><span class="label">minigames designed</span></div>
+          <div class="stat reveal"><span class="num" data-count="8">0</span><span class="label">maps designed</span></div>
+          <div class="stat reveal"><span class="num" data-count="5">0</span><span class="label">people on the team</span></div>
+          <div class="stat reveal"><span class="num" data-count="2">0</span><span class="label">simultaneous roles: design and production</span></div>
         </div>
       </div>
 
-      <h2>Aprendizajes</h2>
-      <p>Diseñar para "diversión en grupo" es diferente de diseñar para un jugador solo: la métrica de éxito no es solo si el minijuego funciona, sino si la sesión completa deja ganas de una partida más. También aprendí los límites de llevar diseño y producción a la vez: en las semanas de más carga de SCRUM, el tiempo de iteración de diseño fue el que más se resintió, una tensión de rol que quiero gestionar mejor en el próximo proyecto.</p>
+      <h2>What I learned</h2>
+      <p>Designing for "fun in a group" is different from designing for a solo player: success isn't just whether the minigame works, it's whether the whole session leaves people wanting one more round. I also learned the limits of carrying design and production at once: in the heaviest SCRUM weeks, design iteration time was what suffered most, a tension I want to manage better on the next project.</p>
 
       <div class="case-cta">
-        <a class="btn btn-solid" href="https://franky-style.itch.io/tumble-up" target="_blank" rel="noopener">Jugar en itch.io</a>
-        <a class="btn btn-outline" href="../index.html#proyectos">Ver más proyectos</a>
+        <a class="btn btn-solid" href="https://franky-style.itch.io/tumble-up" target="_blank" rel="noopener">Play on itch.io</a>
+        <a class="btn btn-outline" href="../index.html#experience">More projects</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer" id="contacto">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h3 style="font-family:var(--font-display); font-size:1.4rem; max-width:14ch;">Hablemos de tu próximo nivel.</h3>
-        <a href="mailto:fborrasslleida@gmail.com" class="btn btn-solid" style="margin-top:1.2rem;">fborrasslleida@gmail.com</a>
-      </div>
-      <ul class="footer-links">
+<footer class="site-footer" id="contact">
+  <div class="wrap footer-contact">
+    <div>LOCATION<a href="https://www.google.com/maps/search/Vilanova+i+la+Geltru" target="_blank" rel="noopener">Vilanova i la Geltrú, Barcelona</a></div>
+    <div>EMAIL<a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a></div>
+  </div>
+  <div class="wrap footer-columns">
+    <div>
+      <h5>About Me</h5>
+      <p>Game Designer with hands-on experience in gameplay systems, level design and progression balancing. Currently looking for my first full-time role in the industry.</p>
+    </div>
+    <div>
+      <h5>Latest Projects</h5>
+      <ul>
+        <li><a href="denshattack.html">Denshattack!</a></li>
+        <li><a href="lyra.html">Lyra</a></li>
+        <li><a href="tumble-up.html">Tumble Up</a></li>
+        <li><a href="chrono-fish.html">Chrono Fish</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Portfolio</h5>
+      <ul>
+        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub Repositories</a></li>
+        <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li>
+        <li><a href="../assets/Francesc_Borras_Lleida_CV.pdf">CV</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Social Networks</h5>
+      <ul>
         <li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
         <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
-      <span>Francesc Borràs Lleida · Vilanova i la Geltrú, Barcelona</span>
-      <span>Diseñado y desarrollado a mano · 2026</span>
+  </div>
+  <div class="wrap footer-bottom-bar">
+    <div>HOME &nbsp; EXPERIENCE &nbsp; PROJECTS &nbsp; CONTACT</div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a>
+      <a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a>
     </div>
+    <div>Copyright © 2026 Francesc Borràs Lleida</div>
   </div>
 </footer>
 

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lyra — Caso de estudio | Francesc Borràs</title>
-<meta name="description" content="Cómo diseñé y validé con datos las mecánicas y niveles de Lyra, puzzle-adventure en Unreal Engine 5. Pattern-Based Dictionary, curvas EDPV y un A/B test propio.">
-<meta name="theme-color" content="#EDF0EA">
+<title>Lyra - Case Study | Francesc Borràs Lleida</title>
+<meta name="description" content="How I designed and data-validated the mechanics and levels of Lyra, a puzzle-adventure built in Unreal Engine 5. Pattern-Based Dictionary, EDPV curves and a real A/B test.">
+<meta name="theme-color" content="#0F1316">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lyra — Caso de estudio | Francesc Borràs">
-<meta property="og:description" content="Pattern-Based Dictionary, curvas EDPV y un A/B test propio para validar la guía visual de un puzzle.">
+<meta property="og:title" content="Lyra - Case Study | Francesc Borràs Lleida">
+<meta property="og:description" content="Pattern-Based Dictionary, EDPV curves and a real A/B test to validate a puzzle redesign.">
 <meta property="og:image" content="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
@@ -20,110 +20,137 @@
 </head>
 <body>
 
-<nav class="site-nav" aria-label="Navegación principal">
+<nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="../index.html" class="brand">FB<span>·</span>DESIGN</a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menú</button>
+    <a href="../index.html" class="brand">francesc<span>borràs</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
-      <li><a class="nav-link" href="../index.html#metodo">Método</a></li>
-      <li><a class="nav-link" href="../index.html#proyectos">Trabajo</a></li>
-      <li><a class="nav-link" href="../index.html#experiencia">Experiencia</a></li>
-      <li><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+      <li><a class="nav-link" href="../index.html#experience">Experience</a></li>
+      <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
+      <li><a class="nav-link" href="../index.html#docs">Design Docs</a></li>
+      <li><a class="nav-cta" href="../index.html#contact">Get in touch</a></li>
     </ul>
   </div>
 </nav>
 
 <main>
-  <section class="case-hero">
+  <section class="case-hero on-paper">
     <div class="wrap">
-      <a class="back-link" href="../index.html">← Volver al trabajo</a>
+      <a class="back-link" href="../index.html#experience">Back to work</a>
       <div class="case-title">
-        <span class="eyebrow">Puzzle-adventure · Unreal Engine 5</span>
+        <span class="eyebrow">Puzzle-Adventure / Unreal Engine 5</span>
         <h1>Lyra</h1>
       </div>
       <div class="case-meta">
-        <div>Rol<span>Game &amp; Level Designer</span></div>
-        <div>Equipo<span>La Mapachanda — 7 personas</span></div>
-        <div>Duración<span>2025–2026</span></div>
-        <div>Reconocimiento<span>Best TFG · ENTI DemoDay 2026</span></div>
+        <div>Role<span>Game & Level Designer</span></div>
+        <div>Team<span>La Mapachanda, 7 people</span></div>
+        <div>Duration<span>2025-2026</span></div>
+        <div>Recognition<span>Best Thesis, ENTI DemoDay 2026</span></div>
       </div>
       <div class="case-hero-img">
-        <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Lyra junto a los dos dragones bebé, Pochi y Mochi, en un entorno de colinas soleadas.">
+        <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Lyra with the two baby dragons, Pochi and Mochi, in sunlit hills.">
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="on-paper">
     <div class="wrap case-body">
-      <h2>Contexto</h2>
-      <p>Lyra es un puzzle-adventure 3D wholesome en el que acompañas a Pochi (dragón de fuego) y Mochi (dragón de agua) por unas colinas soleadas y unas cuevas de cristal. Es mi Trabajo de Fin de Grado en ENTI-UB, desarrollado con un equipo de 7 personas bajo el nombre La Mapachanda. Mi rol cubrió diseño de mecánicas, diseño de nivel y la validación de ambos con datos reales de juego.</p>
+      <h2>Context</h2>
+      <p>Lyra is a 3D wholesome puzzle-adventure in which you accompany Pochi (fire dragon) and Mochi (water dragon) through sunlit hills and glowing crystal caves. It's my thesis project at ENTI-UB, built with a team of 7 people under the name La Mapachanda. My role covered mechanics design, level design, and validating both with real playtest data.</p>
 
-      <h2>El problema: documentar antes de construir</h2>
-      <p>Con dos dragones con habilidades distintas (fuego para derretir y encender, agua para hacer crecer puentes y llenar pozos, y a ambos como proyectiles para alcanzar zonas lejanas) el riesgo real era la combinatoria: si cada mecánica se diseña de forma aislada, el jugador no aprende un sistema, aprende una lista de trucos sueltos.</p>
-      <p>Antes de tocar el editor de niveles, construí un <strong>Pattern-Based Dictionary</strong>: un catálogo de mecánicas atómicas (disparo de fuego, disparo de agua, lanzamiento de dragón) y de los patrones que nacen al combinarlas. Cada sala del juego no se diseñó como "una idea de puzzle", sino como la combinación concreta de patrones que quería enseñar en ese punto.</p>
+      <h2>The problem: document before you build</h2>
+      <p>With two dragons that have distinct abilities (fire to melt and ignite, water to grow bridges and fill wells, and both usable as projectiles to reach distant areas) the real risk was combinatorial: if every mechanic is designed in isolation, the player doesn't learn a system, they learn a list of unrelated tricks.</p>
+      <p>Before touching the level editor, I built a <strong>Pattern-Based Dictionary</strong>: a catalog of atomic mechanics (fire shot, water shot, dragon throw) and the patterns that emerge when they're combined. Every room in the game wasn't designed as "a puzzle idea", it was designed as the specific combination of patterns I wanted to teach at that point.</p>
 
       <div class="case-media two-up">
-        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc1LnBuZw==/original/0l2zS8.png" alt="Puzzle de Lyra usando fuego para derretir madera y agua para hacer crecer un puente.">
-        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc5LnBuZw==/original/yVLzZY.png" alt="Lanzando a uno de los dragones a través de una zona estrecha para alcanzar una plataforma lejana.">
+        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc1LnBuZw==/original/0l2zS8.png" alt="Lyra puzzle using fire to melt wood and water to grow a bridge.">
+        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc5LnBuZw==/original/yVLzZY.png" alt="Throwing one of the dragons across a narrow gap to reach a distant platform.">
       </div>
-      <p class="marginalia">Cada patrón de la dictionary lleva asociado el nivel EDPV en el que se introduce, se demuestra, se practica y se valida.</p>
+      <p class="marginalia">Each pattern in the dictionary is tagged with the EDPV stage in which it's introduced, demonstrated, practiced and validated.</p>
 
-      <h2>Estructura de nivel: la curva EDPV</h2>
-      <p>Sobre ese diccionario apliqué el modelo <strong>EDPV (Exposición, Demostración, Práctica, Validación)</strong> a las tres zonas temáticas del juego, ordenando la dificultad y la carga emocional de cada sala en vez de dejarlas a intuición. Una mecánica nueva primero se ve, luego se demuestra en un contexto sin riesgo, después se practica con complejidad creciente, y por último se valida en un puzzle que exige combinarla con lo aprendido antes.</p>
+      <h2>Level structure: the EDPV curve</h2>
+      <p>On top of that dictionary I applied the <strong>EDPV model (Exposure, Demonstration, Practice, Validation)</strong> to the game's three thematic zones, ordering difficulty and emotional pacing deliberately instead of leaving it to intuition. A new mechanic is first seen, then demonstrated in a risk-free context, then practiced with rising complexity, and finally validated in a puzzle that requires combining it with everything learned before.</p>
 
-      <h2>El problema del Puzzle 6: cuando el diseño no basta</h2>
-      <p>Durante el playtesting interno, uno de los puzzles de la cueva de cristal (Puzzle 6) generaba más errores de navegación de los esperados. Mi hipótesis de diseñador era que la guía visual —los elementos que indican al jugador hacia dónde mirar— era insuficiente. En vez de rediseñarlo por instinto, decidí comprobarlo.</p>
+      <h2>The Puzzle 6 problem: when design isn't enough</h2>
+      <p>During internal playtesting, one of the puzzles in the crystal cave (Puzzle 6) generated more navigation errors than expected. My hypothesis as a designer was that the visual guidance, the cues that tell the player where to look, was insufficient. Instead of redesigning it on instinct, I decided to test it.</p>
 
-      <p>Instrumenté telemetría en C++ sobre Unreal Engine 5, capturando posición y acciones del jugador como CSV estructurado, y diseñé un <strong>A/B test</strong> real: asignación aleatoria estratificada, criterios de inclusión/exclusión, guión de moderador y consentimiento informado. Comparé el layout original contra un rediseño con guía visual más clara, y analicé los resultados en Python con Shapiro-Wilk, t de Student y d de Cohen.</p>
+      <p>I instrumented telemetry in C++ on Unreal Engine 5, capturing player position and actions as structured CSV, and designed a real <strong>A/B test</strong>: stratified random assignment, inclusion/exclusion criteria, a moderator script and informed consent. I compared the original layout against a redesign with clearer visual guidance, and analyzed the results in Python with Shapiro-Wilk, Student's t-test, and Cohen's d.</p>
 
-      <p class="pull-note">El p-valor no fue estadísticamente significativo. El tamaño del efecto (Cohen's d ≈ 1.0) sí fue grande. Reporté ambas cosas, no solo la que convenía a mi hipótesis.</p>
+      <p class="pull-note">The p-value wasn't statistically significant. The effect size (Cohen's d ~1.0) was large. I reported both, not just the one that supported my hypothesis.</p>
 
-      <p>Esa honestidad en el reporte es, para mí, tan parte del diseño como el propio rediseño del puzzle: un dato incómodo bien documentado vale más que una conclusión bonita sin sustento.</p>
+      <p>That honesty in reporting is, to me, as much a part of the design as the puzzle redesign itself: an uncomfortable data point, well documented, is worth more than a nice conclusion without evidence.</p>
 
       <div class="case-stats">
         <div class="stat-row">
-          <div class="stat reveal"><span class="num" data-count="35%">0%</span><span class="label">reducción de errores de navegación</span></div>
-          <div class="stat reveal"><span class="num" data-count="~1.0">0</span><span class="label">Cohen's d (tamaño del efecto)</span></div>
-          <div class="stat reveal"><span class="num" data-count="3">0</span><span class="label">niveles temáticos diseñados</span></div>
-          <div class="stat reveal"><span class="num" data-count="7">0</span><span class="label">personas en el equipo</span></div>
+          <div class="stat reveal"><span class="num" data-count="35%">0%</span><span class="label">reduction in navigation errors</span></div>
+          <div class="stat reveal"><span class="num" data-count="~1.0">0</span><span class="label">Cohen's d (effect size)</span></div>
+          <div class="stat reveal"><span class="num" data-count="3">0</span><span class="label">thematic levels designed</span></div>
+          <div class="stat reveal"><span class="num" data-count="7">0</span><span class="label">people on the team</span></div>
         </div>
       </div>
 
-      <h2>Resultado</h2>
-      <p>El rediseño de guía visual del Puzzle 6 redujo un <strong>35% los errores de navegación</strong> y mejoró un <strong>33% el tiempo de resolución</strong> respecto al layout original, medido con la misma pipeline de telemetría. Lyra ganó el premio a Mejor TFG en ENTI DemoDay 2026.</p>
+      <h2>Result</h2>
+      <p>The visual guidance redesign of Puzzle 6 reduced navigation errors by <strong>35%</strong> and improved resolution time by <strong>33%</strong> compared to the original layout, measured with the same telemetry pipeline. Lyra won Best Thesis at ENTI DemoDay 2026.</p>
 
       <div class="case-media">
-        <img src="https://img.itch.zone/aW1nLzI2OTU1NTg2LnBuZw==/original/owdQUn.png" alt="Momento de interacción entre Lyra y los dos dragones, sentados juntos.">
+        <img src="https://img.itch.zone/aW1nLzI2OTU1NTg2LnBuZw==/original/owdQUn.png" alt="A quiet moment between Lyra and the two dragons.">
       </div>
 
-      <h2>Aprendizajes</h2>
-      <p>La parte más valiosa no fue confirmar mi hipótesis de diseño, sino aprender a separar lo que "se siente" mejor de lo que es demostrablemente mejor. Un p-valor no significativo con un efecto grande es una zona gris real en investigación de usuarios, y aprendí a comunicarla a un equipo de diseño sin ni inflarla ni descartarla.</p>
+      <h2>What I learned</h2>
+      <p>The most valuable part wasn't confirming my design hypothesis, it was learning to separate what "feels" better from what's demonstrably better. A non-significant p-value alongside a large effect size is a real grey area in user research, and I learned how to communicate it to a design team without inflating it or dismissing it.</p>
 
       <div class="case-cta">
-        <a class="btn btn-solid" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Jugar en itch.io</a>
-        <a class="btn btn-outline" href="../index.html#proyectos">Ver más proyectos</a>
+        <a class="btn btn-solid" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Play on itch.io</a>
+        <a class="btn btn-outline" href="../index.html#experience">More projects</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer" id="contacto">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h3 style="font-family:var(--font-display); font-size:1.4rem; max-width:14ch;">Hablemos de tu próximo nivel.</h3>
-        <a href="mailto:fborrasslleida@gmail.com" class="btn btn-solid" style="margin-top:1.2rem;">fborrasslleida@gmail.com</a>
-      </div>
-      <ul class="footer-links">
+<footer class="site-footer" id="contact">
+  <div class="wrap footer-contact">
+    <div>LOCATION<a href="https://www.google.com/maps/search/Vilanova+i+la+Geltru" target="_blank" rel="noopener">Vilanova i la Geltrú, Barcelona</a></div>
+    <div>EMAIL<a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a></div>
+  </div>
+  <div class="wrap footer-columns">
+    <div>
+      <h5>About Me</h5>
+      <p>Game Designer with hands-on experience in gameplay systems, level design and progression balancing. Currently looking for my first full-time role in the industry.</p>
+    </div>
+    <div>
+      <h5>Latest Projects</h5>
+      <ul>
+        <li><a href="denshattack.html">Denshattack!</a></li>
+        <li><a href="lyra.html">Lyra</a></li>
+        <li><a href="tumble-up.html">Tumble Up</a></li>
+        <li><a href="chrono-fish.html">Chrono Fish</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Portfolio</h5>
+      <ul>
+        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub Repositories</a></li>
+        <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li>
+        <li><a href="../assets/Francesc_Borras_Lleida_CV.pdf">CV</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Social Networks</h5>
+      <ul>
         <li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
         <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">
-      <span>Francesc Borràs Lleida · Vilanova i la Geltrú, Barcelona</span>
-      <span>Diseñado y desarrollado a mano · 2026</span>
+  </div>
+  <div class="wrap footer-bottom-bar">
+    <div>HOME &nbsp; EXPERIENCE &nbsp; PROJECTS &nbsp; CONTACT</div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a>
+      <a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a>
     </div>
+    <div>Copyright © 2026 Francesc Borràs Lleida</div>
   </div>
 </footer>
 
