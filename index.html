@@ -60,13 +60,15 @@
 
   <!-- HERO -->
   <section class="hero-video-wrap" style="padding:0;">
-    <!--
-      To add your gameplay reel: replace the div below with
-      <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
-        <source src="assets/hero-reel.mp4" type="video/mp4">
-      </video>
-      Drop the .mp4 into /assets and swap this comment out.
-    -->
+    <!-- HERO BACKGROUND VIDEO
+         Drop your reel at assets/hero-reel.mp4 (and optionally a first-frame
+         still at assets/hero-poster.jpg) and it plays automatically.
+         Until the file exists the browser falls back to the poster/gradient,
+         so the hero never looks broken. -->
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="assets/hero-poster.jpg" aria-hidden="true">
+      <source src="assets/hero-reel.mp4" type="video/mp4">
+    </video>
     <div class="video-fallback" aria-hidden="true"></div>
 
     <div class="hero-content">
@@ -85,32 +87,36 @@
   </section>
 
   <!-- TOOLS MARQUEE -->
-  <div class="tools-marquee" aria-label="Tools and software used">
+  <div class="tools-marquee" aria-label="Tools and software I work with">
     <div class="tools-track">
-      <span><strong>Unreal Engine 5</strong></span>
-      <span><strong>Unity</strong></span>
-      <span><strong>C++</strong></span>
-      <span><strong>C#</strong></span>
-      <span><strong>Blueprints</strong></span>
-      <span><strong>Python</strong></span>
-      <span><strong>Git</strong></span>
-      <span><strong>Perforce</strong></span>
-      <span><strong>Jira</strong></span>
-      <span><strong>Confluence</strong></span>
-      <span><strong>Asana</strong></span>
-      <span><strong>Excel & Sheets</strong></span>
-      <span><strong>Unreal Engine 5</strong></span>
-      <span><strong>Unity</strong></span>
-      <span><strong>C++</strong></span>
-      <span><strong>C#</strong></span>
-      <span><strong>Blueprints</strong></span>
-      <span><strong>Python</strong></span>
-      <span><strong>Git</strong></span>
-      <span><strong>Perforce</strong></span>
-      <span><strong>Jira</strong></span>
-      <span><strong>Confluence</strong></span>
-      <span><strong>Asana</strong></span>
-      <span><strong>Excel & Sheets</strong></span>
+      <div class="tools-group">
+        <span class="tool"><img src="https://cdn.simpleicons.org/unrealengine/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Unreal Engine 5</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/unity/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Unity</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/cplusplus/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>C++</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/csharp/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>C#</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/unrealengine/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Blueprints</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/python/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Python</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/git/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Git</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/perforce/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Perforce</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/jira/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Jira</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/confluence/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Confluence</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/asana/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Asana</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/microsoftexcel/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Excel & Sheets</strong></span>
+      </div>
+      <div class="tools-group" aria-hidden="true">
+        <span class="tool"><img src="https://cdn.simpleicons.org/unrealengine/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Unreal Engine 5</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/unity/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Unity</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/cplusplus/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>C++</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/csharp/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>C#</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/unrealengine/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Blueprints</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/python/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Python</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/git/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Git</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/perforce/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Perforce</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/jira/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Jira</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/confluence/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Confluence</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/asana/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Asana</strong></span>
+        <span class="tool"><img src="https://cdn.simpleicons.org/microsoftexcel/9AA7A3" alt="" loading="lazy" onerror="this.style.display='none'"><strong>Excel & Sheets</strong></span>
+      </div>
     </div>
   </div>
 
