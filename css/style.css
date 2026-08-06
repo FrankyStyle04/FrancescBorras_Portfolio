@@ -1243,66 +1243,10 @@ section[id], footer[id] { scroll-margin-top: 5rem; }
 .footer-bottom-bar .foot-nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 .footer-bottom-bar .foot-nav a:hover { color: var(--pine-soft); }
 
-/* =====================
-   CHARACTER DECOR
-   Press-kit art used as a light accent layer, never as content.
-   Sits behind the text and disappears on small screens so it can
-   never fight the copy for attention.
-   ===================== */
-.decor-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-.decor-layer img {
-  position: absolute;
-  opacity: 0.9;
-  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.45));
-  animation: bob 7s ease-in-out infinite;
-}
-.decor-layer img:nth-child(2) { animation-delay: -2.3s; animation-duration: 8.5s; }
-.decor-layer img:nth-child(3) { animation-delay: -4.6s; animation-duration: 9.5s; }
-
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-14px); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .decor-layer img { animation: none; }
-}
-
-/* The intro column must stay above the decor */
-.project-hero .project-intro,
-.project-hero .project-media { position: relative; z-index: 1; }
-
-/* Per-project placement */
-.decor-pochi  { width: 132px; right: 2%;  top: 4%; }
-.decor-mochi  { width: 138px; left: -18px; bottom: 6%; }
-.decor-lyra   { width: 120px; right: 8%;  bottom: 2%; opacity: 0.5 !important; }
-
-.decor-fish     { width: 128px; left: -14px; bottom: 8%; }
-.decor-kukulkan { width: 150px; right: 3%;  top: 2%; opacity: 0.42 !important; }
-
-.decor-moose { width: 118px; left: -16px; bottom: 10%; }
-.decor-horse { width: 128px; right: 3%;   top: 5%; }
-.decor-dino  { width: 104px; right: 12%;  bottom: 4%; opacity: 0.55 !important; }
-
-/* Decor is an accent, not content: it goes away when space is tight */
-@media (max-width: 1100px) {
-  .decor-layer { display: none; }
-}
-
-/* Accent on the Design Docs block */
-.decor-docs { width: 130px; right: 2%; bottom: 8%; opacity: 0.32 !important; }
-#docs .wrap { position: relative; z-index: 1; }
 
 /* =====================
    GAME TITLE HERO
-   Key art behind, logo and store links on top. The video the
-   visitor uploads for the contributions reel can replace the
-   still here later without changing the layout.
+   Key art behind, logo and store links on top.
    ===================== */
 .title-hero {
   position: relative;
@@ -1382,6 +1326,74 @@ section[id], footer[id] { scroll-margin-top: 5rem; }
   transform: translateY(-3px);
 }
 
-/* The overview below no longer needs its own top padding */
 .title-hero + .project-hero { padding-top: clamp(2rem, 5vw, 3.5rem); }
 
+/* =====================
+   CHARACTER DECOR
+   Press-kit art spread down the page. It sits above the section
+   backgrounds so the colours stay true, but always in the outer
+   margins and with pointer events off, so it never covers text
+   or blocks a link.
+   ===================== */
+main { position: relative; }
+
+.page-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+.page-decor img {
+  position: absolute;
+  filter: drop-shadow(0 14px 30px rgba(0,0,0,0.5));
+  animation: bob 8s ease-in-out infinite;
+}
+.page-decor img:nth-child(2) { animation-delay: -2.7s; animation-duration: 9.5s; }
+.page-decor img:nth-child(3) { animation-delay: -5.1s; animation-duration: 11s; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-decor img { animation: none; }
+}
+
+/* Sections keep their own stacking so text always wins locally */
+.title-hero, .project-hero, .contributions { position: relative; z-index: 1; }
+
+/* --- Lyra: three characters, all clear of the edges --- */
+.decor-pochi { width: 215px; right: 2.5%; top: 57%; }
+.decor-mochi { width: 225px; left: 2%;    top: 33%; }
+.decor-lyra  { width: 195px; right: 4%;   top: 85%; }
+
+/* --- Chrono Fish: the serpent leans in from off screen, face intact --- */
+.decor-kukulkan {
+  width: 520px;
+  right: -20px;
+  top: 9%;
+  transform-origin: top right;
+  animation: bob-tilt 9s ease-in-out infinite;
+}
+@keyframes bob-tilt {
+  0%, 100% { transform: rotate(7deg) translateY(0); }
+  50%      { transform: rotate(7deg) translateY(-18px); }
+}
+.decor-fish { width: 260px; left: -40px; top: 66%; }
+
+/* --- Tumble Up: staggered down the page, the moose at the very bottom --- */
+.decor-horse { width: 240px; right: 2.5%; top: 28%; }
+.decor-dino  { width: 205px; left: 2%;    top: 55%; }
+.decor-moose { width: 250px; right: 4%;   bottom: 3%; }
+
+/* Needs real free margin to sit beside the content, so it steps
+   aside on anything narrower than a wide desktop */
+@media (max-width: 1440px) {
+  .page-decor { display: none; }
+}
+
+/* Home: single accent on the Design Docs block, scoped to that section */
+#docs { position: relative; }
+#docs .page-decor { position: absolute; inset: 0; }
+.decor-docs { width: 190px; right: 3%; bottom: 10%; }
