@@ -18,13 +18,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="page-enter">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="../index.html" class="brand">francesc<span>borràs</span></a>
+    <a href="../index.html" class="brand">Francesc<span>Borràs</span>Portfolio</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
+      <li><a class="nav-link" href="../index.html#about">About</a></li>
       <li><a class="nav-link" href="../index.html#experience">Experience</a></li>
       <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
       <li><a class="nav-link" href="../index.html#docs">Design Docs</a></li>
@@ -33,29 +34,67 @@
   </div>
 </nav>
 
+<aside class="social-rail" aria-label="Social links">
+  <a class="rail-item" href="https://franky-style.itch.io" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/itchdotio/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='it'">
+    </span>
+    <span class="rail-label">See my work!</span>
+    <span class="sr-only">itch.io</span>
+  </a>
+  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
+    </span>
+    <span class="rail-label">Let's connect!</span>
+    <span class="sr-only">LinkedIn</span>
+  </a>
+  <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
+    <span class="rail-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/>
+      </svg>
+    </span>
+    <span class="rail-label">Let's talk!</span>
+    <span class="sr-only">Email</span>
+  </a>
+</aside>
+
 <main>
-  <section class="case-hero on-paper">
-    <div class="wrap">
-      <a class="back-link" href="../index.html#experience">Back to work</a>
-      <div class="case-title">
+  <section class="project-hero">
+    <div class="wrap project-hero-grid">
+      <div class="project-intro">
+        <a class="back-link" href="../index.html#experience">Back to work</a>
         <span class="eyebrow">Puzzle-Adventure / Unreal Engine 5</span>
         <h1>Lyra</h1>
+        <p class="project-years">2025 - 2026</p>
+        <p class="project-lede">Lyra is a <strong>3D wholesome puzzle-adventure</strong> about two baby dragons, built in <strong>Unreal Engine 5</strong>.</p>
+        <p class="project-lede">I worked as <strong>Game and Level Designer</strong>, designing every mechanic and validating the level guidance with real player data. It won <strong>Best Thesis at ENTI DemoDay 2026</strong>.</p>
+
+        <h3 class="task-heading">Task Overview</h3>
+        <ul class="task-list">
+          <li>Designed and documented every mechanic through a <strong>Pattern-Based Dictionary</strong>.</li>
+          <li>Built <strong>three thematic levels</strong> structured around EDPV learning curves.</li>
+          <li>Instrumented <strong>C++ telemetry</strong> in Unreal Engine 5, exporting structured CSV data.</li>
+          <li>Ran a full <strong>A/B test</strong> and statistical analysis in Python to validate a puzzle redesign.</li>
+        </ul>
+
+        <div class="project-actions">
+          <button class="btn btn-solid" id="contributions-toggle"
+                  aria-expanded="false" aria-controls="contributions">My Contributions</button>
+          <a class="btn btn-outline" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Play on itch.io</a>
+        </div>
       </div>
-      <div class="case-meta">
-        <div>Role<span>Game & Level Designer</span></div>
-        <div>Team<span>La Mapachanda, 7 people</span></div>
-        <div>Duration<span>2025-2026</span></div>
-        <div>Recognition<span>Best Thesis, ENTI DemoDay 2026</span></div>
-      </div>
-      <div class="case-hero-img">
-        <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Lyra with the two baby dragons, Pochi and Mochi, in sunlit hills.">
+
+      <div class="media-frame">
+        <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Lyra with the two baby dragons, Pochi and Mochi, in sunlit hills." onerror="this.closest('.media-frame').classList.add('is-empty')">
       </div>
     </div>
   </section>
 
-  <section class="on-paper">
+  <section class="contributions" id="contributions">
     <div class="wrap case-body">
-      <h2>Context</h2>
+<h2>Context</h2>
       <p>Lyra is a 3D wholesome puzzle-adventure in which you accompany Pochi (fire dragon) and Mochi (water dragon) through sunlit hills and glowing crystal caves. It's my thesis project at ENTI-UB, built with a team of 7 people under the name La Mapachanda. My role covered mechanics design, level design, and validating both with real playtest data.</p>
 
       <h2>The problem: document before you build</h2>
@@ -98,7 +137,6 @@
 
       <h2>What I learned</h2>
       <p>The most valuable part wasn't confirming my design hypothesis, it was learning to separate what "feels" better from what's demonstrably better. A non-significant p-value alongside a large effect size is a real grey area in user research, and I learned how to communicate it to a design team without inflating it or dismissing it.</p>
-
       <div class="case-cta">
         <a class="btn btn-solid" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Play on itch.io</a>
         <a class="btn btn-outline" href="../index.html#experience">More projects</a>

@@ -18,13 +18,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="page-enter">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="../index.html" class="brand">francesc<span>borràs</span></a>
+    <a href="../index.html" class="brand">Francesc<span>Borràs</span>Portfolio</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
+      <li><a class="nav-link" href="../index.html#about">About</a></li>
       <li><a class="nav-link" href="../index.html#experience">Experience</a></li>
       <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
       <li><a class="nav-link" href="../index.html#docs">Design Docs</a></li>
@@ -33,29 +34,67 @@
   </div>
 </nav>
 
+<aside class="social-rail" aria-label="Social links">
+  <a class="rail-item" href="https://franky-style.itch.io" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/itchdotio/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='it'">
+    </span>
+    <span class="rail-label">See my work!</span>
+    <span class="sr-only">itch.io</span>
+  </a>
+  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
+    </span>
+    <span class="rail-label">Let's connect!</span>
+    <span class="sr-only">LinkedIn</span>
+  </a>
+  <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
+    <span class="rail-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/>
+      </svg>
+    </span>
+    <span class="rail-label">Let's talk!</span>
+    <span class="sr-only">Email</span>
+  </a>
+</aside>
+
 <main>
-  <section class="case-hero on-paper">
-    <div class="wrap">
-      <a class="back-link" href="../index.html#experience">Back to work</a>
-      <div class="case-title">
+  <section class="project-hero">
+    <div class="wrap project-hero-grid">
+      <div class="project-intro">
+        <a class="back-link" href="../index.html#experience">Back to work</a>
         <span class="eyebrow">Top-Down Roguelike / Unity C#</span>
         <h1>Chrono Fish</h1>
+        <p class="project-years">2023 - 2024</p>
+        <p class="project-lede">Chrono Fish is a <strong>pixel-art top-down roguelike</strong> where the protagonist can only <strong>dodge and parry</strong>.</p>
+        <p class="project-lede">I worked as <strong>Game and Level Designer</strong>, defining the metrics behind the procedural temple and tuning the core parry timing.</p>
+
+        <h3 class="task-heading">Task Overview</h3>
+        <ul class="task-list">
+          <li>Defined <strong>level metrics</strong> driving coherent procedural map generation.</li>
+          <li>Tuned the <strong>parry window</strong> against enemy attack timings until failure felt fair.</li>
+          <li>Designed room <strong>threat density</strong> so every space is beatable without attacking.</li>
+          <li>Balanced the <strong>scoring system</strong> to reward cleaner, less frequent parries.</li>
+        </ul>
+
+        <div class="project-actions">
+          <button class="btn btn-solid" id="contributions-toggle"
+                  aria-expanded="false" aria-controls="contributions">My Contributions</button>
+          <a class="btn btn-outline" href="https://franky-style.itch.io/chrono-fish" target="_blank" rel="noopener">Play on itch.io</a>
+        </div>
       </div>
-      <div class="case-meta">
-        <div>Role<span>Game & Level Designer</span></div>
-        <div>Team<span>Olympia Interactive, 4 people</span></div>
-        <div>Duration<span>2023-2024</span></div>
-        <div>Core mechanic<span>Parry, no direct attack</span></div>
-      </div>
-      <div class="case-hero-img">
-        <img src="https://img.itch.zone/aW1nLzE1NjgzMTE2LnBuZw==/original/LLGHZq.png" alt="Chrono Fish cover art, a time-travelling fish in pixel art.">
+
+      <div class="media-frame">
+        <img src="https://img.itch.zone/aW1nLzE1NzE4Mzc5LmdpZg==/original/PF3KGg.gif" alt="The protagonist fish dodging attacks inside the Aztec temple." onerror="this.closest('.media-frame').classList.add('is-empty')">
       </div>
     </div>
   </section>
 
-  <section class="on-paper">
+  <section class="contributions" id="contributions">
     <div class="wrap case-body">
-      <h2>Context</h2>
+<h2>Context</h2>
       <p>Chrono Fish is a pixel-art top-down roguelike with an unusual design constraint: the protagonist is a fish who can't attack, only dodge and parry. The demo is set inside an Aztec temple whose final boss is Kukulkan, the feathered serpent. I worked as Game & Level Designer in a team of 4.</p>
 
       <div class="case-media">
@@ -85,7 +124,6 @@
 
       <h2>What I learned</h2>
       <p>Designing around a strong constraint demands a discipline that a wide mechanics kit doesn't require: every room has to justify why it's beatable with only the tools the player already has. It was my first real procedural generation project, and I learned that badly defined level metrics show up much faster in a procedural system than in a hand-crafted one, because the mistakes repeat in every generated map.</p>
-
       <div class="case-cta">
         <a class="btn btn-solid" href="https://franky-style.itch.io/chrono-fish" target="_blank" rel="noopener">Play on itch.io</a>
         <a class="btn btn-outline" href="../index.html#experience">More projects</a>

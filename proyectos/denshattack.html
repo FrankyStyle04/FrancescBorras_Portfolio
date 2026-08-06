@@ -18,13 +18,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="page-enter">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="../index.html" class="brand">francesc<span>borràs</span></a>
+    <a href="../index.html" class="brand">Francesc<span>Borràs</span>Portfolio</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
+      <li><a class="nav-link" href="../index.html#about">About</a></li>
       <li><a class="nav-link" href="../index.html#experience">Experience</a></li>
       <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
       <li><a class="nav-link" href="../index.html#docs">Design Docs</a></li>
@@ -33,29 +34,67 @@
   </div>
 </nav>
 
+<aside class="social-rail" aria-label="Social links">
+  <a class="rail-item" href="https://franky-style.itch.io" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/itchdotio/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='it'">
+    </span>
+    <span class="rail-label">See my work!</span>
+    <span class="sr-only">itch.io</span>
+  </a>
+  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
+    </span>
+    <span class="rail-label">Let's connect!</span>
+    <span class="sr-only">LinkedIn</span>
+  </a>
+  <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
+    <span class="rail-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/>
+      </svg>
+    </span>
+    <span class="rail-label">Let's talk!</span>
+    <span class="sr-only">Email</span>
+  </a>
+</aside>
+
 <main>
-  <section class="case-hero on-paper">
-    <div class="wrap">
-      <a class="back-link" href="../index.html#experience">Back to work</a>
-      <div class="case-title">
+  <section class="project-hero">
+    <div class="wrap project-hero-grid">
+      <div class="project-intro">
+        <a class="back-link" href="../index.html#experience">Back to work</a>
         <span class="eyebrow">Arcade Platformer / Unreal Engine 5</span>
         <h1>Denshattack!</h1>
+        <p class="project-years">2025 - 2026</p>
+        <p class="project-lede">Denshattack! is an <strong>arcade train-flipping platformer</strong> published by <strong>Fireshine Games</strong>.</p>
+        <p class="project-lede">During this project, I worked as <strong>QA and Game Design Assistant</strong>, balancing progression and owning the design documentation.</p>
+
+        <h3 class="task-heading">Task Overview</h3>
+        <ul class="task-list">
+          <li>Balanced <strong>progression and economy</strong> across 67 handcrafted levels.</li>
+          <li>Authored <strong>6 Game Design Documents</strong> covering systems and implementation requirements.</li>
+          <li>Validated <strong>level flow and difficulty</strong> through structured internal playtesting.</li>
+          <li>Maintained system documentation in <strong>Confluence</strong> for cross-team collaboration.</li>
+        </ul>
+
+        <div class="project-actions">
+          <button class="btn btn-solid" id="contributions-toggle"
+                  aria-expanded="false" aria-controls="contributions">My Contributions</button>
+          <a class="btn btn-outline" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener">View on Steam</a>
+        </div>
       </div>
-      <div class="case-meta">
-        <div>Role<span>QA & Game Design Assistant</span></div>
-        <div>Studio<span>Undercoders</span></div>
-        <div>Duration<span>2025-2026</span></div>
-        <div>Publisher<span>Fireshine Games</span></div>
-      </div>
-      <div class="case-hero-img">
-        <img src="https://cdn.akamai.steamstatic.com/steam/apps/2524850/header.jpg" alt="Denshattack! key art: a train grinding through a colourful Japanese dystopia.">
+
+      <div class="media-frame">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2524850/header.jpg" alt="Denshattack! key art, an arcade train-flipping platformer." onerror="this.closest('.media-frame').classList.add('is-empty')">
       </div>
     </div>
   </section>
 
-  <section class="on-paper">
+  <section class="contributions" id="contributions">
     <div class="wrap case-body">
-      <h2>Overview</h2>
+<h2>Overview</h2>
       <p>Denshattack! is an arcade train-flipping platformer: you flip, trick and grind a customisable train through a colourful Japanese dystopia, outmatching rival gangs and a shady megacorp across more than 60 levels and 8 regions. It shipped on PC, Xbox and PlayStation, published by Fireshine Games. This was my internship at Undercoders, working as a bridge between design, programming and QA.</p>
 
       <h2>My contributions</h2>
@@ -86,7 +125,6 @@
 
       <h2>What I learned</h2>
       <p>Working on a live, published title taught me a different kind of rigor than a personal project: every balance decision has to be validated by hand across dozens of levels before it ships, and documentation has to stay legible for people who weren't in the room when the decision was made.</p>
-
       <div class="case-cta">
         <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener">View on Steam</a>
         <a class="btn btn-outline" href="../index.html#experience">More projects</a>

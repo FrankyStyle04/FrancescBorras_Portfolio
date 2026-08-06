@@ -41,13 +41,14 @@
 }
 </script>
 </head>
-<body>
+<body class="page-enter has-hero">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="#top" class="brand">francesc<span>borràs</span></a>
+    <a href="#top" class="brand">Francesc<span>Borràs</span>Portfolio</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
+      <li><a class="nav-link" href="#about">About</a></li>
       <li><a class="nav-link" href="#experience">Experience</a></li>
       <li><a class="nav-link" href="#projects">Projects</a></li>
       <li><a class="nav-link" href="#docs">Design Docs</a></li>
@@ -55,6 +56,32 @@
     </ul>
   </div>
 </nav>
+
+<aside class="social-rail" aria-label="Social links">
+  <a class="rail-item" href="https://franky-style.itch.io" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/itchdotio/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='it'">
+    </span>
+    <span class="rail-label">See my work!</span>
+    <span class="sr-only">itch.io</span>
+  </a>
+  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">
+    <span class="rail-icon">
+      <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
+    </span>
+    <span class="rail-label">Let's connect!</span>
+    <span class="sr-only">LinkedIn</span>
+  </a>
+  <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
+    <span class="rail-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/>
+      </svg>
+    </span>
+    <span class="rail-label">Let's talk!</span>
+    <span class="sr-only">Email</span>
+  </a>
+</aside>
 
 <main id="top">
 
@@ -120,6 +147,32 @@
     </div>
   </div>
 
+  <!-- ABOUT ME -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-text reveal">
+        <span class="about-eyebrow">Game Developer specialized in Game Design</span>
+        <h2>Hey, you found<br>the tutorial level.</h2>
+        <p>Specialized in <strong>gameplay systems</strong> and <strong>level design</strong>. I work in both <strong>Unreal Engine</strong> and <strong>Unity</strong>, and I have shipped a title published on <strong>Steam, Xbox and PlayStation</strong> alongside personal projects taken from concept to a validated build.</p>
+        <p>What I care about is the work that makes a game feel right: pacing, balancing and the small details that decide whether someone stays ten minutes or ten hours. I document mechanics before building them, and I validate them with real players instead of intuition.</p>
+        <p>Right now I am based near <strong>Barcelona</strong> and looking for my <strong>first full-time role</strong> in the industry.</p>
+
+        <p class="about-question">Are you interested in my work?</p>
+        <a class="btn btn-solid" href="#contact">Contact me!</a>
+      </div>
+
+      <!-- ABOUT PHOTO
+           Drop your picture at assets/about-photo.jpg and it appears here.
+           Portrait orientation works best, around 900x1200 px. -->
+      <div class="about-photo reveal">
+        <img src="assets/about-photo.jpg" alt="Portrait of Francesc Borràs Lleida."
+             onerror="this.closest('.about-photo').classList.add('is-empty')">
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="wrap exp-section">
@@ -132,7 +185,7 @@
 
       <div class="game-grid">
         <a class="game-card reveal" href="proyectos/denshattack.html">
-          <img src="https://cdn.akamai.steamstatic.com/steam/apps/2524850/header.jpg" alt="Denshattack! key art, a train-flipping arcade platformer.">
+          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2524850/header.jpg" alt="Denshattack! key art, a train-flipping arcade platformer." onerror="this.closest('.game-card').classList.add('no-art')">
           <div class="overlay">
             <div class="always-visible">
               <h4>Denshattack!</h4>
