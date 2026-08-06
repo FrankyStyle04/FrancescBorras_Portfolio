@@ -9,20 +9,20 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lyra - Case Study | Francesc Borràs Lleida">
 <meta property="og:description" content="Pattern-Based Dictionary, EDPV curves and a real A/B test to validate a puzzle redesign.">
-<meta property="og:image" content="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png">
+<meta property="og:image" content="https://frankystyle04.github.io/FrancescBorras_Portfolio/assets/img/lyra-key.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="canonical" href="https://frankystyle04.github.io/FrancescBorras_Portfolio/proyectos/lyra.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="page-enter">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="../index.html" class="brand">Francesc<span>Borràs</span>Portfolio</a>
+    <a href="../index.html" class="brand">FrancescBorràs<span>Portfolio</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
       <li><a class="nav-link" href="../index.html#about">About</a></li>
@@ -42,7 +42,7 @@
     <span class="rail-label">See my work!</span>
     <span class="sr-only">itch.io</span>
   </a>
-  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">
+  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">
     <span class="rail-icon">
       <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
     </span>
@@ -62,6 +62,11 @@
 
 <main>
   <section class="project-hero">
+      <div class="decor-layer" aria-hidden="true">
+        <img class="decor-pochi" src="../assets/img/char-pochi.png" alt="" loading="lazy">
+        <img class="decor-mochi" src="../assets/img/char-mochi.png" alt="" loading="lazy">
+        <img class="decor-lyra" src="../assets/img/char-lyra.png" alt="" loading="lazy">
+      </div>
     <div class="wrap project-hero-grid">
       <div class="project-intro">
         <a class="back-link" href="../index.html#experience">Back to work</a>
@@ -73,53 +78,72 @@
 
         <h3 class="task-heading">Task Overview</h3>
         <ul class="task-list">
-          <li>Designed and documented every mechanic through a <strong>Pattern-Based Dictionary</strong>.</li>
-          <li>Built <strong>three thematic levels</strong> structured around EDPV learning curves.</li>
-          <li>Instrumented <strong>C++ telemetry</strong> in Unreal Engine 5, exporting structured CSV data.</li>
-          <li>Ran a full <strong>A/B test</strong> and statistical analysis in Python to validate a puzzle redesign.</li>
+            <li>Designed and documented every mechanic through a <strong>Pattern-Based Dictionary</strong>.</li>
+            <li>Built <strong>three thematic levels</strong> structured around EDPV learning curves.</li>
+            <li>Instrumented <strong>C++ telemetry</strong> in Unreal Engine 5, exporting structured CSV data.</li>
+            <li>Ran a full <strong>A/B test</strong> and statistical analysis in Python.</li>
         </ul>
 
         <div class="project-actions">
-          <button class="btn btn-solid" id="contributions-toggle"
-                  aria-expanded="false" aria-controls="contributions">My Contributions</button>
-          <a class="btn btn-outline" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Play on itch.io</a>
+          <a class="btn btn-solid" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Play on itch.io</a>
+          <a class="btn btn-outline" href="../index.html#experience">More projects</a>
         </div>
       </div>
 
-      <div class="media-frame">
-        <img src="https://img.itch.zone/aW1nLzI2OTU0ODQyLnBuZw==/original/0TQnls.png" alt="Lyra with the two baby dragons, Pochi and Mochi, in sunlit hills." onerror="this.closest('.media-frame').classList.add('is-empty')">
+      <div class="project-media">
+        <div class="trailer-frame">
+          <button class="trailer-facade" data-yt="YIcgUIwu89U" type="button"
+                  aria-label="Play the Lyra trailer">
+            <img src="../assets/img/lyra-02.jpg" alt="" loading="lazy">
+            <span class="play-badge" aria-hidden="true"></span>
+            <span class="play-label">Watch trailer</span>
+          </button>
+          <noscript>
+            <a href="https://www.youtube.com/watch?v=YIcgUIwu89U" target="_blank" rel="noopener">Watch the trailer on YouTube</a>
+          </noscript>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="contributions" id="contributions">
-    <div class="wrap case-body">
-<h2>Context</h2>
-      <p>Lyra is a 3D wholesome puzzle-adventure in which you accompany Pochi (fire dragon) and Mochi (water dragon) through sunlit hills and glowing crystal caves. It's my thesis project at ENTI-UB, built with a team of 7 people under the name La Mapachanda. My role covered mechanics design, level design, and validating both with real playtest data.</p>
+  <section class="contributions">
+    <video class="contrib-bg" autoplay muted loop playsinline preload="none" aria-hidden="true">
+      <source src="../assets/video/lyra-bg.mp4" type="video/mp4">
+    </video>
+    <div class="contrib-veil" aria-hidden="true"></div>
 
-      <h2>The problem: document before you build</h2>
-      <p>With two dragons that have distinct abilities (fire to melt and ignite, water to grow bridges and fill wells, and both usable as projectiles to reach distant areas) the real risk was combinatorial: if every mechanic is designed in isolation, the player doesn't learn a system, they learn a list of unrelated tricks.</p>
-      <p>Before touching the level editor, I built a <strong>Pattern-Based Dictionary</strong>: a catalog of atomic mechanics (fire shot, water shot, dragon throw) and the patterns that emerge when they're combined. Every room in the game wasn't designed as "a puzzle idea", it was designed as the specific combination of patterns I wanted to teach at that point.</p>
+    <div class="wrap contrib-grid">
+      <div class="contrib-text">
+      <h2>My Contributions</h2>
+      <p>Lyra was my thesis project, so I owned the mechanics, the levels, and the proof that both actually worked. The through line was refusing to trust my own intuition without data behind it.</p>
 
-      <div class="case-media two-up">
-        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc1LnBuZw==/original/0l2zS8.png" alt="Lyra puzzle using fire to melt wood and water to grow a bridge.">
-        <img src="https://img.itch.zone/aW1nLzI2OTU1NDc5LnBuZw==/original/yVLzZY.png" alt="Throwing one of the dragons across a narrow gap to reach a distant platform.">
-      </div>
-      <p class="marginalia">Each pattern in the dictionary is tagged with the EDPV stage in which it's introduced, demonstrated, practiced and validated.</p>
-
-      <h2>Level structure: the EDPV curve</h2>
-      <p>On top of that dictionary I applied the <strong>EDPV model (Exposure, Demonstration, Practice, Validation)</strong> to the game's three thematic zones, ordering difficulty and emotional pacing deliberately instead of leaving it to intuition. A new mechanic is first seen, then demonstrated in a risk-free context, then practiced with rising complexity, and finally validated in a puzzle that requires combining it with everything learned before.</p>
-
-      <h2>The Puzzle 6 problem: when design isn't enough</h2>
-      <p>During internal playtesting, one of the puzzles in the crystal cave (Puzzle 6) generated more navigation errors than expected. My hypothesis as a designer was that the visual guidance, the cues that tell the player where to look, was insufficient. Instead of redesigning it on instinct, I decided to test it.</p>
-
-      <p>I instrumented telemetry in C++ on Unreal Engine 5, capturing player position and actions as structured CSV, and designed a real <strong>A/B test</strong>: stratified random assignment, inclusion/exclusion criteria, a moderator script and informed consent. I compared the original layout against a redesign with clearer visual guidance, and analyzed the results in Python with Shapiro-Wilk, Student's t-test, and Cohen's d.</p>
-
-      <p class="pull-note">The p-value wasn't statistically significant. The effect size (Cohen's d ~1.0) was large. I reported both, not just the one that supported my hypothesis.</p>
-
-      <p>That honesty in reporting is, to me, as much a part of the design as the puzzle redesign itself: an uncomfortable data point, well documented, is worth more than a nice conclusion without evidence.</p>
-
-      <div class="case-stats">
+      <ul class="contribution-list">
+        <li>
+          <span class="lead">Pattern-Based Dictionary</span>
+          Broke every mechanic into atomic interactions (fire shot, water shot, dragon throw) and catalogued the patterns they form when combined, so each room taught a specific combination rather than an isolated trick.
+        </li>
+        <li>
+          <span class="lead">EDPV level structure</span>
+          Applied the <strong>Exposure, Demonstration, Practice, Validation</strong> model across three thematic zones, ordering difficulty and emotional pacing deliberately instead of by feel.
+        </li>
+        <li>
+          <span class="lead">C++ telemetry pipeline</span>
+          Instrumented Unreal Engine 5 to capture player position and actions as structured CSV, giving me real behaviour data instead of anecdotes.
+        </li>
+        <li>
+          <span class="lead">Controlled A/B test</span>
+          Designed the full experiment for Puzzle 6: stratified random assignment, inclusion criteria, moderator script and informed consent, comparing the original layout against a redesign with clearer visual guidance.
+        </li>
+        <li>
+          <span class="lead">Statistical analysis in Python</span>
+          Ran Shapiro-Wilk, Student's t-test and Cohen's d, and reported a <strong>non-significant p-value alongside a large effect size</strong> rather than only the result that supported my hypothesis.
+        </li>
+        <li>
+          <span class="lead">Measured outcome</span>
+          The redesign cut navigation errors by <strong>35%</strong> and improved resolution time by <strong>33%</strong>, measured through the same telemetry pipeline.
+        </li>
+      </ul>
+<div class="case-stats">
         <div class="stat-row">
           <div class="stat reveal"><span class="num" data-count="35%">0%</span><span class="label">reduction in navigation errors</span></div>
           <div class="stat reveal"><span class="num" data-count="~1.0">0</span><span class="label">Cohen's d (effect size)</span></div>
@@ -128,19 +152,39 @@
         </div>
       </div>
 
-      <h2>Result</h2>
-      <p>The visual guidance redesign of Puzzle 6 reduced navigation errors by <strong>35%</strong> and improved resolution time by <strong>33%</strong> compared to the original layout, measured with the same telemetry pipeline. Lyra won Best Thesis at ENTI DemoDay 2026.</p>
-
-      <div class="case-media">
-        <img src="https://img.itch.zone/aW1nLzI2OTU1NTg2LnBuZw==/original/owdQUn.png" alt="A quiet moment between Lyra and the two dragons.">
-      </div>
-
       <h2>What I learned</h2>
-      <p>The most valuable part wasn't confirming my design hypothesis, it was learning to separate what "feels" better from what's demonstrably better. A non-significant p-value alongside a large effect size is a real grey area in user research, and I learned how to communicate it to a design team without inflating it or dismissing it.</p>
+      <p>The most valuable part was not confirming my hypothesis. It was learning to separate what feels better from what is demonstrably better, and to communicate that grey area to a design team without inflating it or dismissing it.</p>
+
       <div class="case-cta">
         <a class="btn btn-solid" href="https://la-mapachanda-studio.itch.io/lyra" target="_blank" rel="noopener">Play on itch.io</a>
         <a class="btn btn-outline" href="../index.html#experience">More projects</a>
       </div>
+    </div>
+
+      <aside class="contrib-shots" aria-label="Screenshots">
+        <div class="shot-stack">
+            <button class="shot" type="button" data-index="0"
+                    data-full="../assets/img/lyra-01.jpg"
+                    data-caption="Lyra main menu, set in the sunlit hills with both dragons.">
+              <img src="../assets/img/lyra-01.jpg" alt="Lyra main menu, set in the sunlit hills with both dragons." loading="lazy">
+            </button>
+            <button class="shot" type="button" data-index="1"
+                    data-full="../assets/img/lyra-02.jpg"
+                    data-caption="Lyra gameplay: shooting fire while holding Pochi to burn a wooden barricade.">
+              <img src="../assets/img/lyra-02.jpg" alt="Lyra gameplay: shooting fire while holding Pochi to burn a wooden barricade." loading="lazy">
+            </button>
+            <button class="shot" type="button" data-index="2"
+                    data-full="../assets/img/lyra-03.jpg"
+                    data-caption="Lyra gameplay: the ruined gate area with waterfalls and puzzle structures.">
+              <img src="../assets/img/lyra-03.jpg" alt="Lyra gameplay: the ruined gate area with waterfalls and puzzle structures." loading="lazy">
+            </button>
+            <button class="shot" type="button" data-index="3"
+                    data-full="../assets/img/lyra-04.jpg"
+                    data-caption="Lyra gameplay: riding a mine cart through the glowing crystal caves.">
+              <img src="../assets/img/lyra-04.jpg" alt="Lyra gameplay: riding a mine cart through the glowing crystal caves." loading="lazy">
+            </button>
+        </div>
+      </aside>
     </div>
   </section>
 </main>
@@ -167,7 +211,7 @@
     <div>
       <h5>Portfolio</h5>
       <ul>
-        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub Repositories</a></li>
+        <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub Repositories</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li>
         <li><a href="../assets/Francesc_Borras_Lleida_CV.pdf">CV</a></li>
       </ul>
@@ -175,22 +219,38 @@
     <div>
       <h5>Social Networks</h5>
       <ul>
-        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
-        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap footer-bottom-bar">
-    <div>HOME &nbsp; EXPERIENCE &nbsp; PROJECTS &nbsp; CONTACT</div>
+    <div class="foot-nav">
+      <a href="../index.html#top">HOME</a>
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#experience">EXPERIENCE</a>
+      <a href="../index.html#projects">PROJECTS</a>
+      <a href="../index.html#contact">CONTACT</a>
+    </div>
     <div class="socials">
-      <a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a>
-      <a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div>Copyright © 2026 Francesc Borràs Lleida</div>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <button class="lb-btn lb-close" type="button" aria-label="Close viewer">&times;</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous screenshot">&#8249;</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next screenshot">&#8250;</button>
+  <figure>
+    <img id="lb-image" src="" alt="">
+    <figcaption><span class="counter"></span><span class="caption"></span></figcaption>
+  </figure>
+</div>
 
 <script src="../js/main.js"></script>
 </body>

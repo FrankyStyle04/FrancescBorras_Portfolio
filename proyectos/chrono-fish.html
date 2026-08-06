@@ -9,20 +9,20 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chrono Fish - Case Study | Francesc Borràs Lleida">
 <meta property="og:description" content="Level metrics for coherent procedural maps, and parry timing tuning.">
-<meta property="og:image" content="https://img.itch.zone/aW1nLzE1NjgzMTE2LnBuZw==/original/LLGHZq.png">
+<meta property="og:image" content="https://frankystyle04.github.io/FrancescBorras_Portfolio/assets/img/chronofish-key.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="canonical" href="https://frankystyle04.github.io/FrancescBorras_Portfolio/proyectos/chrono-fish.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="page-enter">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
-    <a href="../index.html" class="brand">Francesc<span>Borràs</span>Portfolio</a>
+    <a href="../index.html" class="brand">FrancescBorràs<span>Portfolio</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
     <ul id="nav-list">
       <li><a class="nav-link" href="../index.html#about">About</a></li>
@@ -42,7 +42,7 @@
     <span class="rail-label">See my work!</span>
     <span class="sr-only">itch.io</span>
   </a>
-  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">
+  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">
     <span class="rail-icon">
       <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
     </span>
@@ -62,6 +62,10 @@
 
 <main>
   <section class="project-hero">
+      <div class="decor-layer" aria-hidden="true">
+        <img class="decor-fish" src="../assets/img/char-fish.png" alt="" loading="lazy">
+        <img class="decor-kukulkan" src="../assets/img/char-kukulkan.png" alt="" loading="lazy">
+      </div>
     <div class="wrap project-hero-grid">
       <div class="project-intro">
         <a class="back-link" href="../index.html#experience">Back to work</a>
@@ -73,48 +77,65 @@
 
         <h3 class="task-heading">Task Overview</h3>
         <ul class="task-list">
-          <li>Defined <strong>level metrics</strong> driving coherent procedural map generation.</li>
-          <li>Tuned the <strong>parry window</strong> against enemy attack timings until failure felt fair.</li>
-          <li>Designed room <strong>threat density</strong> so every space is beatable without attacking.</li>
-          <li>Balanced the <strong>scoring system</strong> to reward cleaner, less frequent parries.</li>
+            <li>Defined <strong>level metrics</strong> driving coherent procedural map generation.</li>
+            <li>Tuned the <strong>parry window</strong> against enemy attack timings.</li>
+            <li>Designed room <strong>threat density</strong> so every space is beatable without attacking.</li>
+            <li>Balanced the <strong>scoring system</strong> to reward cleaner parries.</li>
         </ul>
 
         <div class="project-actions">
-          <button class="btn btn-solid" id="contributions-toggle"
-                  aria-expanded="false" aria-controls="contributions">My Contributions</button>
-          <a class="btn btn-outline" href="https://franky-style.itch.io/chrono-fish" target="_blank" rel="noopener">Play on itch.io</a>
+          <a class="btn btn-solid" href="https://franky-style.itch.io/chrono-fish" target="_blank" rel="noopener">Play on itch.io</a>
+          <a class="btn btn-outline" href="../index.html#experience">More projects</a>
         </div>
       </div>
 
-      <div class="media-frame">
-        <img src="https://img.itch.zone/aW1nLzE1NzE4Mzc5LmdpZg==/original/PF3KGg.gif" alt="The protagonist fish dodging attacks inside the Aztec temple." onerror="this.closest('.media-frame').classList.add('is-empty')">
+      <div class="project-media">
+        <div class="trailer-frame">
+          <button class="trailer-facade" data-yt="g6t-Ix3g1V0" type="button"
+                  aria-label="Play the Chrono Fish trailer">
+            <img src="../assets/img/chronofish-02.jpg" alt="" loading="lazy">
+            <span class="play-badge" aria-hidden="true"></span>
+            <span class="play-label">Watch trailer</span>
+          </button>
+          <noscript>
+            <a href="https://www.youtube.com/watch?v=g6t-Ix3g1V0" target="_blank" rel="noopener">Watch the trailer on YouTube</a>
+          </noscript>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="contributions" id="contributions">
-    <div class="wrap case-body">
-<h2>Context</h2>
-      <p>Chrono Fish is a pixel-art top-down roguelike with an unusual design constraint: the protagonist is a fish who can't attack, only dodge and parry. The demo is set inside an Aztec temple whose final boss is Kukulkan, the feathered serpent. I worked as Game & Level Designer in a team of 4.</p>
+  <section class="contributions">
+    <video class="contrib-bg" autoplay muted loop playsinline preload="none" aria-hidden="true">
+      <source src="../assets/video/chronofish-bg.mp4" type="video/mp4">
+    </video>
+    <div class="contrib-veil" aria-hidden="true"></div>
 
-      <div class="case-media">
-        <img src="https://img.itch.zone/aW1nLzE1NzE4Mzc5LmdpZg==/original/PF3KGg.gif" alt="The protagonist fish dodging attacks inside the Aztec temple.">
-      </div>
+    <div class="wrap contrib-grid">
+      <div class="contrib-text">
+      <h2>My Contributions</h2>
+      <p>Removing the attack button forces all the challenge into timing and enemy reading. Every room had to be honestly beatable with dodge and parry alone, which left nowhere for sloppy design to hide.</p>
 
-      <h2>The problem: designing without the simplest tool</h2>
-      <p>Removing the direct attack forces all the challenge to live in timing and enemy reading. Without that tool, a poorly calibrated room feels unfair immediately: the player has no way to "force" a situation through raw damage, so every room has to be honestly designed to be beatable with dodge and parry alone.</p>
-      <p>To support that I defined <strong>coherent level metrics</strong> (enemy approach distances, parry windows, threat density per room) which I then used to generate the temple's procedural maps, instead of leaving procedural generation to purely aesthetic criteria.</p>
+      <ul class="contribution-list">
+        <li>
+          <span class="lead">Level metrics for procedural generation</span>
+          Defined enemy approach distances, parry windows and threat density per room, then drove the temple's procedural maps from those metrics instead of purely aesthetic rules.
+        </li>
+        <li>
+          <span class="lead">Parry timing</span>
+          Iterated the parry window against enemy attack timings until failing felt like a late decision by the player, not an unfair imposition by the system.
+        </li>
+        <li>
+          <span class="lead">Encounter design</span>
+          Balanced room composition so every space is solvable without dealing direct damage.
+        </li>
+        <li>
+          <span class="lead">Scoring balance</span>
+          Tuned the score to reward cleaner, less frequent parries, so the mechanic and the reward system tell the same story about mastery.
+        </li>
+      </ul>
 
-      <div class="case-media two-up">
-        <img src="https://img.itch.zone/aW1nLzE1NzE4OTIyLmdpZg==/original/m6MO8w.gif" alt="Combat inside one of the Aztec temple rooms in Chrono Fish.">
-        <img src="https://img.itch.zone/aW1nLzE1NzE4OTg3LmdpZg==/original/uHS%2B%2FJ.gif" alt="The protagonist fish's parry timing in action.">
-      </div>
-      <p class="marginalia">The game itself rewards parrying less: the cleaner the parry, the higher the score. The mechanic and the scoring system tell the same story about mastery.</p>
-
-      <h2>Tuning the parry window</h2>
-      <p>Parry is the mechanic the whole game rests on, so its timing window was iterated more than any other system. Too generous a margin makes the challenge trivial; too tight turns every death into frustration instead of a lesson. I tuned the timing alongside enemy attack windows until failing a parry felt like a late decision by the player, not an imposition by the system.</p>
-
-      <div class="case-stats">
+<div class="case-stats">
         <div class="stat-row">
           <div class="stat reveal"><span class="num" data-count="4">0</span><span class="label">people on the team</span></div>
           <div class="stat reveal"><span class="num" data-count="1">0</span><span class="label">playable temple with a final boss</span></div>
@@ -123,11 +144,38 @@
       </div>
 
       <h2>What I learned</h2>
-      <p>Designing around a strong constraint demands a discipline that a wide mechanics kit doesn't require: every room has to justify why it's beatable with only the tools the player already has. It was my first real procedural generation project, and I learned that badly defined level metrics show up much faster in a procedural system than in a hand-crafted one, because the mistakes repeat in every generated map.</p>
+      <p>Designing around a hard constraint demands a discipline a wide mechanics kit does not. It was also my first real procedural generation project, and badly defined level metrics show up much faster there than in a hand-crafted level, because the mistake repeats in every generated map.</p>
+
       <div class="case-cta">
         <a class="btn btn-solid" href="https://franky-style.itch.io/chrono-fish" target="_blank" rel="noopener">Play on itch.io</a>
         <a class="btn btn-outline" href="../index.html#experience">More projects</a>
       </div>
+    </div>
+
+      <aside class="contrib-shots" aria-label="Screenshots">
+        <div class="shot-stack">
+            <button class="shot" type="button" data-index="0"
+                    data-full="../assets/img/chronofish-01.jpg"
+                    data-caption="Chrono Fish title screen with the main menu.">
+              <img src="../assets/img/chronofish-01.jpg" alt="Chrono Fish title screen with the main menu." loading="lazy">
+            </button>
+            <button class="shot" type="button" data-index="1"
+                    data-full="../assets/img/chronofish-02.jpg"
+                    data-caption="Chrono Fish gameplay: four enemies firing projectiles at the player from each side.">
+              <img src="../assets/img/chronofish-02.jpg" alt="Chrono Fish gameplay: four enemies firing projectiles at the player from each side." loading="lazy">
+            </button>
+            <button class="shot" type="button" data-index="2"
+                    data-full="../assets/img/chronofish-03.jpg"
+                    data-caption="Chrono Fish gameplay: reaching a new checkpoint inside the temple.">
+              <img src="../assets/img/chronofish-03.jpg" alt="Chrono Fish gameplay: reaching a new checkpoint inside the temple." loading="lazy">
+            </button>
+            <button class="shot" type="button" data-index="3"
+                    data-full="../assets/img/chronofish-04.jpg"
+                    data-caption="Chrono Fish boss fight against Kukulkan, the feathered serpent.">
+              <img src="../assets/img/chronofish-04.jpg" alt="Chrono Fish boss fight against Kukulkan, the feathered serpent." loading="lazy">
+            </button>
+        </div>
+      </aside>
     </div>
   </section>
 </main>
@@ -154,7 +202,7 @@
     <div>
       <h5>Portfolio</h5>
       <ul>
-        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub Repositories</a></li>
+        <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub Repositories</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li>
         <li><a href="../assets/Francesc_Borras_Lleida_CV.pdf">CV</a></li>
       </ul>
@@ -162,22 +210,38 @@
     <div>
       <h5>Social Networks</h5>
       <ul>
-        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
-        <li><a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap footer-bottom-bar">
-    <div>HOME &nbsp; EXPERIENCE &nbsp; PROJECTS &nbsp; CONTACT</div>
+    <div class="foot-nav">
+      <a href="../index.html#top">HOME</a>
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#experience">EXPERIENCE</a>
+      <a href="../index.html#projects">PROJECTS</a>
+      <a href="../index.html#contact">CONTACT</a>
+    </div>
     <div class="socials">
-      <a href="https://www.linkedin.com/in/francesc-borras-lleida" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a>
-      <a href="https://github.com/FrancescBorrasLleida" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div>Copyright © 2026 Francesc Borràs Lleida</div>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <button class="lb-btn lb-close" type="button" aria-label="Close viewer">&times;</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous screenshot">&#8249;</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next screenshot">&#8250;</button>
+  <figure>
+    <img id="lb-image" src="" alt="">
+    <figcaption><span class="counter"></span><span class="caption"></span></figcaption>
+  </figure>
+</div>
 
 <script src="../js/main.js"></script>
 </body>
