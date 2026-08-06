@@ -138,7 +138,7 @@
   "use strict";
 
   var nav = document.querySelector(".site-nav");
-  var hero = document.querySelector(".hero-video-wrap");
+  var hero = document.querySelector(".hero-video-wrap, .title-hero");
   if (!nav) return;
 
   if (!hero) {

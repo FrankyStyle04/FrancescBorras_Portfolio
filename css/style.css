@@ -1297,3 +1297,91 @@ section[id], footer[id] { scroll-margin-top: 5rem; }
 /* Accent on the Design Docs block */
 .decor-docs { width: 130px; right: 2%; bottom: 8%; opacity: 0.32 !important; }
 #docs .wrap { position: relative; z-index: 1; }
+
+/* =====================
+   GAME TITLE HERO
+   Key art behind, logo and store links on top. The video the
+   visitor uploads for the contributions reel can replace the
+   still here later without changing the layout.
+   ===================== */
+.title-hero {
+  position: relative;
+  min-height: min(74vh, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: clamp(5rem, 12vw, 8rem) var(--gutter) clamp(3rem, 8vw, 5rem);
+}
+.title-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  filter: blur(2px) saturate(1.05);
+  z-index: 0;
+}
+.title-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(15,19,22,0.35) 0%, rgba(15,19,22,0.72) 55%, rgba(15,19,22,0.92) 100%),
+    linear-gradient(180deg, rgba(15,19,22,0.55) 0%, rgba(15,19,22,0.25) 40%, var(--dark) 100%);
+}
+.title-inner { position: relative; z-index: 2; width: 100%; }
+
+.game-logo {
+  max-width: min(560px, 78vw);
+  max-height: 240px;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 26px rgba(0,0,0,0.6));
+}
+.logo-fallback {
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-shadow: 0 8px 26px rgba(0,0,0,0.6);
+}
+
+.title-tagline {
+  margin-top: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 1.9vw, 1.05rem);
+  color: var(--paper);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.75);
+}
+
+.store-links {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+}
+.store-link {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(237, 240, 234, 0.92);
+  color: var(--dark);
+  transition: background 0.22s ease, transform 0.22s ease, color 0.22s ease;
+}
+.store-link svg { width: 26px; height: 26px; }
+.store-link:hover,
+.store-link:focus-visible {
+  background: var(--pine-soft);
+  color: var(--dark);
+  transform: translateY(-3px);
+}
+
+/* The overview below no longer needs its own top padding */
+.title-hero + .project-hero { padding-top: clamp(2rem, 5vw, 3.5rem); }
+
