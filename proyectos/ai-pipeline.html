@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Assisted Level Design Pipeline - Case Study | Francesc Borràs Lleida</title>
+<meta name="description" content="A thesis project on integrating Generative AI as a co-creation partner in the Unreal Engine 5 level design pipeline. Comparative A/B production test across five phases.">
+<meta name="theme-color" content="#0F1316">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI-Assisted Level Design Pipeline - Case Study">
+<meta property="og:description" content="Comparative study on traditional vs. AI-assisted level design workflows, applied to Lyra in Unreal Engine 5.">
+<meta property="og:image" content="https://frankystyle04.github.io/FrancescBorras_Portfolio/assets/img/ai-crystal-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="canonical" href="https://frankystyle04.github.io/FrancescBorras_Portfolio/proyectos/ai-pipeline.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=12">
+</head>
+<body class="page-enter has-hero">
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="wrap">
+    <a href="../index.html" class="brand">FrancescBorràs<span>Portfolio</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+    <ul id="nav-list">
+      <li><a class="nav-link" href="../index.html#about">About</a></li>
+      <li><a class="nav-link" href="../index.html#experience">Experience</a></li>
+      <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
+      <li><a class="nav-link" href="../index.html#docs">Design Docs</a></li>
+      <li><a class="nav-cta" href="../index.html#contact">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<aside class="social-rail" aria-label="Social links">
+  <a class="rail-item" href="https://franky-style.itch.io" target="_blank" rel="noopener">
+    <span class="rail-icon"><img src="https://cdn.simpleicons.org/itchdotio/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='it'"></span>
+    <span class="rail-label">See my work!</span>
+    <span class="sr-only">itch.io</span>
+  </a>
+  <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">
+    <span class="rail-icon"><img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'"></span>
+    <span class="rail-label">Let's connect!</span>
+    <span class="sr-only">LinkedIn</span>
+  </a>
+  <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
+    <span class="rail-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/></svg>
+    </span>
+    <span class="rail-label">Let's talk!</span>
+    <span class="sr-only">Email</span>
+  </a>
+</aside>
+
+<main>
+
+  <!-- TITLE HERO -->
+  <section class="title-hero">
+    <img class="title-bg" src="../assets/img/ai-crystal-hero.jpg" alt="" aria-hidden="true">
+    <div class="title-veil" aria-hidden="true"></div>
+    <div class="title-inner">
+      <h1 class="logo-fallback" style="font-size:clamp(2.4rem,7vw,4.8rem); line-height:1.05;">AI-Assisted Level Design Pipeline</h1>
+      <p class="title-tagline">Redefining the transition from blockout to dressing with Generative AI as a co-creation partner.</p>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="project-hero">
+    <div class="wrap project-hero-grid">
+      <div class="project-intro">
+        <a class="back-link" href="../index.html#docs">Back to design docs</a>
+        <span class="eyebrow">Research / Applied Thesis</span>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem); margin-top:0.5rem;">Overview</h2>
+        <p class="project-years">2025 - 2026</p>
+        <p class="project-lede">This project tackles one of the biggest friction points in game development: the transition between the <strong>technical blockout</strong> (where player metrics and navigation are defined) and the <strong>set dressing</strong> phase.</p>
+        <p class="project-lede">I designed a <strong>co-creation pipeline</strong> that integrates Generative AI directly into the Unreal Engine 5 level design workflow. The goal isn't to let AI do the design for us, but to use it as a high-speed iteration tool that respects the gameplay metrics defined during blockout.</p>
+
+        <h3 class="task-heading">Contribution</h3>
+        <ul class="task-list">
+          <li>Designed and documented a <strong>five-phase AI-assisted pipeline</strong> integrating Claude, ChatGPT, Gemini and Jenkins.</li>
+          <li>Ran a full <strong>A/B production test</strong> comparing two Lyra levels under both workflows.</li>
+          <li>Built four <strong>reusable prompts</strong> validated across genres and visual styles.</li>
+          <li>Delivered an interactive web report with legibility analysis and phase-by-phase breakdown.</li>
+        </ul>
+
+        <div class="project-actions">
+          <a class="btn btn-solid" href="../index.html#docs">See related docs</a>
+          <a class="btn btn-outline" href="../index.html#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="project-media">
+        <div class="media-frame">
+          <img src="../assets/img/ai-cave-final.jpg" alt="Final dressing for the Cave Level, produced under the AI-assisted pipeline.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEADLINE METRICS -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="case-stats">
+        <div class="stat-row">
+          <div class="stat"><span class="num">-33%</span><span class="label">Total tracked time</span></div>
+          <div class="stat"><span class="num">0.88</span><span class="label">Communication specificity</span></div>
+          <div class="stat"><span class="num">8.5<span style="font-size:0.5em;">/10</span></span><span class="label">Legibility score</span></div>
+          <div class="stat"><span class="num">-70%</span><span class="label">Bias mitigation cost</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- THE PROBLEM -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">The Problem</span>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:22ch;">Friction lives between blockout and dressing.</h2>
+      <p class="section-lede" style="max-width:none;">In real production, the level designer understands the functional needs of the space, but communicating how those decisions should translate into a specific visual direction is expensive in both time and coordination.</p>
+
+      <div class="case-media" style="margin-top:2.5rem; background:#F5F2EC; padding:2rem; border-radius:var(--radius);">
+        <img src="../assets/img/ai-traditional-pipeline.jpg" alt="Traditional Lyra level design pipeline: Market Analysis → Top-Down Map → Blockout → Dressing → QA Validation." style="max-width:100%; margin:0 auto; display:block;">
+        <p style="text-align:center; font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); margin-top:1rem; letter-spacing:0.04em;">The traditional five-phase pipeline used on Lyra.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem; margin-top:2.5rem;" class="problem-grid">
+        <div style="padding:1.5rem; border:1px solid var(--surface-line); border-radius:var(--radius);">
+          <h4 style="font-size:1.1rem; color:var(--pine-soft);">3-5</h4>
+          <p style="color:var(--surface-soft); margin-top:0.5rem;">correction cycles per level area between blockout and dressing in the Hills Level baseline.</p>
+        </div>
+        <div style="padding:1.5rem; border:1px solid var(--surface-line); border-radius:var(--radius);">
+          <h4 style="font-size:1.1rem; color:var(--pine-soft);">30%</h4>
+          <p style="color:var(--surface-soft); margin-top:0.5rem;">of written guidelines still caused misinterpretations even with explicit dressing rules in the LDD.</p>
+        </div>
+        <div style="padding:1.5rem; border:1px solid var(--surface-line); border-radius:var(--radius);">
+          <h4 style="font-size:1.1rem; color:var(--pine-soft);">1-3h</h4>
+          <p style="color:var(--surface-soft); margin-top:0.5rem;">to build a single Unreal package for QA, before any actual testing could begin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- INTERACTIVE PIPELINE EXPLORER -->
+  <section id="explorer">
+    <div class="wrap">
+      <span class="eyebrow">The Pipeline</span>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:26ch;">Explore each phase side by side.</h2>
+      <p class="section-lede" style="max-width:none;">Pick a phase to compare the traditional workflow against the AI-assisted one. Every phase kept the designer at the centre; AI intervened only where the bottleneck was communication or materialization, never creative decision-making.</p>
+
+      <div class="pipeline-tabs" role="tablist" aria-label="Pipeline phases">
+        <button class="phase-tab is-active" role="tab" aria-selected="true" data-phase="briefing">
+          <span class="tab-num">01</span>
+          <span class="tab-name">Briefing</span>
+        </button>
+        <button class="phase-tab" role="tab" aria-selected="false" data-phase="topdown">
+          <span class="tab-num">02</span>
+          <span class="tab-name">Top-Down Map</span>
+        </button>
+        <button class="phase-tab" role="tab" aria-selected="false" data-phase="blockout">
+          <span class="tab-num">03</span>
+          <span class="tab-name">Blockout</span>
+        </button>
+        <button class="phase-tab" role="tab" aria-selected="false" data-phase="dressing">
+          <span class="tab-num">04</span>
+          <span class="tab-name">Dressing</span>
+        </button>
+        <button class="phase-tab" role="tab" aria-selected="false" data-phase="qa">
+          <span class="tab-num">05</span>
+          <span class="tab-name">QA</span>
+        </button>
+      </div>
+
+      <!-- Panel: Briefing -->
+      <div class="phase-panel is-active" data-phase="briefing" role="tabpanel">
+        <div class="phase-header">
+          <h3>01 · Briefing</h3>
+          <div class="phase-tools">
+            <span class="tool-chip">Claude</span>
+          </div>
+        </div>
+        <p class="phase-summary">Translate gameplay parameters into a structured visual brief that both design and art can execute without follow-up questions.</p>
+
+        <div class="phase-compare">
+          <div class="compare-card traditional">
+            <span class="compare-tag">Traditional</span>
+            <h4>Unstructured references</h4>
+            <p>Hours on ArtStation, Pinterest and Figma moodboards. Loose visual references that leave gameplay-critical decisions to the artist's interpretation.</p>
+            <div class="compare-metrics">
+              <div><strong>6-8h</strong><span>team time</span></div>
+              <div><strong>0.55</strong><span>specificity ratio</span></div>
+            </div>
+          </div>
+          <div class="compare-card ai">
+            <span class="compare-tag">AI-Assisted</span>
+            <h4>Structured briefing prompt</h4>
+            <p>Claude receives the GDD and level parameters, returns a brief with narrative framing, visual priorities tied to guidance, a color palette justified by function, and a list of elements to suppress.</p>
+            <div class="compare-metrics">
+              <div><strong>&lt;2h</strong><span>team time</span></div>
+              <div><strong>0.88</strong><span>specificity ratio</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-outcome">
+          <span class="outcome-label">Outcome</span>
+          <p>Every visual priority in the brief specifies which guidance technique it serves; every color is justified by its navigation function, not by aesthetics.</p>
+        </div>
+      </div>
+
+      <!-- Panel: Top-Down Map -->
+      <div class="phase-panel" data-phase="topdown" role="tabpanel">
+        <div class="phase-header">
+          <h3>02 · Top-Down Map</h3>
+          <div class="phase-tools">
+            <span class="tool-chip">Claude</span>
+            <span class="tool-chip">HTML output</span>
+          </div>
+        </div>
+        <p class="phase-summary">Turn a dense, designer-only Confluence document into an interactive diagram anyone on the team can read in minutes.</p>
+
+        <div class="phase-compare">
+          <div class="compare-card traditional">
+            <span class="compare-tag">Traditional</span>
+            <h4>Hand-drawn Confluence map</h4>
+            <p>Zone layout, height map, blockout screenshots and progression lines coexist in the same canvas. Extracting the progression logic takes 20-30 minutes of active reading per team member.</p>
+            <div class="compare-metrics">
+              <div><strong>2-6h</strong><span>production</span></div>
+              <div><strong>6.2/10</strong><span>legibility</span></div>
+            </div>
+          </div>
+          <div class="compare-card ai">
+            <span class="compare-tag">AI-Assisted</span>
+            <h4>Interactive HTML diagram</h4>
+            <p>Claude parses the source image, extracts zone hierarchy and connection types, and rebuilds it as a browsable HTML with height-coded lanes, typed transitions and an inline legibility analysis.</p>
+            <div class="compare-metrics">
+              <div><strong>&lt;3h</strong><span>production</span></div>
+              <div><strong>8.5/10</strong><span>legibility</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-outcome">
+          <span class="outcome-label">Outcome</span>
+          <p>Reading time from ~30 minutes to under 10. The auto-analysis also surfaced two design gaps that the original diagram never exposed.</p>
+        </div>
+      </div>
+
+      <!-- Panel: Blockout -->
+      <div class="phase-panel" data-phase="blockout" role="tabpanel">
+        <div class="phase-header">
+          <h3>03 · Blockout & Guidance Validation</h3>
+          <div class="phase-tools">
+            <span class="tool-chip">Claude</span>
+            <span class="tool-chip">Gemini</span>
+          </div>
+        </div>
+        <p class="phase-summary">Construction stays in the engine. What AI changes is the validation loop between iterations, entering as a neutral reader with no prior context about the level.</p>
+
+        <div class="phase-compare">
+          <div class="compare-card traditional">
+            <span class="compare-tag">Traditional</span>
+            <h4>Self-review + external playtest</h4>
+            <p>The designer who built the level is the worst person to evaluate whether it communicates direction. First bias-free reading only arrives at external playtesting, after ~30 hours of committed work.</p>
+            <div class="compare-metrics">
+              <div><strong>12-14h</strong><span>production</span></div>
+              <div><strong>3-4h</strong><span>per rework loop</span></div>
+            </div>
+          </div>
+          <div class="compare-card ai">
+            <span class="compare-tag">AI-Assisted</span>
+            <h4>Compositional analysis in 4 minutes</h4>
+            <p>Claude analyses a blockout screenshot from a pure guidance perspective: dominant focal point, directional vectors, principal affordance, path hierarchy, guidance failures. Then writes a Gemini prompt that turns each failure into a visual correction.</p>
+            <div class="compare-metrics">
+              <div><strong>9-11h</strong><span>production</span></div>
+              <div><strong>4 min</strong><span>per validation</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-outcome">
+          <span class="outcome-label">Outcome</span>
+          <p>Bias-free feedback shifts from external playtesting (after construction) to the blockout phase itself, when corrections are still cheap.</p>
+        </div>
+      </div>
+
+      <!-- Panel: Dressing -->
+      <div class="phase-panel" data-phase="dressing" role="tabpanel">
+        <div class="phase-header">
+          <h3>04 · Assisted Dressing</h3>
+          <div class="phase-tools">
+            <span class="tool-chip">Claude</span>
+            <span class="tool-chip">ChatGPT / Gemini</span>
+          </div>
+        </div>
+        <p class="phase-summary">Give the artist a concrete visual anchor before the first art pass, without commissioning concept art.</p>
+
+        <div class="phase-compare">
+          <div class="compare-card traditional">
+            <span class="compare-tag">Traditional</span>
+            <h4>Concept art or moodboards</h4>
+            <p>Placeholder self-dressing pass by the level designer (4h), art bible alignment meeting (2h), first art pass (4h). Multiple correction cycles because the conversation is anchored to written descriptions.</p>
+            <div class="compare-metrics">
+              <div><strong>12h</strong><span>production</span></div>
+              <div><strong>4-8h</strong><span>concept art per beat</span></div>
+            </div>
+          </div>
+          <div class="compare-card ai">
+            <span class="compare-tag">AI-Assisted</span>
+            <h4>Image-to-image blockout dressing</h4>
+            <p>ChatGPT or Gemini take a blockout screenshot and return a dressed version in the target visual style, preserving geometry, sightlines and the position of the principal affordance.</p>
+            <div class="compare-metrics">
+              <div><strong>7-8h</strong><span>production</span></div>
+              <div><strong>10 min</strong><span>per variant</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-outcome">
+          <span class="outcome-label">Outcome</span>
+          <p>From one variant per session to 5-8. The AI-generated image is not the final dressing; it's a shared visual artefact that anchors the conversation between designer and artist from the start.</p>
+        </div>
+      </div>
+
+      <!-- Panel: QA -->
+      <div class="phase-panel" data-phase="qa" role="tabpanel">
+        <div class="phase-header">
+          <h3>05 · QA Validation</h3>
+          <div class="phase-tools">
+            <span class="tool-chip">Jenkins</span>
+            <span class="tool-chip">Custom Dashboard</span>
+          </div>
+        </div>
+        <p class="phase-summary">Not generative AI, but the automation strategy that pairs with it: remove the compilation and distribution overhead from every QA cycle.</p>
+
+        <div class="phase-compare">
+          <div class="compare-card traditional">
+            <span class="compare-tag">Traditional</span>
+            <h4>Manual builds + Drive uploads</h4>
+            <p>1-3 hours per build in Unreal, 30 minutes per upload to Google Drive, plus the failed builds that force a full restart. The person triggering the build cannot work on the project during that time.</p>
+            <div class="compare-metrics">
+              <div><strong>1-3h</strong><span>per build</span></div>
+              <div><strong>+30 min</strong><span>distribution</span></div>
+            </div>
+          </div>
+          <div class="compare-card ai">
+            <span class="compare-tag">Automated</span>
+            <h4>Jenkins nightly builds + Dashboard</h4>
+            <p>Every night Jenkins pulls from Perforce, compiles, runs the automated functional tests and publishes the build. A web dashboard exposes the state of the project at any moment. 30 builds delivered with 87% success rate during production.</p>
+            <div class="compare-metrics">
+              <div><strong>~7 min</strong><span>full pipeline</span></div>
+              <div><strong>0 min</strong><span>manual work</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-outcome">
+          <span class="outcome-label">Outcome</span>
+          <p>Manual overhead drops to negligible. QA becomes a web page consultation instead of an active cost per sprint.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- A/B CASE STUDY -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Applied Case Study</span>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:26ch;">A/B production test: Hills vs Cave.</h2>
+      <p class="section-lede" style="max-width:none;">Two levels of Lyra, developed by the same student team, on the same engine version, with the same target audience and the same core mechanics. One under the traditional pipeline, one under the AI-assisted pipeline. Different levels, controlled variables, honest limitations.</p>
+
+      <div class="ab-grid">
+        <div class="ab-card hills">
+          <div class="ab-media">
+            <img src="../assets/img/ai-hills-final.jpg" alt="Final dressing for the Hills Level.">
+          </div>
+          <div class="ab-body">
+            <span class="ab-tag">Control · Traditional Pipeline</span>
+            <h4>Hills Level</h4>
+            <ul class="ab-metrics">
+              <li><span class="ab-metric-num">~36h</span><span class="ab-metric-label">Total tracked time</span></li>
+              <li><span class="ab-metric-num">9+</span><span class="ab-metric-label">Iterations</span></li>
+              <li><span class="ab-metric-num">0.55</span><span class="ab-metric-label">Specificity ratio</span></li>
+              <li><span class="ab-metric-num">High</span><span class="ab-metric-label">QA overhead</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ab-card cave">
+          <div class="ab-media">
+            <img src="../assets/img/ai-cave-final.jpg" alt="Final dressing for the Cave Level.">
+          </div>
+          <div class="ab-body">
+            <span class="ab-tag">Experimental · AI-Assisted</span>
+            <h4>Cave Level</h4>
+            <ul class="ab-metrics">
+              <li><span class="ab-metric-num">~24h</span><span class="ab-metric-label">Total tracked time</span></li>
+              <li><span class="ab-metric-num">8</span><span class="ab-metric-label">Iterations</span></li>
+              <li><span class="ab-metric-num">0.88</span><span class="ab-metric-label">Specificity ratio</span></li>
+              <li><span class="ab-metric-num">Negligible</span><span class="ab-metric-label">QA overhead</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-media" style="margin-top:3rem;">
+        <img src="../assets/img/ai-hoursphase-chart.jpg" alt="Bar chart comparing hours per pipeline phase between Hills and Cave levels.">
+        <p style="text-align:center; font-family:var(--font-mono); font-size:0.78rem; color:var(--surface-soft); margin-top:0.75rem; letter-spacing:0.04em;">Hours per phase · Hills Level vs Cave Level.</p>
+      </div>
+
+      <div class="case-media" style="margin-top:2rem;">
+        <img src="../assets/img/ai-testab-summary.jpg" alt="Summary panel of the A/B production test with headline metrics.">
+        <p style="text-align:center; font-family:var(--font-mono); font-size:0.78rem; color:var(--surface-soft); margin-top:0.75rem; letter-spacing:0.04em;">Interactive A/B summary panel produced as a companion deliverable.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- KEY FINDINGS -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Findings</span>
+      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:22ch;">Three learnings from the production.</h2>
+
+      <div class="findings-grid">
+        <div class="finding">
+          <span class="finding-num">01</span>
+          <h4>AI helps where the bottleneck is communication, not creation.</h4>
+          <p>The phases that crossed the 40% reduction threshold by a wide margin were the ones where the manual cost was time spent organising and aligning information across roles. AI underperformed where the work itself was construction in the engine.</p>
+        </div>
+        <div class="finding">
+          <span class="finding-num">02</span>
+          <h4>AI introduces verification work that scales with output volume.</h4>
+          <p>The dressing prompt returned references in 10 minutes that would have required hours of concept art, but each generation still needed a manual review pass to catch decorative elements introduced beyond the blockout geometry.</p>
+        </div>
+        <div class="finding">
+          <span class="finding-num">03</span>
+          <h4>Bias mitigation timing matters more than bias elimination.</h4>
+          <p>The designer's familiarity bias is a structural condition of the role. AI can't eliminate it, but it can shift the moment at which the first bias-free signal enters the loop, from external playtesting to the blockout phase itself.</p>
+        </div>
+      </div>
+
+      <div class="honest-caveat">
+        <span class="eyebrow" style="color:var(--pine-soft);">Honest reading</span>
+        <p>The 33% reduction reflects this team, on these levels, with this scope. It doesn't generalise to a universal claim. The defensible finding is narrower and more useful: the pipeline reliably reduces the cost of communication-heavy phases and eliminates QA distribution overhead, but does not meaningfully change the construction work itself, and introduces verification costs that scale with the volume of AI output. Used in that frame, it delivers measurable gains.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- FUTURE WORK / PROJECT DETAILS -->
+  <section>
+    <div class="wrap" style="display:grid; grid-template-columns:1fr; gap:3rem;" id="details-grid">
+      <div>
+        <span class="eyebrow">Future Work</span>
+        <h3 style="font-size:clamp(1.4rem,2.8vw,1.8rem); margin-top:0.5rem;">Where this could go next.</h3>
+        <ul class="task-list" style="max-width:none; margin-top:1.5rem;">
+          <li>Replicating the Hills Level under the AI pipeline to <strong>neutralise the level layout</strong> as a confounding variable.</li>
+          <li>Extending the study to <strong>other genres and visual styles</strong> (horror, cyberpunk, hyper-realistic).</li>
+          <li>Adapting the pipeline to <strong>adjacent design disciplines</strong>: narrative, sound, encounter, combat balancing.</li>
+          <li>Engine-side integration through the <strong>Model Context Protocol</strong> so Claude reads scenes and blueprints directly.</li>
+          <li>Replicating the A/B test with a <strong>professional studio</strong> where the traditional baseline is harder to beat.</li>
+        </ul>
+      </div>
+
+      <div>
+        <span class="eyebrow">Project Details</span>
+        <h3 style="font-size:clamp(1.4rem,2.8vw,1.8rem); margin-top:0.5rem;">At a glance.</h3>
+        <ul class="detail-list">
+          <li><span>Type</span><strong>Applied thesis · Research</strong></li>
+          <li><span>Case study</span><strong>Lyra · 3D puzzle-adventure</strong></li>
+          <li><span>Engine</span><strong>Unreal Engine 5.6.1</strong></li>
+          <li><span>AI tools</span><strong>Claude, ChatGPT, Gemini</strong></li>
+          <li><span>Automation</span><strong>Jenkins, custom dashboard</strong></li>
+          <li><span>Coordination</span><strong>Confluence, Jira, Perforce</strong></li>
+          <li><span>Year</span><strong>2025 - 2026</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="wrap footer-contact">
+    <div>Email<a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a></div>
+    <div>Location<a>Barcelona area, Spain</a></div>
+    <div>Availability<a>Open to junior roles</a></div>
+  </div>
+  <div class="wrap footer-columns">
+    <div>
+      <h5>Francesc Borràs</h5>
+      <p>Game &amp; Level Designer based near Barcelona. Building playable, testable design across published, personal and academic projects.</p>
+    </div>
+    <div>
+      <h5>Projects</h5>
+      <ul>
+        <li><a href="denshattack.html">Denshattack!</a></li>
+        <li><a href="lyra.html">Lyra</a></li>
+        <li><a href="tumble-up.html">Tumble Up</a></li>
+        <li><a href="chrono-fish.html">Chrono Fish</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Portfolio</h5>
+      <ul>
+        <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub Repositories</a></li>
+        <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li>
+        <li><a href="../assets/Francesc_Borras_Lleida_CV.pdf">CV</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Social Networks</h5>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
+        <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom-bar">
+    <div class="foot-nav">
+      <a href="../index.html#top">HOME</a>
+      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html#experience">EXPERIENCE</a>
+      <a href="../index.html#projects">PROJECTS</a>
+      <a href="../index.html#contact">CONTACT</a>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a>
+      <a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div>Copyright © 2026 Francesc Borràs Lleida</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+// Pipeline explorer tabs
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.phase-tab');
+  const panels = document.querySelectorAll('.phase-panel');
+
+  function activate(phase) {
+    tabs.forEach(t => {
+      const on = t.dataset.phase === phase;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(p => {
+      p.classList.toggle('is-active', p.dataset.phase === phase);
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activate(tab.dataset.phase));
+    tab.addEventListener('keydown', (e) => {
+      const list = Array.from(tabs);
+      const i = list.indexOf(document.activeElement);
+      if (i < 0) return;
+      let next = i;
+      if (e.key === 'ArrowRight') next = (i + 1) % list.length;
+      else if (e.key === 'ArrowLeft') next = (i - 1 + list.length) % list.length;
+      else return;
+      e.preventDefault();
+      list[next].focus();
+      activate(list[next].dataset.phase);
+    });
+  });
+});
+</script>
+</body>
+</html>
