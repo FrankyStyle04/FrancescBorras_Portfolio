@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hills Level — Production Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #0d1117;
+    --bg-1: #161b22;
+    --bg-2: #1e242d;
+    --line: #2a3340;
+    --text-1: #e6edf3;
+    --text-2: #9da7b3;
+    --text-3: #6b7585;
+    --accent: #7ee8c8;
+    --accent-soft: rgba(126, 232, 200, 0.12);
+    --warn: #ffb86b;
+    --warn-soft: rgba(255, 184, 107, 0.14);
+    --bad: #ff7a85;
+    --bad-soft: rgba(255, 122, 133, 0.14);
+    --neutral: #8aa9ff;
+    --neutral-soft: rgba(138, 169, 255, 0.14);
+    --purple: #c39bff;
+    --purple-soft: rgba(195, 155, 255, 0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-0);
+    color: var(--text-1);
+    min-height: 100vh;
+    padding: 40px 24px;
+    line-height: 1.55;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    color: var(--text-2);
+    font-size: 15px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (max-width: 980px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .timeline-card {
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 36px 32px 28px;
+  }
+
+  .timeline-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-2);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 32px;
+  }
+
+  .timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 16px 18px;
+  }
+
+  .timeline-track {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 50%;
+    height: 2px;
+    background: var(--line);
+    z-index: 0;
+  }
+
+  .phase {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .phase:hover { transform: translateY(-2px); }
+
+  .phase-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    border: 2px solid var(--line);
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .phase-dot::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+
+  .phase.active .phase-dot {
+    background: var(--phase-color);
+    border-color: var(--phase-color);
+    box-shadow: 0 0 0 4px var(--phase-soft);
+  }
+
+  .phase.active .phase-dot::after {
+    border-color: var(--phase-soft);
+  }
+
+  .phase-label {
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-3);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: color 0.25s ease;
+    max-width: 110px;
+  }
+
+  .phase.active .phase-label { color: var(--text-1); }
+
+  .phase-hours {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--text-3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .phase.active .phase-hours { color: var(--phase-color); font-weight: 600; }
+
+  .totals-row {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat {
+    text-align: center;
+    padding: 10px 6px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* Detail panel */
+  .detail-card {
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    position: sticky;
+    top: 24px;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--phase-soft);
+    color: var(--phase-color);
+    width: fit-content;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .detail-tag .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--phase-color);
+  }
+
+  .detail-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .detail-desc {
+    color: var(--text-2);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .detail-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .metric {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 14px;
+  }
+
+  .metric-label {
+    font-size: 10px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .metric-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-1);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .breakdown-title {
+    font-size: 11px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+
+  .breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    padding: 8px 12px;
+    background: var(--bg-2);
+    border-radius: 8px;
+    border-left: 3px solid var(--phase-color);
+  }
+
+  .breakdown-name { color: var(--text-2); }
+  .breakdown-time { color: var(--text-1); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .friction {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .friction-label {
+    font-size: 10px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+
+  .friction-text {
+    font-size: 13px;
+    color: var(--text-1);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    color: var(--text-3);
+    font-size: 12px;
+  }
+
+  .footer span { color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="eyebrow">Lyra · Hills Level Case Study</div>
+      <h1>Traditional Pipeline Production Timeline</h1>
+      <p class="subtitle">Hover over any phase to inspect its production cost, iterations, and friction points reconstructed from Confluence and OBS recordings.</p>
+    </header>
+
+    <div class="layout">
+      <div class="timeline-card">
+        <div class="timeline-title">Pipeline Phases</div>
+        <div class="timeline">
+          <div class="timeline-track"></div>
+          <div class="phase active" data-id="research" style="--phase-color: #8aa9ff; --phase-soft: rgba(138,169,255,0.18);">
+            <div class="phase-dot"></div>
+            <div class="phase-label">Research</div>
+            <div class="phase-hours">6–8 h</div>
+          </div>
+          <div class="phase" data-id="topdown" style="--phase-color: #c39bff; --phase-soft: rgba(195,155,255,0.18);">
+            <div class="phase-dot"></div>
+            <div class="phase-label">Top-down</div>
+            <div class="phase-hours">2–6 h</div>
+          </div>
+          <div class="phase" data-id="blockout" style="--phase-color: #7ee8c8; --phase-soft: rgba(126,232,200,0.18);">
+            <div class="phase-dot"></div>
+            <div class="phase-label">Blockout</div>
+            <div class="phase-hours">12–14 h</div>
+          </div>
+          <div class="phase" data-id="dressing" style="--phase-color: #ffb86b; --phase-soft: rgba(255,184,107,0.18);">
+            <div class="phase-dot"></div>
+            <div class="phase-label">Dressing</div>
+            <div class="phase-hours">12 h</div>
+          </div>
+          <div class="phase" data-id="qa" style="--phase-color: #ff7a85; --phase-soft: rgba(255,122,133,0.18);">
+            <div class="phase-dot"></div>
+            <div class="phase-label">QA</div>
+            <div class="phase-hours">High</div>
+          </div>
+        </div>
+
+        <div class="totals-row">
+          <div class="stat">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Phases</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">9+</div>
+            <div class="stat-label">Iterations</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">~36 h</div>
+            <div class="stat-label">Tracked</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">+QA</div>
+            <div class="stat-label">Untracked</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-card" id="detailPanel" style="--phase-color: #8aa9ff; --phase-soft: rgba(138,169,255,0.18);">
+        <div class="detail-tag"><span class="dot"></span><span id="dTag">Pre-production</span></div>
+        <div class="detail-name" id="dName">Competition Research</div>
+        <div class="detail-desc" id="dDesc">Reference search, Figma moodboards, brainstorming sessions, and art direction alignment between the level designer and the artist.</div>
+
+        <div class="detail-metrics">
+          <div class="metric">
+            <div class="metric-label">Total Hours</div>
+            <div class="metric-value" id="dHours">6–8 h</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Iterations</div>
+            <div class="metric-value" id="dIter">1 (extended)</div>
+          </div>
+        </div>
+
+        <div class="breakdown-title">Sub-tasks</div>
+        <div class="breakdown" id="dBreakdown">
+        </div>
+
+        <div class="friction">
+          <div class="friction-label">Friction Point</div>
+          <div class="friction-text" id="dFriction">Convergence on a shared visual direction took several rounds of discussion that did not produce design output.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Built with <span>Claude</span> · AI-assisted documentation tool · Section 4.3.1
+    </div>
+  </div>
+
+<script>
+  const phases = {
+    research: {
+      tag: 'Pre-production',
+      name: 'Competition Research',
+      desc: 'Reference search, Figma moodboards, brainstorming sessions, and art direction alignment between the level designer and the artist.',
+      hours: '6–8 h',
+      iter: '1 extended',
+      breakdown: [
+        ['Reference search (ArtStation, Pinterest)', '2 h'],
+        ['Figma moodboard assembly', '1.5 h'],
+        ['Brainstorming on Discord', '1.5 h'],
+        ['Art direction alignment meeting', '2 h']
+      ],
+      friction: 'Convergence on a shared visual direction took several rounds because the designer and the artist prioritised different perspectives.'
+    },
+    topdown: {
+      tag: 'Spatial Planning',
+      name: 'Top-down Map',
+      desc: 'Two-dimensional layout of routes, blockers, puzzle locations, and key decision points, produced with a D&D map editor.',
+      hours: '2–6 h',
+      iter: '2–3',
+      breakdown: [
+        ['Initial route layout', '1.5 h'],
+        ['Puzzle and blocker placement', '1.5 h'],
+        ['Spatial proportion refinement', '1.5 h']
+      ],
+      friction: 'The resulting document was difficult to read for team members who did not participate in its creation, requiring extended walkthroughs.'
+    },
+    blockout: {
+      tag: 'Production',
+      name: 'Blockout',
+      desc: 'Three sub-phases that move the level from a rough geometric base to a fully testable space with guidance and puzzle mechanics in place.',
+      hours: '12–14 h',
+      iter: '3 main + 2–3 reworks',
+      breakdown: [
+        ['Cube grid base (Modeling Tool)', '2.5 h'],
+        ['Landscape sculpting pass', '2.5 h'],
+        ['Guidance + puzzle integration', '2 h'],
+        ['Post-testing reworks', '6 h']
+      ],
+      friction: 'Reworks required the designer to manually identify the source of each problem after each playtest, with no external validation in the loop.'
+    },
+    dressing: {
+      tag: 'Visual Direction',
+      name: 'Dressing',
+      desc: 'Initial placeholder pass by the level designer, followed by an art bible alignment meeting and two art passes by the artist.',
+      hours: '12 h',
+      iter: '3',
+      breakdown: [
+        ['Self-dressing placeholder pass', '4 h'],
+        ['Art bible alignment meeting', '2 h'],
+        ['First art pass by artist', '4 h'],
+        ['Secondary corrections (water, grass, trees)', '2 h']
+      ],
+      friction: 'The first art pass could not begin until the alignment meeting closed the art bible, blocking the artist for several days.'
+    },
+    qa: {
+      tag: 'Validation',
+      name: 'QA Validation',
+      desc: 'Manual build generation, distribution through Google Drive, and recurring blocking errors that forced full restarts of the build process.',
+      hours: 'High (uncounted)',
+      iter: 'Continuous',
+      breakdown: [
+        ['Manual Unreal builds', '1–3 h each'],
+        ['Build error recovery', 'Variable'],
+        ['Google Drive upload (~1.5 GB)', '~30 min each'],
+        ['Internal playtesting sessions', 'Variable']
+      ],
+      friction: 'The total cost is impossible to estimate accurately, which is itself the finding: the traditional QA workflow made time invisible.'
+    }
+  };
+
+  const dots = document.querySelectorAll('.phase');
+  const panel = document.getElementById('detailPanel');
+  const dTag = document.getElementById('dTag');
+  const dName = document.getElementById('dName');
+  const dDesc = document.getElementById('dDesc');
+  const dHours = document.getElementById('dHours');
+  const dIter = document.getElementById('dIter');
+  const dBreakdown = document.getElementById('dBreakdown');
+  const dFriction = document.getElementById('dFriction');
+
+  function update(id) {
+    const p = phases[id];
+    if (!p) return;
+
+    const target = document.querySelector(`.phase[data-id="${id}"]`);
+    const color = target.style.getPropertyValue('--phase-color');
+    const soft = target.style.getPropertyValue('--phase-soft');
+    panel.style.setProperty('--phase-color', color);
+    panel.style.setProperty('--phase-soft', soft);
+
+    dots.forEach(d => d.classList.remove('active'));
+    target.classList.add('active');
+
+    dTag.textContent = p.tag;
+    dName.textContent = p.name;
+    dDesc.textContent = p.desc;
+    dHours.textContent = p.hours;
+    dIter.textContent = p.iter;
+    dFriction.textContent = p.friction;
+
+    dBreakdown.innerHTML = '';
+    p.breakdown.forEach(([name, time]) => {
+      const item = document.createElement('div');
+      item.className = 'breakdown-item';
+      item.innerHTML = `<span class="breakdown-name">${name}</span><span class="breakdown-time">${time}</span>`;
+      dBreakdown.appendChild(item);
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('mouseenter', () => update(dot.dataset.id));
+    dot.addEventListener('click', () => update(dot.dataset.id));
+  });
+
+  update('research');
+</script>
+</body>
+</html>
