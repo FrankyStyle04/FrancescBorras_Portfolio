@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Denshattack! - Case Study | Francesc Borràs Lleida</title>
+<title data-i18n-title="denshattack.page_title">Denshattack! - Case Study | Francesc Borràs Lleida</title>
 <meta name="description" content="QA and Game Design Assistant work on Denshattack!, an arcade train-flipping platformer by Undercoders, published by Fireshine Games.">
 <meta name="theme-color" content="#0F1316">
 <meta property="og:type" content="article">
@@ -16,20 +16,39 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=13">
+<link rel="stylesheet" href="../css/style.css?v=15">
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('fb-theme');
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    var l = localStorage.getItem('fb-lang');
+    if (l === 'es' || l === 'cat') document.documentElement.setAttribute('lang', l === 'cat' ? 'ca' : 'es');
+  } catch(e){}
+})();
+</script>
 </head>
 <body class="page-enter has-hero">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
     <a href="../index.html" class="brand">FrancescBorràs<span>Portfolio</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" data-i18n="common.nav_menu">Menu</button>
     <ul id="nav-list">
-      <li><a class="nav-link" href="../index.html#about">About</a></li>
-      <li><a class="nav-link" href="../index.html#experience">Experience</a></li>
-      <li><a class="nav-link" href="../index.html#projects">Projects</a></li>
-      <li><a class="nav-link" href="../index.html#docs">Design Docs</a></li>
-      <li><a class="nav-cta" href="../index.html#contact">Get in touch</a></li>
+      <li><a class="nav-link" href="../index.html#about" data-i18n="common.nav_about">About</a></li>
+      <li><a class="nav-link" href="../index.html#experience" data-i18n="common.nav_experience">Experience</a></li>
+      <li><a class="nav-link" href="../index.html#projects" data-i18n="common.nav_projects">Projects</a></li>
+      <li><a class="nav-link" href="../index.html#docs" data-i18n="common.nav_docs">Design Docs</a></li>
+      <li class="nav-toggles">
+        <button type="button" class="nav-icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM4.22 4.22a1 1 0 0 1 1.42 0l1.42 1.42a1 1 0 1 1-1.42 1.42L4.22 5.64a1 1 0 0 1 0-1.42zM16.95 16.95a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 1 1-1.42 1.42l-1.41-1.42a1 1 0 0 1 0-1.42zM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM4.22 19.78a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.42 1.41l-1.42 1.42a1 1 0 0 1-1.42 0zM16.95 7.05a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.41 1.41l-1.41 1.42a1 1 0 0 1-1.42 0z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+        </button>
+        <button type="button" class="nav-icon-btn nav-lang-btn" id="lang-toggle" aria-label="Change language" title="Change language">
+          <span class="lang-label">EN</span>
+        </button>
+      </li>
+      <li><a class="nav-cta" href="../index.html#contact" data-i18n="common.nav_cta">Get in touch</a></li>
     </ul>
   </div>
 </nav>
@@ -39,14 +58,14 @@
     <span class="rail-icon">
       <img src="https://cdn.simpleicons.org/itchdotio/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='it'">
     </span>
-    <span class="rail-label">See my work!</span>
+    <span class="rail-label" data-i18n="common.rail_itch">See my work!</span>
     <span class="sr-only">itch.io</span>
   </a>
   <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">
     <span class="rail-icon">
       <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
     </span>
-    <span class="rail-label">Let's connect!</span>
+    <span class="rail-label" data-i18n="common.rail_linkedin">Let's connect!</span>
     <span class="sr-only">LinkedIn</span>
   </a>
   <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
@@ -55,7 +74,7 @@
         <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/>
       </svg>
     </span>
-    <span class="rail-label">Let's talk!</span>
+    <span class="rail-label" data-i18n="common.rail_email">Let's talk!</span>
     <span class="sr-only">Email</span>
   </a>
 </aside>
@@ -67,7 +86,7 @@
     <div class="title-inner">
       <img class="game-logo" src="../assets/img/logo-denshattack.png" alt="Denshattack! logo"
            onerror="this.replaceWith(Object.assign(document.createElement('h1'),{className:'logo-fallback',textContent:'Denshattack!'}))">
-      <p class="title-tagline">Flip, trick and grind through a neon Japan.</p>
+      <p class="title-tagline" data-i18n="denshattack.tagline">Flip, trick and grind through a neon Japan.</p>
       <div class="store-links">
           <a class="store-link" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener" aria-label="Steam">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.98 2a10 10 0 0 0-9.96 9.02l5.36 2.22a2.83 2.83 0 0 1 1.6-.5h.14l2.38-3.45v-.05a3.77 3.77 0 1 1 3.77 3.78h-.09l-3.4 2.42v.12a2.84 2.84 0 0 1-5.62.55l-3.83-1.59A10 10 0 1 0 11.98 2Zm-4.8 13.17.9.38a2.15 2.15 0 1 0 1.2-2.9l.94.4a1.58 1.58 0 1 1-1.22 2.9l-1.83-.78Zm10.6-5.85a2.51 2.51 0 1 0-5.02 0 2.51 2.51 0 0 0 5.02 0Zm-4.39 0a1.89 1.89 0 1 1 3.77 0 1.89 1.89 0 0 1-3.77 0Z"/></svg>
@@ -79,24 +98,24 @@
   <section class="project-hero">
     <div class="wrap project-hero-grid">
       <div class="project-intro">
-        <a class="back-link" href="../index.html#experience">Back to work</a>
-        <span class="eyebrow">Arcade Platformer / Unreal Engine 5</span>
+        <a class="back-link" href="../index.html#experience" data-i18n="common.btn_back_to_work">Back to work</a>
+        <span class="eyebrow" data-i18n="denshattack.eyebrow">Arcade Platformer / Unreal Engine 5</span>
         <h1>Denshattack!</h1>
-        <p class="project-years">2025 - 2026</p>
-        <p class="project-lede">Denshattack! is an <strong>arcade train-flipping platformer</strong> published by <strong>Fireshine Games</strong>.</p>
-        <p class="project-lede">I worked as <strong>QA and Game Design Assistant</strong>, balancing progression across the whole game and owning the design documentation.</p>
+        <p class="project-years" data-i18n="denshattack.years">2025 - 2026</p>
+        <p class="project-lede" data-i18n="denshattack.lede1">Denshattack! is an <strong>arcade train-flipping platformer</strong> published by <strong>Fireshine Games</strong>.</p>
+        <p class="project-lede" data-i18n="denshattack.lede2">I worked as <strong>QA and Game Design Assistant</strong>, balancing progression across the whole game and owning the design documentation.</p>
 
-        <h3 class="task-heading">Task Overview</h3>
+        <h3 class="task-heading" data-i18n="common.task_overview">Task Overview</h3>
         <ul class="task-list">
-            <li>Balanced <strong>progression and economy</strong> across 67 handcrafted levels.</li>
-            <li>Authored <strong>6 Game Design Documents</strong> covering systems and implementation.</li>
-            <li>Validated <strong>level flow and difficulty</strong> through structured playtesting.</li>
-            <li>Maintained system documentation in <strong>Confluence</strong> for cross-team work.</li>
+            <li data-i18n="denshattack.task1">Balanced <strong>progression and economy</strong> across 67 handcrafted levels.</li>
+            <li data-i18n="denshattack.task2">Authored <strong>6 Game Design Documents</strong> covering systems and implementation.</li>
+            <li data-i18n="denshattack.task3">Validated <strong>level flow and difficulty</strong> through structured playtesting.</li>
+            <li data-i18n="denshattack.task4">Maintained system documentation in <strong>Confluence</strong> for cross-team work.</li>
         </ul>
 
         <div class="project-actions">
-          <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener">View on Steam</a>
-          <a class="btn btn-outline" href="../index.html#experience">More projects</a>
+          <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener" data-i18n="denshattack.btn_steam">View on Steam</a>
+          <a class="btn btn-outline" href="../index.html#experience" data-i18n="common.btn_more_projects">More projects</a>
         </div>
       </div>
 
@@ -106,7 +125,7 @@
                   aria-label="Play the Denshattack! trailer">
             <img src="../assets/img/denshattack-01.jpg" alt="" loading="lazy">
             <span class="play-badge" aria-hidden="true"></span>
-            <span class="play-label">Watch trailer</span>
+            <span class="play-label" data-i18n="common.btn_watch_trailer">Watch trailer</span>
           </button>
           <noscript>
             <a href="https://www.youtube.com/watch?v=o_Xmv9eAIZA" target="_blank" rel="noopener">Watch the trailer on YouTube</a>
@@ -124,44 +143,44 @@
 
     <div class="wrap contrib-grid">
       <div class="contrib-text">
-      <h2>My Contributions</h2>
-      <p>My job had to survive the jump from documentation to real implementation, not just read well in a PDF. That meant staying close to both the design intent and the day-to-day production reality of a shipping project.</p>
+      <h2 data-i18n="common.contribs_title">My Contributions</h2>
+      <p data-i18n="denshattack.contrib_intro">My job had to survive the jump from documentation to real implementation, not just read well in a PDF. That meant staying close to both the design intent and the day-to-day production reality of a shipping project.</p>
 
       <ul class="contribution-list">
         <li>
-          <span class="lead">Progression and economy balance</span>
-          Balanced <strong>67 handcrafted levels</strong>, tuning the unlock pace in Excel and Google Sheets so difficulty and rewards escalated at a rate that felt earned rather than grindy.
+          <span class="lead" data-i18n="denshattack.contrib1_lead">Progression and economy balance</span>
+          <span data-i18n="denshattack.contrib1_body">Balanced <strong>67 handcrafted levels</strong>, tuning the unlock pace in Excel and Google Sheets so difficulty and rewards escalated at a rate that felt earned rather than grindy.</span>
         </li>
         <li>
-          <span class="lead">Design documentation</span>
-          Authored <strong>6 comprehensive Game Design Documents</strong> covering gameplay systems, progression logic and implementation requirements for a multidisciplinary team.
+          <span class="lead" data-i18n="denshattack.contrib2_lead">Design documentation</span>
+          <span data-i18n="denshattack.contrib2_body">Authored <strong>6 comprehensive Game Design Documents</strong> covering gameplay systems, progression logic and implementation requirements for a multidisciplinary team.</span>
         </li>
         <li>
-          <span class="lead">Living documentation in Confluence</span>
-          Kept system documentation current so designers, programmers and QA could all work from the same source of truth.
+          <span class="lead" data-i18n="denshattack.contrib3_lead">Living documentation in Confluence</span>
+          <span data-i18n="denshattack.contrib3_body">Kept system documentation current so designers, programmers and QA could all work from the same source of truth.</span>
         </li>
         <li>
-          <span class="lead">Gameplay feature support</span>
-          Helped design and refine features alongside designers and programmers, keeping the player experience aligned with project goals.
+          <span class="lead" data-i18n="denshattack.contrib4_lead">Gameplay feature support</span>
+          <span data-i18n="denshattack.contrib4_body">Helped design and refine features alongside designers and programmers, keeping the player experience aligned with project goals.</span>
         </li>
         <li>
-          <span class="lead">QA and playtest validation</span>
-          Validated level flow and difficulty balance through structured internal playtesting, translating raw feedback into concrete design changes.
+          <span class="lead" data-i18n="denshattack.contrib5_lead">QA and playtest validation</span>
+          <span data-i18n="denshattack.contrib5_body">Validated level flow and difficulty balance through structured internal playtesting, translating raw feedback into concrete design changes.</span>
         </li>
       </ul>
 
 <div class="case-stats">
         <div class="stat-row">
-          <div class="stat reveal"><span class="num" data-count="67">0</span><span class="label">handcrafted levels balanced</span></div>
-          <div class="stat reveal"><span class="num" data-count="6">0</span><span class="label">Game Design Documents authored</span></div>
+          <div class="stat reveal"><span class="num" data-count="67">0</span><span class="label" data-i18n="denshattack.stat1_label">handcrafted levels balanced</span></div>
+          <div class="stat reveal"><span class="num" data-count="6">0</span><span class="label" data-i18n="denshattack.stat2_label">Game Design Documents authored</span></div>
         </div>
       </div>
 
-      <h2>What I learned</h2>
-      <p>Working at the intersection of design and QA meant every balance change I proposed had to be re-tested by hand before it could ship. That discipline shaped how I document changes on every project since.</p>
+      <h2 data-i18n="common.learned_title">What I learned</h2>
+      <p data-i18n="denshattack.learned_body">Working at the intersection of design and QA meant every balance change I proposed had to be re-tested by hand before it could ship. That discipline shaped how I document changes on every project since.</p>
 
       <div class="case-cta">
-        <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener">View on Steam</a>
+        <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener" data-i18n="denshattack.btn_steam">View on Steam</a>
         <a class="btn btn-outline" href="../index.html#experience">More projects</a>
       </div>
     </div>
@@ -196,16 +215,16 @@
 
 <footer class="site-footer" id="contact">
   <div class="wrap footer-contact">
-    <div>LOCATION<a href="https://www.google.com/maps/search/Vilanova+i+la+Geltru" target="_blank" rel="noopener">Vilanova i la Geltrú, Barcelona</a></div>
-    <div>EMAIL<a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a></div>
+    <div><span data-i18n="common.footer_location">LOCATION</span><a href="https://www.google.com/maps/search/Vilanova+i+la+Geltru" target="_blank" rel="noopener">Vilanova i la Geltrú, Barcelona</a></div>
+    <div><span data-i18n="common.footer_email">EMAIL</span><a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a></div>
   </div>
   <div class="wrap footer-columns">
     <div>
-      <h5>About Me</h5>
+      <h5 data-i18n="common.footer_about_title">About Me</h5>
       <p>Game Designer with hands-on experience in gameplay systems, level design and progression balancing. Currently looking for my first full-time role in the industry.</p>
     </div>
     <div>
-      <h5>Latest Projects</h5>
+      <h5 data-i18n="common.footer_projects">Latest Projects</h5>
       <ul>
         <li><a href="denshattack.html">Denshattack!</a></li>
         <li><a href="lyra.html">Lyra</a></li>
@@ -214,15 +233,15 @@
       </ul>
     </div>
     <div>
-      <h5>Portfolio</h5>
+      <h5 data-i18n="common.footer_portfolio">Portfolio</h5>
       <ul>
         <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub Repositories</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li>
-        <li><a href="../assets/Francesc_Borras_Lleida_CV.pdf">CV</a></li>
+        <li><a href="../assets/Francesc_Borras_Lleida_CV.pdf" data-i18n="common.footer_cv">CV</a></li>
       </ul>
     </div>
     <div>
-      <h5>Social Networks</h5>
+      <h5 data-i18n="common.footer_socials">Social Networks</h5>
       <ul>
         <li><a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
@@ -232,18 +251,18 @@
   </div>
   <div class="wrap footer-bottom-bar">
     <div class="foot-nav">
-      <a href="../index.html#top">HOME</a>
-      <a href="../index.html#about">ABOUT</a>
-      <a href="../index.html#experience">EXPERIENCE</a>
-      <a href="../index.html#projects">PROJECTS</a>
-      <a href="../index.html#contact">CONTACT</a>
+      <a href="../index.html#top" data-i18n="common.foot_home">HOME</a>
+      <a href="../index.html#about" data-i18n="common.foot_about">ABOUT</a>
+      <a href="../index.html#experience" data-i18n="common.foot_experience">EXPERIENCE</a>
+      <a href="../index.html#projects" data-i18n="common.foot_projects">PROJECTS</a>
+      <a href="../index.html#contact" data-i18n="common.foot_contact">CONTACT</a>
     </div>
     <div class="socials">
       <a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a>
       <a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <div>Copyright © 2026 Francesc Borràs Lleida</div>
+    <div data-i18n="common.footer_copyright">Copyright © 2026 Francesc Borràs Lleida</div>
   </div>
 </footer>
 
@@ -257,6 +276,7 @@
   </figure>
 </div>
 
+<script src="../js/i18n.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>

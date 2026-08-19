@@ -1899,3 +1899,149 @@ main { position: relative; }
   color: var(--dark);
   transform: translateY(-1px);
 }
+
+/* =====================
+   NAV ICON TOGGLES - theme + language buttons
+   ===================== */
+.nav-toggles {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(var(--paper-rgb), 0.22);
+  color: var(--dark-text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.nav-icon-btn:hover {
+  background: var(--pine-soft);
+  border-color: var(--pine-soft);
+  color: var(--dark);
+  transform: translateY(-1px);
+}
+.nav-icon-btn svg { display: block; }
+
+/* Sun/moon swap: default (dark theme) shows sun; light theme shows moon */
+.icon-sun, .icon-moon { display: none; }
+:root:not([data-theme="light"]) .icon-sun { display: block; }
+[data-theme="light"] .icon-moon { display: block; }
+
+/* On mobile, when the menu opens, the toggles stack cleanly */
+@media (max-width: 760px) {
+  .nav-toggles { padding: 0.5rem 0; gap: 0.75rem; border-top: none !important; }
+}
+
+/* =====================
+   LIGHT THEME - warm cream + burgundy (granate) accent
+   Applied when <html data-theme="light">
+   ===================== */
+:root[data-theme="light"] {
+  /* Core surfaces */
+  --surface-bg:   #FDFAF6;
+  --surface-text: #241017;
+  --surface-soft: #6B424A;
+  --surface-alt:  #F3EBE1;
+  --surface-line: rgba(36, 16, 23, 0.14);
+
+  /* Palette overrides */
+  --paper:      #241017;
+  --paper-alt:  #6B424A;
+  --ink:        #FDFAF6;
+  --ink-soft:   #F3EBE1;
+  --pine-soft:  #8E1B3E;   /* burgundy accent replaces orange */
+  --pine:       #3F7A72;   /* muted teal secondary */
+  --ochre:      #8E1B3E;
+
+  /* Dark-* vars flipped so hardcoded uses (nav brand, footer) invert too */
+  --dark:       #FDFAF6;
+  --dark-paper: #F3EBE1;
+  --dark-text:  #241017;
+  --dark-soft:  #6B424A;
+
+  --line:       rgba(36, 16, 23, 0.14);
+  --line-dark:  rgba(36, 16, 23, 0.14);
+
+  --shell-rgb: 253, 250, 246;   /* FDFAF6 */
+  --paper-rgb: 36, 16, 23;      /* 241017 */
+  --ink-rgb: 253, 250, 246;
+  --accent-rgb: 142, 27, 62;    /* 8E1B3E burgundy */
+  --accent2-rgb: 63, 122, 114;
+}
+
+/* Body background swap so the whole page shifts */
+:root[data-theme="light"] body { background: var(--surface-bg); color: var(--surface-text); }
+
+/* Nav brand + links contrast in light mode */
+:root[data-theme="light"] .site-nav .brand,
+:root[data-theme="light"] .site-nav ul { color: var(--surface-text); }
+:root[data-theme="light"] .site-nav .brand span { color: var(--pine-soft); }
+
+/* Nav CTA (Get in touch) reads well as burgundy pill with cream text */
+:root[data-theme="light"] .nav-cta { background: var(--pine-soft); color: #FDFAF6; }
+:root[data-theme="light"] .nav-cta:hover { background: var(--surface-text); color: #FDFAF6; }
+
+/* Nav toggles fit light mode */
+:root[data-theme="light"] .nav-icon-btn { color: var(--surface-text); border-color: rgba(36, 16, 23, 0.2); }
+:root[data-theme="light"] .nav-icon-btn:hover { color: #FDFAF6; }
+
+/* Hero video overlay: soften so cream feels lighter but text stays readable */
+:root[data-theme="light"] .hero-video-wrap::after {
+  background: linear-gradient(180deg, rgba(253, 250, 246, 0.35) 0%, rgba(253, 250, 246, 0.55) 60%, var(--surface-bg) 100%);
+}
+:root[data-theme="light"] .hero-content h1 { color: var(--surface-text); text-shadow: 0 4px 20px rgba(253, 250, 246, 0.6); }
+:root[data-theme="light"] .hero-content .hero-role { color: var(--surface-text); }
+:root[data-theme="light"] .video-fallback { background: linear-gradient(160deg, var(--surface-alt), var(--surface-bg)); }
+
+/* Buttons flip contrast in light */
+:root[data-theme="light"] .btn-solid { background: var(--surface-text); color: var(--surface-bg); }
+:root[data-theme="light"] .btn-solid:hover { background: var(--pine-soft); color: #FDFAF6; border-color: var(--pine-soft); }
+:root[data-theme="light"] .btn-outline:hover { background: var(--surface-text); color: var(--surface-bg); }
+
+/* Marquee, timelines, cards, and general surfaces read fine because they use var(--surface-*) already. Extra touches: */
+
+/* Game card overlay: darken so title stays readable over any key art */
+:root[data-theme="light"] .game-card .overlay {
+  background: linear-gradient(180deg, transparent 40%, rgba(36, 16, 23, 0.88) 100%);
+}
+:root[data-theme="light"] .game-card .always-visible h4 { color: #FDFAF6; }
+
+/* Title hero on project pages: veil uses shell-rgb which now maps to cream, so darken the base */
+:root[data-theme="light"] .title-veil {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(36, 16, 23, 0.15) 0%, rgba(36, 16, 23, 0.45) 55%, rgba(36, 16, 23, 0.7) 100%),
+    linear-gradient(180deg, rgba(36, 16, 23, 0.35) 0%, rgba(36, 16, 23, 0.15) 40%, var(--surface-bg) 100%);
+}
+:root[data-theme="light"] .title-hero .logo-fallback,
+:root[data-theme="light"] .title-hero .title-tagline { color: #FDFAF6; }
+
+/* Contributions section on project pages: veil sits over an image, keep it dark */
+:root[data-theme="light"] .contrib-veil {
+  background: linear-gradient(180deg, rgba(36, 16, 23, 0.86) 0%, rgba(36, 16, 23, 0.80) 50%, rgba(36, 16, 23, 0.92) 100%);
+}
+:root[data-theme="light"] .contributions .contrib-text,
+:root[data-theme="light"] .contributions h2,
+:root[data-theme="light"] .contributions p,
+:root[data-theme="light"] .contributions .contribution-list li { color: #FDFAF6; }
+:root[data-theme="light"] .contributions .contribution-list li strong,
+:root[data-theme="light"] .contributions .contribution-list li span.lead { color: #FDFAF6; }
+
+/* Footer inherits dark vars which now point to light values, so nothing extra needed. Just ensure line looks right. */
+:root[data-theme="light"] footer.site-footer { border-top-color: var(--surface-line); }
+
+/* Phase outcome (AI pipeline page) - tint uses accent-rgb which now maps to burgundy */
+:root[data-theme="light"] .phase-outcome {
+  background: rgba(142, 27, 62, 0.08);
+}

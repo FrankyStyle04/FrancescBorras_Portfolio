@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Francesc Borràs Lleida - Game & Level Designer</title>
+<title data-i18n-title="home.page_title">Francesc Borràs Lleida - Game & Level Designer</title>
 <meta name="description" content="Portfolio of Francesc Borràs Lleida, Game & Level Designer based in Barcelona. Denshattack!, Lyra, Tumble Up, Chrono Fish and design documentation.">
 <meta name="theme-color" content="#0F1316">
 
@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
+<link rel="stylesheet" href="css/style.css?v=15">
 
 <script type="application/ld+json">
 {
@@ -40,19 +40,38 @@
   "address": { "@type": "PostalAddress", "addressLocality": "Vilanova i la Geltrú", "addressRegion": "Barcelona", "addressCountry": "ES" }
 }
 </script>
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('fb-theme');
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    var l = localStorage.getItem('fb-lang');
+    if (l === 'es' || l === 'cat') document.documentElement.setAttribute('lang', l === 'cat' ? 'ca' : 'es');
+  } catch(e){}
+})();
+</script>
 </head>
 <body class="page-enter has-hero">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="wrap">
     <a href="#top" class="brand">FrancescBorràs<span>Portfolio</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" data-i18n="common.nav_menu">Menu</button>
     <ul id="nav-list">
-      <li><a class="nav-link" href="#about">About</a></li>
-      <li><a class="nav-link" href="#experience">Experience</a></li>
-      <li><a class="nav-link" href="#projects">Projects</a></li>
-      <li><a class="nav-link" href="#docs">Design Docs</a></li>
-      <li><a class="nav-cta" href="#contact">Get in touch</a></li>
+      <li><a class="nav-link" href="#about" data-i18n="common.nav_about">About</a></li>
+      <li><a class="nav-link" href="#experience" data-i18n="common.nav_experience">Experience</a></li>
+      <li><a class="nav-link" href="#projects" data-i18n="common.nav_projects">Projects</a></li>
+      <li><a class="nav-link" href="#docs" data-i18n="common.nav_docs">Design Docs</a></li>
+      <li class="nav-toggles">
+        <button type="button" class="nav-icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM4.22 4.22a1 1 0 0 1 1.42 0l1.42 1.42a1 1 0 1 1-1.42 1.42L4.22 5.64a1 1 0 0 1 0-1.42zM16.95 16.95a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 1 1-1.42 1.42l-1.41-1.42a1 1 0 0 1 0-1.42zM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM4.22 19.78a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.42 1.41l-1.42 1.42a1 1 0 0 1-1.42 0zM16.95 7.05a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.41 1.41l-1.41 1.42a1 1 0 0 1-1.42 0z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+        </button>
+        <button type="button" class="nav-icon-btn nav-lang-btn" id="lang-toggle" aria-label="Change language" title="Change language">
+          <span class="lang-label">EN</span>
+        </button>
+      </li>
+      <li><a class="nav-cta" href="#contact" data-i18n="common.nav_cta">Get in touch</a></li>
     </ul>
   </div>
 </nav>
@@ -62,14 +81,14 @@
     <span class="rail-icon">
       <img src="https://cdn.simpleicons.org/itchdotio/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='it'">
     </span>
-    <span class="rail-label">See my work!</span>
+    <span class="rail-label" data-i18n="common.rail_itch">See my work!</span>
     <span class="sr-only">itch.io</span>
   </a>
   <a class="rail-item" href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">
     <span class="rail-icon">
       <img src="https://cdn.simpleicons.org/linkedin/EDF0EA" alt="" loading="lazy" onerror="this.parentNode.textContent='in'">
     </span>
-    <span class="rail-label">Let's connect!</span>
+    <span class="rail-label" data-i18n="common.rail_linkedin">Let's connect!</span>
     <span class="sr-only">LinkedIn</span>
   </a>
   <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
@@ -78,7 +97,7 @@
         <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/>
       </svg>
     </span>
-    <span class="rail-label">Let's talk!</span>
+    <span class="rail-label" data-i18n="common.rail_email">Let's talk!</span>
     <span class="sr-only">Email</span>
   </a>
 </aside>
@@ -100,15 +119,15 @@
 
     <div class="hero-content">
       <h1>Francesc Borràs</h1>
-      <p class="hero-role">Game <span class="pipe">|</span> Level Designer</p>
+      <p class="hero-role" data-i18n="home.hero_role">Game <span class="pipe">|</span> Level Designer</p>
       <div class="hero-cta">
-        <a href="#experience" class="btn btn-solid">View Case Studies</a>
-        <a href="assets/Francesc_Borras_Lleida_CV.pdf" class="btn btn-outline">Download CV</a>
+        <a href="#experience" class="btn btn-solid" data-i18n="home.hero_cta_cases">View Case Studies</a>
+        <a href="assets/Francesc_Borras_Lleida_CV.pdf" class="btn btn-outline" data-i18n="home.hero_cta_cv">Download CV</a>
       </div>
     </div>
 
     <div class="scroll-cue" aria-hidden="true">
-      <span>SCROLL</span>
+      <span data-i18n="home.scroll">SCROLL</span>
       <span class="line"></span>
     </div>
   </section>
@@ -151,14 +170,14 @@
   <section id="about">
     <div class="wrap about-grid">
       <div class="about-text reveal">
-        <span class="about-eyebrow">Game Developer specialized in Game Design</span>
-        <h2>Hi! I'm Franky!</h2>
-        <p>Specialized in <strong>gameplay systems</strong> and <strong>level design</strong>. I work in both <strong>Unreal Engine</strong> and <strong>Unity</strong>, and I have shipped a title published on <strong>Steam, Xbox and PlayStation</strong> alongside personal projects taken from concept to a validated build.</p>
-        <p>What I care about is the work that makes a game feel right: pacing, balancing and the small details that decide whether someone stays ten minutes or ten hours. I document mechanics before building them, and I validate them with real players instead of intuition.</p>
-        <p>Right now I am based near <strong>Barcelona</strong> and looking for my <strong>first full-time role</strong> in the industry.</p>
+        <span class="about-eyebrow" data-i18n="home.about_eyebrow">Game Developer specialized in Game Design</span>
+        <h2 data-i18n="home.about_title">Hi! I'm Franky!</h2>
+        <p data-i18n="home.about_p1">Specialized in <strong>gameplay systems</strong> and <strong>level design</strong>. I work in both <strong>Unreal Engine</strong> and <strong>Unity</strong>, and I have shipped a title published on <strong>Steam, Xbox and PlayStation</strong> alongside personal projects taken from concept to a validated build.</p>
+        <p data-i18n="home.about_p2">What I care about is the work that makes a game feel right: pacing, balancing and the small details that decide whether someone stays ten minutes or ten hours. I document mechanics before building them, and I validate them with real players instead of intuition.</p>
+        <p data-i18n="home.about_p3">Right now I am based near <strong>Barcelona</strong> and looking for my <strong>first full-time role</strong> in the industry.</p>
 
-        <p class="about-question">Are you interested in my work?</p>
-        <a class="btn btn-solid" href="#contact">Contact me!</a>
+        <p class="about-question" data-i18n="home.about_question">Are you interested in my work?</p>
+        <a class="btn btn-solid" href="#contact" data-i18n="home.about_contact">Contact me!</a>
       </div>
 
       <!-- ABOUT PHOTO
@@ -176,12 +195,12 @@
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="wrap">
-      <h2 class="section-title reveal">My Experience</h2>
-      <p class="section-lede reveal" style="max-width:none;">A published commercial title, and personal and university projects taken all the way from concept to a validated build.</p>
+      <h2 class="section-title reveal" data-i18n="home.exp_title">My Experience</h2>
+      <p class="section-lede reveal" style="max-width:none;" data-i18n="home.exp_lede">A published commercial title, and personal and university projects taken all the way from concept to a validated build.</p>
 
       <div class="timeline-block">
         <div class="timeline-heading reveal">
-          <h3>Professional Work</h3>
+          <h3 data-i18n="home.exp_pro_heading">Professional Work</h3>
         </div>
         <ol class="timeline">
         <li class="timeline-entry reveal">
@@ -189,15 +208,15 @@
 
           <div class="entry-text">
             <h4>Denshattack!</h4>
-            <p class="entry-role">QA &amp; Game Design Assistant</p>
-            <p class="entry-meta">Undercoders / Published by Fireshine Games / 2025 - 2026</p>
-            <p class="entry-summary">Arcade train-flipping platformer shipped on PC, Xbox and PlayStation. I worked as the bridge between design, programming and QA on a live production.</p>
+            <p class="entry-role" data-i18n="home.denshattack_role">QA &amp; Game Design Assistant</p>
+            <p class="entry-meta" data-i18n="home.denshattack_meta">Undercoders / Published by Fireshine Games / 2025 - 2026</p>
+            <p class="entry-summary" data-i18n="home.denshattack_summary">Arcade train-flipping platformer shipped on PC, Xbox and PlayStation. I worked as the bridge between design, programming and QA on a live production.</p>
             <ul class="entry-tasks">
-              <li>Balanced progression and economy across <strong>67 handcrafted levels</strong>.</li>
-              <li>Authored <strong>6 Game Design Documents</strong> for a multidisciplinary team.</li>
-              <li>Validated level flow and difficulty through structured playtesting.</li>
+              <li data-i18n="home.denshattack_task1">Balanced progression and economy across <strong>67 handcrafted levels</strong>.</li>
+              <li data-i18n="home.denshattack_task2">Authored <strong>6 Game Design Documents</strong> for a multidisciplinary team.</li>
+              <li data-i18n="home.denshattack_task3">Validated level flow and difficulty through structured playtesting.</li>
             </ul>
-            <a class="btn btn-solid" href="proyectos/denshattack.html">View Details</a>
+            <a class="btn btn-solid" href="proyectos/denshattack.html" data-i18n="common.btn_view_details">View Details</a>
           </div>
 
           <a class="game-card" href="proyectos/denshattack.html">
@@ -208,8 +227,8 @@
                 <div class="studio">Undercoders</div>
               </div>
               <div class="hover-detail">
-                <p>Arcade train-flipping platformer published by Fireshine Games.</p>
-                <p class="did">Balanced 67 levels and authored 6 Game Design Documents.</p>
+                <p data-i18n="home.denshattack_card_desc">Arcade train-flipping platformer published by Fireshine Games.</p>
+                <p class="did" data-i18n="home.denshattack_card_did">Balanced 67 levels and authored 6 Game Design Documents.</p>
               </div>
             </div>
           </a>
@@ -219,7 +238,7 @@
 
       <div class="timeline-block">
         <div class="timeline-heading reveal">
-          <h3>Personal &amp; University Projects</h3>
+          <h3 data-i18n="home.exp_uni_heading">Personal &amp; University Projects</h3>
         </div>
         <ol class="timeline">
         <li class="timeline-entry reveal">
@@ -227,15 +246,15 @@
 
           <div class="entry-text">
             <h4>Lyra</h4>
-            <p class="entry-role">Game &amp; Level Designer</p>
-            <p class="entry-meta">La Mapachanda / Thesis project at ENTI-UB / 2025 - 2026</p>
-            <p class="entry-summary">3D wholesome puzzle-adventure in Unreal Engine 5. Winner of Best Thesis at ENTI DemoDay 2026.</p>
+            <p class="entry-role" data-i18n="home.lyra_role">Game &amp; Level Designer</p>
+            <p class="entry-meta" data-i18n="home.lyra_meta">La Mapachanda / Thesis project at ENTI-UB / 2025 - 2026</p>
+            <p class="entry-summary" data-i18n="home.lyra_summary">3D wholesome puzzle-adventure in Unreal Engine 5. Winner of Best Thesis at ENTI DemoDay 2026.</p>
             <ul class="entry-tasks">
-              <li>Documented every mechanic through a <strong>Pattern-Based Dictionary</strong>.</li>
-              <li>Built <strong>three thematic levels</strong> around EDPV learning curves.</li>
-              <li>Ran a full <strong>A/B test</strong> with C++ telemetry and Python analysis.</li>
+              <li data-i18n="home.lyra_task1">Documented every mechanic through a <strong>Pattern-Based Dictionary</strong>.</li>
+              <li data-i18n="home.lyra_task2">Built <strong>three thematic levels</strong> around EDPV learning curves.</li>
+              <li data-i18n="home.lyra_task3">Ran a full <strong>A/B test</strong> with C++ telemetry and Python analysis.</li>
             </ul>
-            <a class="btn btn-solid" href="proyectos/lyra.html">View Details</a>
+            <a class="btn btn-solid" href="proyectos/lyra.html" data-i18n="common.btn_view_details">View Details</a>
           </div>
 
           <a class="game-card" href="proyectos/lyra.html">
@@ -246,8 +265,8 @@
                 <div class="studio">La Mapachanda</div>
               </div>
               <div class="hover-detail">
-                <p>3D wholesome puzzle-adventure built in Unreal Engine 5.</p>
-                <p class="did">Designed every mechanic and validated a puzzle redesign with a real A/B test.</p>
+                <p data-i18n="home.lyra_card_desc">3D wholesome puzzle-adventure built in Unreal Engine 5.</p>
+                <p class="did" data-i18n="home.lyra_card_did">Designed every mechanic and validated a puzzle redesign with a real A/B test.</p>
               </div>
             </div>
           </a>
@@ -258,15 +277,15 @@
 
           <div class="entry-text">
             <h4>Tumble Up</h4>
-            <p class="entry-role">Producer &amp; Game Designer</p>
-            <p class="entry-meta">Txispa's Studio / University project / 2024 - 2025</p>
-            <p class="entry-summary">Local 2v2 party game in Unity, built around physical minigames and the rhythm between rounds.</p>
+            <p class="entry-role" data-i18n="home.tumble_role">Producer &amp; Game Designer</p>
+            <p class="entry-meta" data-i18n="home.tumble_meta">Txispa's Studio / University project / 2024 - 2025</p>
+            <p class="entry-summary" data-i18n="home.tumble_summary">Local 2v2 party game in Unity, built around physical minigames and the rhythm between rounds.</p>
             <ul class="entry-tasks">
-              <li>Designed <strong>4 minigames and 8 maps</strong> around a shared match structure.</li>
-              <li>Tuned <strong>match loops of 2 to 7 minigames</strong> as the unit of design.</li>
-              <li>Ran the five-person team as <strong>SCRUM master</strong>.</li>
+              <li data-i18n="home.tumble_task1">Designed <strong>4 minigames and 8 maps</strong> around a shared match structure.</li>
+              <li data-i18n="home.tumble_task2">Tuned <strong>match loops of 2 to 7 minigames</strong> as the unit of design.</li>
+              <li data-i18n="home.tumble_task3">Ran the five-person team as <strong>SCRUM master</strong>.</li>
             </ul>
-            <a class="btn btn-solid" href="proyectos/tumble-up.html">View Details</a>
+            <a class="btn btn-solid" href="proyectos/tumble-up.html" data-i18n="common.btn_view_details">View Details</a>
           </div>
 
           <a class="game-card" href="proyectos/tumble-up.html">
@@ -277,8 +296,8 @@
                 <div class="studio">Txispa's Studio</div>
               </div>
               <div class="hover-detail">
-                <p>Local 2v2 party game built in Unity.</p>
-                <p class="did">Designed 4 minigames and 8 maps, and led the team as SCRUM master.</p>
+                <p data-i18n="home.tumble_card_desc">Local 2v2 party game built in Unity.</p>
+                <p class="did" data-i18n="home.tumble_card_did">Designed 4 minigames and 8 maps, and led the team as SCRUM master.</p>
               </div>
             </div>
           </a>
@@ -289,15 +308,15 @@
 
           <div class="entry-text">
             <h4>Chrono Fish</h4>
-            <p class="entry-role">Game &amp; Level Designer</p>
-            <p class="entry-meta">Olympia Interactive / University project / 2023 - 2024</p>
-            <p class="entry-summary">Pixel-art top-down roguelike with one hard constraint: the protagonist can only dodge and parry, never attack.</p>
+            <p class="entry-role" data-i18n="home.chrono_role">Game &amp; Level Designer</p>
+            <p class="entry-meta" data-i18n="home.chrono_meta">Olympia Interactive / University project / 2023 - 2024</p>
+            <p class="entry-summary" data-i18n="home.chrono_summary">Pixel-art top-down roguelike with one hard constraint: the protagonist can only dodge and parry, never attack.</p>
             <ul class="entry-tasks">
-              <li>Defined <strong>level metrics</strong> driving coherent procedural maps.</li>
-              <li>Tuned the <strong>parry window</strong> until failure felt fair, not unfair.</li>
-              <li>Balanced threat density so every room is beatable without attacking.</li>
+              <li data-i18n="home.chrono_task1">Defined <strong>level metrics</strong> driving coherent procedural maps.</li>
+              <li data-i18n="home.chrono_task2">Tuned the <strong>parry window</strong> until failure felt fair, not unfair.</li>
+              <li data-i18n="home.chrono_task3">Balanced threat density so every room is beatable without attacking.</li>
             </ul>
-            <a class="btn btn-solid" href="proyectos/chrono-fish.html">View Details</a>
+            <a class="btn btn-solid" href="proyectos/chrono-fish.html" data-i18n="common.btn_view_details">View Details</a>
           </div>
 
           <a class="game-card" href="proyectos/chrono-fish.html">
@@ -308,8 +327,8 @@
                 <div class="studio">Olympia Interactive</div>
               </div>
               <div class="hover-detail">
-                <p>Top-down roguelike where the only tools are dodge and parry.</p>
-                <p class="did">Defined level metrics for procedural maps and tuned parry timing.</p>
+                <p data-i18n="home.chrono_card_desc">Top-down roguelike where the only tools are dodge and parry.</p>
+                <p class="did" data-i18n="home.chrono_card_did">Defined level metrics for procedural maps and tuned parry timing.</p>
               </div>
             </div>
           </a>
@@ -324,7 +343,7 @@
   <!-- OTHER PERSONAL / JAMS GAMES -->
   <section id="projects">
     <div class="wrap">
-      <h2 class="reveal" style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:26ch;">Other Personal / Jams Games</h2>
+      <h2 class="reveal" style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:26ch;" data-i18n="home.jams_title">Other Personal / Jams Games</h2>
 
       <div class="jams-grid" style="margin-top:2rem;">
         <a class="game-card reveal" href="https://franky-style.itch.io/frost-climb" target="_blank" rel="noopener">
@@ -332,14 +351,14 @@
           <div class="overlay">
             <div class="always-visible">
               <h4>Frost Climb</h4>
-              <div class="studio">Game &amp; Level Designer / 3D Platformer</div>
+              <div class="studio" data-i18n="home.frost_studio">Game &amp; Level Designer / 3D Platformer</div>
             </div>
             <div class="hover-detail">
-              <p>Climbing platformer with cold management as a survival resource.</p>
-              <p class="did">Designed a survival resource mechanic throughout a vertical level design layout.</p>
+              <p data-i18n="home.frost_desc">Climbing platformer with cold management as a survival resource.</p>
+              <p class="did" data-i18n="home.frost_did">Designed a survival resource mechanic throughout a vertical level design layout.</p>
               <span class="itch-link" aria-label="Play on itch.io">
                 <svg viewBox="0 0 245 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M31.99 1.365C21.287 7.72 0 32.322 0 38.65v10.484c0 13.293 12.428 24.968 23.712 24.968 13.564 0 24.855-11.24 24.855-24.559 0 13.319 10.899 24.559 24.462 24.559 13.565 0 24.169-11.24 24.169-24.559 0 13.319 11.599 24.559 25.163 24.559h.246c13.564 0 25.163-11.24 25.163-24.559 0 13.319 10.604 24.559 24.169 24.559 13.564 0 24.462-11.24 24.462-24.559 0 13.319 11.292 24.559 24.855 24.559 11.284 0 23.712-11.675 23.712-24.968V38.65c0-6.328-21.29-30.93-31.988-37.285C209.09.464 172.582.032 122.501 0h-.002C72.418.032 35.914.464 31.99 1.365zm79.71 60.978a26.132 26.132 0 0 1-4.842 6.386c-5.427 5.348-12.905 8.667-21.132 8.667-8.232 0-15.71-3.322-21.136-8.671a26.14 26.14 0 0 1-4.83-6.376 26.077 26.077 0 0 1-4.829 6.375c-5.427 5.35-12.906 8.672-21.138 8.672a30.238 30.238 0 0 1-3.518-.208c-1.436 14.925-2.043 29.171-2.257 39.594l-.021.15c-.108 5.294-.216 9.63-.216 15.038 0 25.207 3.775 40.929 6.786 48.708 4.65 12.02 20.353 18.552 34.535 20.775 7.451 1.168 14.802 1.755 21.881 1.755 11.147 0 20.652-1.458 26.15-3.94 8.802-3.972 18.65-13.474 19.041-32.055.001-.181.005-.365.008-.548.005-.198.007-.397.007-.598.007-6.617-1.008-11.542-2.278-15.038h-.126c-4.892 11.109-16.194 18.865-29.418 18.865-14.464 0-26.859-9.28-30.907-22.201-1.185 3.781-4.75 6.531-8.982 6.531-5.203 0-9.42-4.157-9.42-9.286 0-.436.03-.865.089-1.285.29-2.09.744-4.13 1.331-6.12 4.04-13.7 15.858-24.223 30.462-25.836a30.24 30.24 0 0 1 3.427-.196c14.464 0 26.859 9.28 30.907 22.2 4.048-12.92 16.443-22.2 30.907-22.2 1.16 0 2.302.067 3.427.196 14.604 1.613 26.421 12.136 30.462 25.836a30.176 30.176 0 0 1 1.331 6.12c.059.42.089.849.089 1.285 0 5.129-4.217 9.286-9.42 9.286-4.232 0-7.797-2.75-8.982-6.531-4.048 12.92-16.443 22.2-30.907 22.2-13.224 0-24.526-7.755-29.418-18.864h-.126c-1.27 3.496-2.285 8.42-2.278 15.038 0 .201.002.4.007.598.003.183.007.367.008.548.391 18.58 10.239 28.083 19.04 32.055 5.499 2.482 15.004 3.94 26.15 3.94 7.08 0 14.431-.587 21.882-1.755 14.181-2.223 29.885-8.755 34.535-20.775 3.011-7.779 6.786-23.5 6.786-48.708 0-5.408-.108-9.744-.216-15.038l-.021-.15c-.214-10.423-.821-24.669-2.257-39.594a30.238 30.238 0 0 1-3.518.208c-8.232 0-15.71-3.322-21.137-8.672a26.078 26.078 0 0 1-4.829-6.375 26.14 26.14 0 0 1-4.83 6.376c-5.427 5.35-12.905 8.671-21.137 8.671-8.232 0-15.71-3.322-21.137-8.672a26.132 26.132 0 0 1-4.842-6.386z"/></svg>
-                Play on itch.io
+                <span data-i18n="home.itch_play">Play on itch.io</span>
               </span>
             </div>
           </div>
@@ -350,14 +369,14 @@
           <div class="overlay">
             <div class="always-visible">
               <h4>New Dawn Odyssey</h4>
-              <div class="studio">Collaboration / 2D Metroidvania</div>
+              <div class="studio" data-i18n="home.ndo_studio">Collaboration / 2D Metroidvania</div>
             </div>
             <div class="hover-detail">
-              <p>A pixel-art metroidvania built with a team at ENTI.</p>
-              <p class="did">Created worldbuilding and level exploration design, designed enemies and focused on encounter design.</p>
+              <p data-i18n="home.ndo_desc">A pixel-art metroidvania built with a team at ENTI.</p>
+              <p class="did" data-i18n="home.ndo_did">Created worldbuilding and level exploration design, designed enemies and focused on encounter design.</p>
               <span class="itch-link" aria-label="Play on itch.io">
                 <svg viewBox="0 0 245 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M31.99 1.365C21.287 7.72 0 32.322 0 38.65v10.484c0 13.293 12.428 24.968 23.712 24.968 13.564 0 24.855-11.24 24.855-24.559 0 13.319 10.899 24.559 24.462 24.559 13.565 0 24.169-11.24 24.169-24.559 0 13.319 11.599 24.559 25.163 24.559h.246c13.564 0 25.163-11.24 25.163-24.559 0 13.319 10.604 24.559 24.169 24.559 13.564 0 24.462-11.24 24.462-24.559 0 13.319 11.292 24.559 24.855 24.559 11.284 0 23.712-11.675 23.712-24.968V38.65c0-6.328-21.29-30.93-31.988-37.285C209.09.464 172.582.032 122.501 0h-.002C72.418.032 35.914.464 31.99 1.365zm79.71 60.978a26.132 26.132 0 0 1-4.842 6.386c-5.427 5.348-12.905 8.667-21.132 8.667-8.232 0-15.71-3.322-21.136-8.671a26.14 26.14 0 0 1-4.83-6.376 26.077 26.077 0 0 1-4.829 6.375c-5.427 5.35-12.906 8.672-21.138 8.672a30.238 30.238 0 0 1-3.518-.208c-1.436 14.925-2.043 29.171-2.257 39.594l-.021.15c-.108 5.294-.216 9.63-.216 15.038 0 25.207 3.775 40.929 6.786 48.708 4.65 12.02 20.353 18.552 34.535 20.775 7.451 1.168 14.802 1.755 21.881 1.755 11.147 0 20.652-1.458 26.15-3.94 8.802-3.972 18.65-13.474 19.041-32.055.001-.181.005-.365.008-.548.005-.198.007-.397.007-.598.007-6.617-1.008-11.542-2.278-15.038h-.126c-4.892 11.109-16.194 18.865-29.418 18.865-14.464 0-26.859-9.28-30.907-22.201-1.185 3.781-4.75 6.531-8.982 6.531-5.203 0-9.42-4.157-9.42-9.286 0-.436.03-.865.089-1.285.29-2.09.744-4.13 1.331-6.12 4.04-13.7 15.858-24.223 30.462-25.836a30.24 30.24 0 0 1 3.427-.196c14.464 0 26.859 9.28 30.907 22.2 4.048-12.92 16.443-22.2 30.907-22.2 1.16 0 2.302.067 3.427.196 14.604 1.613 26.421 12.136 30.462 25.836a30.176 30.176 0 0 1 1.331 6.12c.059.42.089.849.089 1.285 0 5.129-4.217 9.286-9.42 9.286-4.232 0-7.797-2.75-8.982-6.531-4.048 12.92-16.443 22.2-30.907 22.2-13.224 0-24.526-7.755-29.418-18.864h-.126c-1.27 3.496-2.285 8.42-2.278 15.038 0 .201.002.4.007.598.003.183.007.367.008.548.391 18.58 10.239 28.083 19.04 32.055 5.499 2.482 15.004 3.94 26.15 3.94 7.08 0 14.431-.587 21.882-1.755 14.181-2.223 29.885-8.755 34.535-20.775 3.011-7.779 6.786-23.5 6.786-48.708 0-5.408-.108-9.744-.216-15.038l-.021-.15c-.214-10.423-.821-24.669-2.257-39.594a30.238 30.238 0 0 1-3.518.208c-8.232 0-15.71-3.322-21.137-8.672a26.078 26.078 0 0 1-4.829-6.375 26.14 26.14 0 0 1-4.83 6.376c-5.427 5.35-12.905 8.671-21.137 8.671-8.232 0-15.71-3.322-21.137-8.672a26.132 26.132 0 0 1-4.842-6.386z"/></svg>
-                Play on itch.io
+                <span data-i18n="home.itch_play">Play on itch.io</span>
               </span>
             </div>
           </div>
@@ -368,14 +387,14 @@
           <div class="overlay">
             <div class="always-visible">
               <h4>Lia's Echo</h4>
-              <div class="studio">Collaboration / 2D Narrative Adventure</div>
+              <div class="studio" data-i18n="home.lias_studio">Collaboration / 2D Narrative Adventure</div>
             </div>
             <div class="hover-detail">
-              <p>A pixel-art narrative adventure with strong environmental storytelling.</p>
-              <p class="did">Worked with Bartle's type of players to design a narrative experience for a specific audience.</p>
+              <p data-i18n="home.lias_desc">A pixel-art narrative adventure with strong environmental storytelling.</p>
+              <p class="did" data-i18n="home.lias_did">Worked with Bartle's type of players to design a narrative experience for a specific audience.</p>
               <span class="itch-link" aria-label="Play on itch.io">
                 <svg viewBox="0 0 245 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M31.99 1.365C21.287 7.72 0 32.322 0 38.65v10.484c0 13.293 12.428 24.968 23.712 24.968 13.564 0 24.855-11.24 24.855-24.559 0 13.319 10.899 24.559 24.462 24.559 13.565 0 24.169-11.24 24.169-24.559 0 13.319 11.599 24.559 25.163 24.559h.246c13.564 0 25.163-11.24 25.163-24.559 0 13.319 10.604 24.559 24.169 24.559 13.564 0 24.462-11.24 24.462-24.559 0 13.319 11.292 24.559 24.855 24.559 11.284 0 23.712-11.675 23.712-24.968V38.65c0-6.328-21.29-30.93-31.988-37.285C209.09.464 172.582.032 122.501 0h-.002C72.418.032 35.914.464 31.99 1.365zm79.71 60.978a26.132 26.132 0 0 1-4.842 6.386c-5.427 5.348-12.905 8.667-21.132 8.667-8.232 0-15.71-3.322-21.136-8.671a26.14 26.14 0 0 1-4.83-6.376 26.077 26.077 0 0 1-4.829 6.375c-5.427 5.35-12.906 8.672-21.138 8.672a30.238 30.238 0 0 1-3.518-.208c-1.436 14.925-2.043 29.171-2.257 39.594l-.021.15c-.108 5.294-.216 9.63-.216 15.038 0 25.207 3.775 40.929 6.786 48.708 4.65 12.02 20.353 18.552 34.535 20.775 7.451 1.168 14.802 1.755 21.881 1.755 11.147 0 20.652-1.458 26.15-3.94 8.802-3.972 18.65-13.474 19.041-32.055.001-.181.005-.365.008-.548.005-.198.007-.397.007-.598.007-6.617-1.008-11.542-2.278-15.038h-.126c-4.892 11.109-16.194 18.865-29.418 18.865-14.464 0-26.859-9.28-30.907-22.201-1.185 3.781-4.75 6.531-8.982 6.531-5.203 0-9.42-4.157-9.42-9.286 0-.436.03-.865.089-1.285.29-2.09.744-4.13 1.331-6.12 4.04-13.7 15.858-24.223 30.462-25.836a30.24 30.24 0 0 1 3.427-.196c14.464 0 26.859 9.28 30.907 22.2 4.048-12.92 16.443-22.2 30.907-22.2 1.16 0 2.302.067 3.427.196 14.604 1.613 26.421 12.136 30.462 25.836a30.176 30.176 0 0 1 1.331 6.12c.059.42.089.849.089 1.285 0 5.129-4.217 9.286-9.42 9.286-4.232 0-7.797-2.75-8.982-6.531-4.048 12.92-16.443 22.2-30.907 22.2-13.224 0-24.526-7.755-29.418-18.864h-.126c-1.27 3.496-2.285 8.42-2.278 15.038 0 .201.002.4.007.598.003.183.007.367.008.548.391 18.58 10.239 28.083 19.04 32.055 5.499 2.482 15.004 3.94 26.15 3.94 7.08 0 14.431-.587 21.882-1.755 14.181-2.223 29.885-8.755 34.535-20.775 3.011-7.779 6.786-23.5 6.786-48.708 0-5.408-.108-9.744-.216-15.038l-.021-.15c-.214-10.423-.821-24.669-2.257-39.594a30.238 30.238 0 0 1-3.518.208c-8.232 0-15.71-3.322-21.137-8.672a26.078 26.078 0 0 1-4.829-6.375 26.14 26.14 0 0 1-4.83 6.376c-5.427 5.35-12.905 8.671-21.137 8.671-8.232 0-15.71-3.322-21.137-8.672a26.132 26.132 0 0 1-4.842-6.386z"/></svg>
-                Play on itch.io
+                <span data-i18n="home.itch_play">Play on itch.io</span>
               </span>
             </div>
           </div>
@@ -389,8 +408,8 @@
   <!-- DESIGN DOCS & ANALYSIS -->
   <section id="docs">
     <div class="wrap">
-      <h2 class="reveal" style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:28ch;">Design docs &amp; analysis</h2>
-      <p class="section-lede reveal" style="max-width:none;">Selected write-ups, GDDs and post-mortems from the projects above. Click a card to download the PDF.</p>
+      <h2 class="reveal" style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:28ch;" data-i18n="home.docs_title">Design docs &amp; analysis</h2>
+      <p class="section-lede reveal" style="max-width:none;" data-i18n="home.docs_lede">Selected write-ups, GDDs and post-mortems from the projects above. Click a card to download the PDF.</p>
 
       <div class="docs-grid" style="margin-top:2rem;">
 
@@ -399,13 +418,13 @@
             <img src="assets/img/lyra-key.jpg" alt="Lyra key art.">
           </div>
           <div class="doc-stripe">
-            <span class="doc-tag">DESIGN THESIS</span>
-            <h4>Lyra: Game &amp; Level Design Thesis</h4>
-            <p>Read the full design and methodology behind Lyra, my thesis project.</p>
+            <span class="doc-tag" data-i18n="home.doc1_tag">DESIGN THESIS</span>
+            <h4 data-i18n="home.doc1_title">Lyra: Game &amp; Level Design Thesis</h4>
+            <p data-i18n="home.doc1_desc">Read the full design and methodology behind Lyra, my thesis project.</p>
             <div class="doc-actions">
               <span class="doc-btn">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
-                Spanish
+                <span data-i18n="home.btn_spanish">Spanish</span>
               </span>
             </div>
           </div>
@@ -416,13 +435,13 @@
             <img src="assets/img/lyra-key.jpg" alt="Lyra key art.">
           </div>
           <div class="doc-stripe">
-            <span class="doc-tag">RESEARCH</span>
-            <h4>Lyra: Validating Visual Guidance via A/B Test</h4>
-            <p>Read how I designed and validated a puzzle redesign with a real A/B test.</p>
+            <span class="doc-tag" data-i18n="home.doc2_tag">RESEARCH</span>
+            <h4 data-i18n="home.doc2_title">Lyra: Validating Visual Guidance via A/B Test</h4>
+            <p data-i18n="home.doc2_desc">Read how I designed and validated a puzzle redesign with a real A/B test.</p>
             <div class="doc-actions">
               <span class="doc-btn">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
-                Spanish
+                <span data-i18n="home.btn_spanish">Spanish</span>
               </span>
             </div>
           </div>
@@ -433,13 +452,13 @@
             <img src="assets/img/ai-pipeline-diagram.png" alt="Diagram comparing traditional and co-creation pipelines.">
           </div>
           <div class="doc-stripe">
-            <span class="doc-tag">RESEARCH</span>
-            <h4>AI-Assisted Design Pipeline</h4>
-            <p>Read my comparative study on traditional vs. AI-assisted level design workflows.</p>
+            <span class="doc-tag" data-i18n="home.doc3_tag">RESEARCH</span>
+            <h4 data-i18n="home.doc3_title">AI-Assisted Design Pipeline</h4>
+            <p data-i18n="home.doc3_desc">Read my comparative study on traditional vs. AI-assisted level design workflows.</p>
             <div class="doc-actions">
               <span class="doc-btn">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                View study
+                <span data-i18n="home.btn_view_study">View study</span>
               </span>
             </div>
           </div>
@@ -454,22 +473,22 @@
 <footer class="site-footer" id="contact">
   <div class="wrap footer-contact">
     <div>
-      LOCATION
+      <span data-i18n="common.footer_location">LOCATION</span>
       <a href="https://www.google.com/maps/search/Vilanova+i+la+Geltru" target="_blank" rel="noopener">Vilanova i la Geltrú, Barcelona</a>
     </div>
     <div>
-      EMAIL
+      <span data-i18n="common.footer_email">EMAIL</span>
       <a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a>
     </div>
   </div>
 
   <div class="wrap footer-columns">
     <div>
-      <h5>About Me</h5>
-      <p>Game Designer with hands-on experience in gameplay systems, level design and progression balancing. I bridge creative vision and technical implementation, and I'm currently looking for my first full-time role in the industry.</p>
+      <h5 data-i18n="common.footer_about_title">About Me</h5>
+      <p data-i18n="common.footer_about_body">Game Designer with hands-on experience in gameplay systems, level design and progression balancing. I bridge creative vision and technical implementation, and I'm currently looking for my first full-time role in the industry.</p>
     </div>
     <div>
-      <h5>Latest Projects</h5>
+      <h5 data-i18n="common.footer_projects">Latest Projects</h5>
       <ul>
         <li><a href="proyectos/denshattack.html">Denshattack!</a></li>
         <li><a href="proyectos/lyra.html">Lyra</a></li>
@@ -478,15 +497,15 @@
       </ul>
     </div>
     <div>
-      <h5>Portfolio</h5>
+      <h5 data-i18n="common.footer_portfolio">Portfolio</h5>
       <ul>
         <li><a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub Repositories</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io Projects</a></li>
-        <li><a href="assets/Francesc_Borras_Lleida_CV.pdf">CV</a></li>
+        <li><a href="assets/Francesc_Borras_Lleida_CV.pdf" data-i18n="common.footer_cv">CV</a></li>
       </ul>
     </div>
     <div>
-      <h5>Social Networks</h5>
+      <h5 data-i18n="common.footer_socials">Social Networks</h5>
       <ul>
         <li><a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a></li>
@@ -497,21 +516,22 @@
 
   <div class="wrap footer-bottom-bar">
     <div class="foot-nav">
-      <a href="index.html#top">HOME</a>
-      <a href="index.html#about">ABOUT</a>
-      <a href="index.html#experience">EXPERIENCE</a>
-      <a href="index.html#projects">PROJECTS</a>
-      <a href="index.html#contact">CONTACT</a>
+      <a href="index.html#top" data-i18n="common.foot_home">HOME</a>
+      <a href="index.html#about" data-i18n="common.foot_about">ABOUT</a>
+      <a href="index.html#experience" data-i18n="common.foot_experience">EXPERIENCE</a>
+      <a href="index.html#projects" data-i18n="common.foot_projects">PROJECTS</a>
+      <a href="index.html#contact" data-i18n="common.foot_contact">CONTACT</a>
     </div>
     <div class="socials">
       <a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://franky-style.itch.io" target="_blank" rel="noopener">itch.io</a>
       <a href="https://github.com/FrankyStyle04" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <div>Copyright © 2026 Francesc Borràs Lleida</div>
+    <div data-i18n="common.footer_copyright">Copyright © 2026 Francesc Borràs Lleida</div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

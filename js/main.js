@@ -288,3 +288,53 @@
 
   observer.observe(section);
 })();
+
+/* Theme + language toggles */
+(function () {
+  var themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('fb-theme', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('fb-theme', 'light'); } catch (e) {}
+      }
+    });
+  }
+
+  var langBtn = document.getElementById('lang-toggle');
+  if (langBtn) {
+    var LANGS = ['en', 'es', 'cat'];
+    var LABELS = { en: 'EN', es: 'ES', cat: 'CAT' };
+
+    function currentLang() {
+      try {
+        var saved = localStorage.getItem('fb-lang');
+        if (saved && LANGS.indexOf(saved) >= 0) return saved;
+      } catch (e) {}
+      return 'en';
+    }
+
+    function setLang(lang) {
+      try { localStorage.setItem('fb-lang', lang); } catch (e) {}
+      var label = langBtn.querySelector('.lang-label');
+      if (label) label.textContent = LABELS[lang];
+      if (typeof window.applyI18n === 'function') {
+        window.applyI18n(lang);
+      }
+    }
+
+    // On load: apply saved language
+    setLang(currentLang());
+
+    // On click: cycle EN -> ES -> CAT -> EN
+    langBtn.addEventListener('click', function () {
+      var cur = currentLang();
+      var next = LANGS[(LANGS.indexOf(cur) + 1) % LANGS.length];
+      setLang(next);
+    });
+  }
+})();
