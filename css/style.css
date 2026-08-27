@@ -57,8 +57,9 @@ html { scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
 html {
-    zoom: 1.20;
+    zoom: 1.25;
 }
 
 body {
@@ -1428,6 +1429,7 @@ section[id], footer[id] { scroll-margin-top: 5rem; }
   transition: background 0.22s ease, transform 0.22s ease, color 0.22s ease;
 }
 .store-link svg { width: 26px; height: 26px; }
+.store-link img { width: 26px; height: 26px; display: block; }
 .store-link:hover,
 .store-link:focus-visible {
   background: var(--pine-soft);
