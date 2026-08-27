@@ -9,6 +9,7 @@ window.I18N = {
 en: {
 
   common: {
+    nav_home: "Home",
     nav_about: "About",
     nav_experience: "Experience",
     nav_projects: "Projects",
@@ -401,6 +402,7 @@ en: {
 es: {
 
   common: {
+    nav_home: "Inicio",
     nav_about: "Sobre mí",
     nav_experience: "Experiencia",
     nav_projects: "Proyectos",
@@ -793,6 +795,7 @@ es: {
 cat: {
 
   common: {
+    nav_home: "Inici",
     nav_about: "Sobre mi",
     nav_experience: "Experiència",
     nav_projects: "Projectes",

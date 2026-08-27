@@ -16,12 +16,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=15">
+<link rel="stylesheet" href="../css/style.css?v=18">
 <script>
 (function(){
   try {
-    var t = localStorage.getItem('fb-theme');
-    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     var l = localStorage.getItem('fb-lang');
     if (l === 'es' || l === 'cat') document.documentElement.setAttribute('lang', l === 'cat' ? 'ca' : 'es');
   } catch(e){}
@@ -35,15 +33,12 @@
     <a href="../index.html" class="brand">FrancescBorràs<span>Portfolio</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" data-i18n="common.nav_menu">Menu</button>
     <ul id="nav-list">
+      <li><a class="nav-link" href="../index.html" data-i18n="common.nav_home">Home</a></li>
       <li><a class="nav-link" href="../index.html#about" data-i18n="common.nav_about">About</a></li>
       <li><a class="nav-link" href="../index.html#experience" data-i18n="common.nav_experience">Experience</a></li>
       <li><a class="nav-link" href="../index.html#projects" data-i18n="common.nav_projects">Projects</a></li>
       <li><a class="nav-link" href="../index.html#docs" data-i18n="common.nav_docs">Design Docs</a></li>
       <li class="nav-toggles">
-        <button type="button" class="nav-icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM4.22 4.22a1 1 0 0 1 1.42 0l1.42 1.42a1 1 0 1 1-1.42 1.42L4.22 5.64a1 1 0 0 1 0-1.42zM16.95 16.95a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 1 1-1.42 1.42l-1.41-1.42a1 1 0 0 1 0-1.42zM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM4.22 19.78a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.42 1.41l-1.42 1.42a1 1 0 0 1-1.42 0zM16.95 7.05a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.41 1.41l-1.41 1.42a1 1 0 0 1-1.42 0z"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-        </button>
         <button type="button" class="nav-icon-btn nav-lang-btn" id="lang-toggle" aria-label="Change language" title="Change language">
           <span class="lang-label">EN</span>
         </button>
@@ -95,41 +90,71 @@
     </div>
   </section>
 
-  <section class="project-hero">
-    <div class="wrap project-hero-grid">
-      <div class="project-intro">
-        <a class="back-link" href="../index.html#experience" data-i18n="common.btn_back_to_work">Back to work</a>
-        <span class="eyebrow" data-i18n="denshattack.eyebrow">Arcade Platformer / Unreal Engine 5</span>
-        <h1>Denshattack!</h1>
-        <p class="project-years" data-i18n="denshattack.years">2025 - 2026</p>
-        <p class="project-lede" data-i18n="denshattack.lede1">Denshattack! is an <strong>arcade train-flipping platformer</strong> published by <strong>Fireshine Games</strong>.</p>
-        <p class="project-lede" data-i18n="denshattack.lede2">I worked as <strong>QA and Game Design Assistant</strong>, balancing progression across the whole game and owning the design documentation.</p>
-
-        <h3 class="task-heading" data-i18n="common.task_overview">Task Overview</h3>
-        <ul class="task-list">
-            <li data-i18n="denshattack.task1">Balanced <strong>progression and economy</strong> across 67 handcrafted levels.</li>
-            <li data-i18n="denshattack.task2">Authored <strong>6 Game Design Documents</strong> covering systems and implementation.</li>
-            <li data-i18n="denshattack.task3">Validated <strong>level flow and difficulty</strong> through structured playtesting.</li>
-            <li data-i18n="denshattack.task4">Maintained system documentation in <strong>Confluence</strong> for cross-team work.</li>
-        </ul>
-
-        <div class="project-actions">
-          <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener" data-i18n="denshattack.btn_steam">View on Steam</a>
-          <a class="btn btn-outline" href="../index.html#experience" data-i18n="common.btn_more_projects">More projects</a>
+  <section class="project-hero project-hero-v2" style="--proj-accent:#2A1E3D;">
+    <div class="wrap-wide">
+      <div class="ph-grid">
+        <div class="ph-mascot">
+          <img src="../assets/img/char-densh.png" alt="Denshattack! protagonist" loading="lazy">
+        </div>
+        <div class="ph-intro">
+          <h1>Denshattack!</h1>
+                  <span class="eyebrow" data-i18n="denshattack.eyebrow">Arcade Platformer / Unreal Engine 5</span>
+                  <p class="project-years" data-i18n="denshattack.years">2025 - 2026</p>
+                  <p class="project-lede" data-i18n="denshattack.lede1">Denshattack! is an <strong>arcade train-flipping platformer</strong> published by <strong>Fireshine Games</strong>.</p>
+                  <p class="project-lede" data-i18n="denshattack.lede2">I worked as <strong>QA and Game Design Assistant</strong>, balancing progression across the whole game and owning the design documentation.</p>
+          
+                  <h3 class="task-heading" data-i18n="common.task_overview">Task Overview</h3>
+                  <ul class="task-list">
+                      <li data-i18n="denshattack.task1">Balanced <strong>progression and economy</strong> across 67 handcrafted levels.</li>
+                      <li data-i18n="denshattack.task2">Authored <strong>6 Game Design Documents</strong> covering systems and implementation.</li>
+                      <li data-i18n="denshattack.task3">Validated <strong>level flow and difficulty</strong> through structured playtesting.</li>
+                      <li data-i18n="denshattack.task4">Maintained system documentation in <strong>Confluence</strong> for cross-team work.</li>
+                  </ul>
+          
+                  <div class="project-actions">
+                    <a class="btn btn-solid" href="https://store.steampowered.com/app/2524850/Denshattack" target="_blank" rel="noopener" data-i18n="denshattack.btn_steam">View on Steam</a>
+                    <a class="btn btn-outline" href="../index.html#experience" data-i18n="common.btn_more_projects">More projects</a>
+                  </div>
+        </div>
+        <div class="ph-shots" aria-hidden="true">
+        <img src="../assets/img/denshattack-05.jpg" alt="Denshattack! gameplay: train through neon cyberpunk Tokyo." loading="lazy">
+        <img src="../assets/img/denshattack-06.jpg" alt="Denshattack! gameplay: train hitting a giant baseball on the tracks." loading="lazy">
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="project-media">
-        <div class="trailer-frame">
-          <button class="trailer-facade" data-yt="o_Xmv9eAIZA" type="button"
-                  aria-label="Play the Denshattack! trailer">
-            <img src="../assets/img/denshattack-01.jpg" alt="" loading="lazy">
+  <section class="trailer-gallery" style="--proj-accent:#2A1E3D;">
+    <div class="wrap-wide">
+      <div class="tg-grid">
+        <div class="tg-trailer">
+          <button class="trailer-facade tg-facade" data-yt="o_Xmv9eAIZA" type="button" aria-label="Play the trailer">
+            <img src="../assets/img/denshattack-key.jpg" alt="" loading="lazy">
             <span class="play-badge" aria-hidden="true"></span>
-            <span class="play-label" data-i18n="common.btn_watch_trailer">Watch trailer</span>
+            <span class="tg-label">OFFICIAL TRAILER</span>
           </button>
-          <noscript>
-            <a href="https://www.youtube.com/watch?v=o_Xmv9eAIZA" target="_blank" rel="noopener">Watch the trailer on YouTube</a>
-          </noscript>
+        </div>
+        <div class="tg-gallery" role="list">
+          <button class="tg-shot" type="button" data-index="0"
+                  data-full="../assets/img/denshattack-01.jpg"
+                  data-caption="Denshattack! gameplay: the train grinding a halfpipe.">
+            <img src="../assets/img/denshattack-01.jpg" alt="Denshattack! gameplay: the train grinding a halfpipe." loading="lazy">
+          </button>
+          <button class="tg-shot" type="button" data-index="1"
+                  data-full="../assets/img/denshattack-02.jpg"
+                  data-caption="Denshattack! gameplay: the train launching through a cherry blossom valley.">
+            <img src="../assets/img/denshattack-02.jpg" alt="Denshattack! gameplay: the train launching through a cherry blossom valley." loading="lazy">
+          </button>
+          <button class="tg-shot" type="button" data-index="2"
+                  data-full="../assets/img/denshattack-03.jpg"
+                  data-caption="Denshattack! story art: the protagonist surrounded by rival gang leaders.">
+            <img src="../assets/img/denshattack-03.jpg" alt="Denshattack! story art: the protagonist surrounded by rival gang leaders." loading="lazy">
+          </button>
+          <button class="tg-shot" type="button" data-index="3"
+                  data-full="../assets/img/denshattack-04.jpg"
+                  data-caption="Denshattack! Emi riding a wall with her train.">
+            <img src="../assets/img/denshattack-04.jpg" alt="Denshattack! Emi riding a wall with her train." loading="lazy">
+          </button>
         </div>
       </div>
     </div>
@@ -169,11 +194,6 @@
         </li>
       </ul>
 
-<div class="case-stats">
-        <div class="stat-row">
-          <div class="stat reveal"><span class="num" data-count="67">0</span><span class="label" data-i18n="denshattack.stat1_label">handcrafted levels balanced</span></div>
-          <div class="stat reveal"><span class="num" data-count="6">0</span><span class="label" data-i18n="denshattack.stat2_label">Game Design Documents authored</span></div>
-        </div>
       </div>
 
       <h2 data-i18n="common.learned_title">What I learned</h2>
@@ -184,32 +204,7 @@
         <a class="btn btn-outline" href="../index.html#experience">More projects</a>
       </div>
     </div>
-
-      <aside class="contrib-shots" aria-label="Screenshots">
-        <div class="shot-stack">
-            <button class="shot" type="button" data-index="0"
-                    data-full="../assets/img/denshattack-01.jpg"
-                    data-caption="Denshattack! gameplay: the train grinding through a neon city street.">
-              <img src="../assets/img/denshattack-01.jpg" alt="Denshattack! gameplay: the train grinding through a neon city street." loading="lazy">
-            </button>
-            <button class="shot" type="button" data-index="1"
-                    data-full="../assets/img/denshattack-02.jpg"
-                    data-caption="Denshattack! gameplay: the train launching through a cherry blossom valley.">
-              <img src="../assets/img/denshattack-02.jpg" alt="Denshattack! gameplay: the train launching through a cherry blossom valley." loading="lazy">
-            </button>
-            <button class="shot" type="button" data-index="2"
-                    data-full="../assets/img/denshattack-03.jpg"
-                    data-caption="Denshattack! story art: the protagonist surrounded by rival gang leaders.">
-              <img src="../assets/img/denshattack-03.jpg" alt="Denshattack! story art: the protagonist surrounded by rival gang leaders." loading="lazy">
-            </button>
-            <button class="shot" type="button" data-index="3"
-                    data-full="../assets/img/denshattack-04.jpg"
-                    data-caption="Denshattack! gameplay: the train flipping mid-air at high speed.">
-              <img src="../assets/img/denshattack-04.jpg" alt="Denshattack! gameplay: the train flipping mid-air at high speed." loading="lazy">
-            </button>
-        </div>
-      </aside>
-    </div>
+</div>
   </section>
 </main>
 

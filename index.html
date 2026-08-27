@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=15">
+<link rel="stylesheet" href="css/style.css?v=18">
 
 <script type="application/ld+json">
 {
@@ -43,8 +43,6 @@
 <script>
 (function(){
   try {
-    var t = localStorage.getItem('fb-theme');
-    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     var l = localStorage.getItem('fb-lang');
     if (l === 'es' || l === 'cat') document.documentElement.setAttribute('lang', l === 'cat' ? 'ca' : 'es');
   } catch(e){}
@@ -58,15 +56,12 @@
     <a href="#top" class="brand">FrancescBorràs<span>Portfolio</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" data-i18n="common.nav_menu">Menu</button>
     <ul id="nav-list">
+      <li><a class="nav-link" href="#top" data-i18n="common.nav_home">Home</a></li>
       <li><a class="nav-link" href="#about" data-i18n="common.nav_about">About</a></li>
       <li><a class="nav-link" href="#experience" data-i18n="common.nav_experience">Experience</a></li>
       <li><a class="nav-link" href="#projects" data-i18n="common.nav_projects">Projects</a></li>
       <li><a class="nav-link" href="#docs" data-i18n="common.nav_docs">Design Docs</a></li>
       <li class="nav-toggles">
-        <button type="button" class="nav-icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM4.22 4.22a1 1 0 0 1 1.42 0l1.42 1.42a1 1 0 1 1-1.42 1.42L4.22 5.64a1 1 0 0 1 0-1.42zM16.95 16.95a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 1 1-1.42 1.42l-1.41-1.42a1 1 0 0 1 0-1.42zM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM4.22 19.78a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.42 1.41l-1.42 1.42a1 1 0 0 1-1.42 0zM16.95 7.05a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.41 1.41l-1.41 1.42a1 1 0 0 1-1.42 0z"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-        </button>
         <button type="button" class="nav-icon-btn nav-lang-btn" id="lang-toggle" aria-label="Change language" title="Change language">
           <span class="lang-label">EN</span>
         </button>

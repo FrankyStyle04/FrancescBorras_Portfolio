@@ -190,21 +190,39 @@
 })();
 
 /* ---------------------------------------------------------
-   Screenshot lightbox.
-   Opens in place instead of a new tab, arrows and keyboard
-   move between shots, and focus returns to the thumbnail on
-   close so keyboard users do not lose their place.
+   Image lightbox for project pages.
+   - Auto-wraps .ph-shots img in a button so hero shots are clickable.
+   - Collects all .tg-shot and wrapped hero shots into a single list.
+   - Arrows and keyboard navigate; click on backdrop or Esc closes.
    --------------------------------------------------------- */
 (function () {
   "use strict";
 
   var box = document.getElementById("lightbox");
-  var shots = Array.prototype.slice.call(document.querySelectorAll(".shot"));
-  if (!box || !shots.length) return;
+  if (!box) return;
 
-  var img = box.querySelector("#lb-image");
-  var caption = box.querySelector(".caption");
-  var counter = box.querySelector(".counter");
+  // Wrap hero shots in a clickable button so they behave like gallery items
+  var heroImgs = document.querySelectorAll(".ph-shots img");
+  heroImgs.forEach(function (img) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "ph-shot-btn";
+    btn.setAttribute("data-full", img.getAttribute("src"));
+    btn.setAttribute("data-caption", img.getAttribute("alt") || "");
+    var parent = img.parentNode;
+    parent.insertBefore(btn, img);
+    btn.appendChild(img);
+  });
+
+  // Collect all lightbox-openable elements in DOM order
+  var shots = Array.prototype.slice.call(
+    document.querySelectorAll(".ph-shot-btn, .tg-shot")
+  );
+  if (!shots.length) return;
+
+  var img = box.querySelector("#lb-image") || box.querySelector(".lb-img");
+  var caption = box.querySelector(".caption") || box.querySelector(".lb-caption");
+  var counter = box.querySelector(".counter") || box.querySelector(".lb-counter");
   var btnPrev = box.querySelector(".lb-prev");
   var btnNext = box.querySelector(".lb-next");
   var btnClose = box.querySelector(".lb-close");
@@ -215,10 +233,12 @@
   function show(index) {
     current = (index + shots.length) % shots.length;
     var shot = shots[current];
-    img.src = shot.getAttribute("data-full");
-    img.alt = shot.getAttribute("data-caption") || "";
-    caption.textContent = shot.getAttribute("data-caption") || "";
-    counter.textContent = (current + 1) + " / " + shots.length;
+    var src = shot.getAttribute("data-full");
+    var cap = shot.getAttribute("data-caption") || "";
+    img.src = src;
+    img.alt = cap;
+    if (caption) caption.textContent = cap;
+    if (counter) counter.textContent = (current + 1) + " / " + shots.length;
   }
 
   function open(index) {
@@ -227,7 +247,7 @@
     box.hidden = false;
     box.classList.add("is-open");
     document.body.style.overflow = "hidden";
-    btnClose.focus();
+    if (btnClose) btnClose.focus();
   }
 
   function close() {
@@ -238,14 +258,16 @@
   }
 
   shots.forEach(function (shot, i) {
-    shot.addEventListener("click", function () { open(i); });
+    shot.addEventListener("click", function (e) {
+      e.preventDefault();
+      open(i);
+    });
   });
 
-  btnPrev.addEventListener("click", function () { show(current - 1); });
-  btnNext.addEventListener("click", function () { show(current + 1); });
-  btnClose.addEventListener("click", close);
+  if (btnPrev) btnPrev.addEventListener("click", function () { show(current - 1); });
+  if (btnNext) btnNext.addEventListener("click", function () { show(current + 1); });
+  if (btnClose) btnClose.addEventListener("click", close);
 
-  // Clicking the backdrop closes, clicking the image itself does not
   box.addEventListener("click", function (e) {
     if (e.target === box) close();
   });
@@ -289,22 +311,8 @@
   observer.observe(section);
 })();
 
-/* Theme + language toggles */
+/* Language toggle */
 (function () {
-  var themeBtn = document.getElementById('theme-toggle');
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        try { localStorage.setItem('fb-theme', 'dark'); } catch (e) {}
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        try { localStorage.setItem('fb-theme', 'light'); } catch (e) {}
-      }
-    });
-  }
-
   var langBtn = document.getElementById('lang-toggle');
   if (langBtn) {
     var LANGS = ['en', 'es', 'cat'];
