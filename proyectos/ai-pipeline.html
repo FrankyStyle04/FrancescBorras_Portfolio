@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=19">
+<link rel="stylesheet" href="../css/style.css?v=23">
 <script>
 (function(){
   try {
@@ -99,9 +99,9 @@
         </ul>
 
         <div class="project-actions">
-          <a class="btn btn-solid" href="../index.html#docs" data-i18n="ai.btn_see_docs">See related docs</a>
-          <a class="btn btn-outline" href="../index.html#contact">Get in touch</a>
+          <a class="btn btn-solid" href="https://drive.google.com/file/d/1kO4JErDM4qnyb_aj34caIzRyu6ndUDxE/view?usp=sharing" target="_blank" rel="noopener" data-i18n="ai.btn_download_thesis">Download full thesis document</a>
         </div>
+        <p class="doc-lang-note" data-i18n="ai.doc_lang_note">Document available in English.</p>
       </div>
 
       <div class="project-media">
@@ -112,22 +112,6 @@
     </div>
   </section>
 
-  <!-- HEADLINE METRICS -->
-  <section style="padding-top:0;">
-    <div class="wrap">
-      <div class="case-stats">
-        <div class="stat-row">
-          <div class="stat"><span class="num">-33%</span><span class="label" data-i18n="ai.stat1_label">Total tracked time</span></div>
-          <div class="stat"><span class="num">0.88</span><span class="label" data-i18n="ai.stat2_label">Communication specificity</span></div>
-          <div class="stat"><span class="num">8.5<span style="font-size:0.5em;">/10</span></span><span class="label" data-i18n="ai.stat3_label">Legibility score</span></div>
-          <div class="stat"><span class="num">-70%</span><span class="label" data-i18n="ai.stat4_label">Bias mitigation cost</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
   <!-- THE PROBLEM -->
   <section>
     <div class="wrap">
@@ -135,9 +119,170 @@
       <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:22ch;" data-i18n="ai.problem_title">Friction lives between blockout and dressing.</h2>
       <p class="section-lede" style="max-width:none;" data-i18n="ai.problem_lede">In real production, the level designer understands the functional needs of the space, but communicating how those decisions should translate into a specific visual direction is expensive in both time and coordination.</p>
 
-      <div class="case-media" style="margin-top:2.5rem; background:#F5F2EC; padding:2rem; border-radius:var(--radius);">
-        <img src="../assets/img/ai-traditional-pipeline.jpg" alt="Traditional Lyra level design pipeline: Market Analysis → Top-Down Map → Blockout → Dressing → QA Validation." style="max-width:100%; margin:0 auto; display:block;">
-        <p style="text-align:center; font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); margin-top:1rem; letter-spacing:0.04em;" data-i18n="ai.problem_caption">The traditional five-phase pipeline used on Lyra.</p>
+      <div class="trad-pipeline" aria-label="Traditional pipeline diagram">
+        <p class="trad-hint" data-i18n="ai.trad_hover_hint">Hover a phase to reveal what it involves.</p>
+
+        <ol class="trad-cards" role="list">
+
+          <li class="trad-card" tabindex="0" style="--i:0">
+            <div class="trad-inner">
+              <div class="trad-front">
+                <span class="trad-num">01</span>
+                <div class="trad-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7"/>
+                    <path d="m20 20-3.5-3.5"/>
+                  </svg>
+                </div>
+                <h4 data-i18n="ai.trad_p1_name">Market Analysis</h4>
+              </div>
+              <div class="trad-back">
+                <h5 data-i18n="ai.trad_p1_name">Market Analysis</h5>
+                <ul>
+                  <li data-i18n="ai.trad_p1_b1">Brainstorming</li>
+                  <li data-i18n="ai.trad_p1_b2">Design + Art</li>
+                  <li data-i18n="ai.trad_p1_b3">Market referrals</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="trad-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </li>
+
+          <li class="trad-card has-loop" tabindex="0" style="--i:1">
+            <span class="trad-selfloop" aria-hidden="true">
+              <span class="loop-label" data-i18n="ai.trad_loop_feedback">Get feedback</span>
+              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
+                <defs>
+                  <marker id="trad-arrow-down" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0 0 L5 8 L10 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </marker>
+                </defs>
+                <path d="M20 28 C 20 2, 60 2, 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" marker-end="url(#trad-arrow-down)"/>
+              </svg>
+            </span>
+            <div class="trad-inner">
+              <div class="trad-front">
+                <span class="trad-num">02</span>
+                <div class="trad-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="2 6 2 21 8 18 16 21 22 18 22 3 16 6 8 3 2 6"/>
+                    <line x1="8" y1="3" x2="8" y2="18"/>
+                    <line x1="16" y1="6" x2="16" y2="21"/>
+                  </svg>
+                </div>
+                <h4 data-i18n="ai.trad_p2_name">Top-Down Map</h4>
+              </div>
+              <div class="trad-back">
+                <h5 data-i18n="ai.trad_p2_name">Top-Down Map</h5>
+                <ul>
+                  <li data-i18n="ai.trad_p2_b1">Level storyboard</li>
+                  <li data-i18n="ai.trad_p2_b2">Mechanics in use (atoms)</li>
+                  <li data-i18n="ai.trad_p2_b3">Level beats contextualization</li>
+                  <li data-i18n="ai.trad_p2_b4">Objectives</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="trad-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </li>
+
+          <li class="trad-card has-loop" tabindex="0" style="--i:2">
+            <span class="trad-selfloop" aria-hidden="true">
+              <span class="loop-label" data-i18n="ai.trad_loop_feedback">Get feedback</span>
+              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
+                <path d="M20 28 C 20 2, 60 2, 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" marker-end="url(#trad-arrow-down)"/>
+              </svg>
+            </span>
+            <div class="trad-inner">
+              <div class="trad-front">
+                <span class="trad-num">03</span>
+                <div class="trad-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                  </svg>
+                </div>
+                <h4 data-i18n="ai.trad_p3_name">Blockout</h4>
+              </div>
+              <div class="trad-back">
+                <h5 data-i18n="ai.trad_p3_name">Blockout</h5>
+                <ul>
+                  <li data-i18n="ai.trad_p3_b1">Focus on composition</li>
+                  <li data-i18n="ai.trad_p3_b2">Objectives visualization</li>
+                  <li data-i18n="ai.trad_p3_b3">Metrics validation</li>
+                  <li data-i18n="ai.trad_p3_b4">Player main paths</li>
+                  <li data-i18n="ai.trad_p3_b5">Player secondary paths</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="trad-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </li>
+
+          <li class="trad-card" tabindex="0" style="--i:3">
+            <div class="trad-inner">
+              <div class="trad-front">
+                <span class="trad-num">04</span>
+                <div class="trad-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L14 13l-4 1 1-4 7.5-7.5z"/>
+                    <path d="M12 15 4 21c-1 .8-2.5-.7-1.7-1.7L8 12"/>
+                  </svg>
+                </div>
+                <h4 data-i18n="ai.trad_p4_name">Dressing</h4>
+              </div>
+              <div class="trad-back">
+                <h5 data-i18n="ai.trad_p4_name">Dressing</h5>
+                <ul>
+                  <li data-i18n="ai.trad_p4_b1">Concept art list</li>
+                  <li data-i18n="ai.trad_p4_b2">Conceptualization</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="trad-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </li>
+
+          <li class="trad-card" tabindex="0" style="--i:4">
+            <div class="trad-inner">
+              <div class="trad-front">
+                <span class="trad-num">05</span>
+                <div class="trad-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <h4 data-i18n="ai.trad_p5_name">QA Validation</h4>
+              </div>
+              <div class="trad-back">
+                <h5 data-i18n="ai.trad_p5_name">QA Validation</h5>
+                <ul>
+                  <li data-i18n="ai.trad_p5_b1">Focus on composition</li>
+                  <li data-i18n="ai.trad_p5_b2">Objectives visualization</li>
+                  <li data-i18n="ai.trad_p5_b3">Metrics validation</li>
+                  <li data-i18n="ai.trad_p5_b4">Player main paths</li>
+                  <li data-i18n="ai.trad_p5_b5">Player secondary paths</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+        </ol>
+
+        <p class="trad-caption" data-i18n="ai.problem_caption">The traditional five-phase pipeline used on Lyra.</p>
+        <p class="trad-loops-note" data-i18n="ai.trad_loops_note">Also includes a playtesting loop from QA back to Blockout for manual iteration.</p>
       </div>
 
       <div style="display:grid; grid-template-columns:1fr; gap:1.5rem; margin-top:2.5rem;" class="problem-grid">
@@ -194,6 +339,7 @@
         <div class="phase-header">
           <h3 data-i18n="ai.p1_title">01 · Briefing</h3>
           <div class="phase-tools">
+            <span class="tools-label" data-i18n="ai.tools_label">Tools used in this phase:</span>
             <span class="tool-chip">Claude</span>
           </div>
         </div>
@@ -231,6 +377,7 @@
         <div class="phase-header">
           <h3 data-i18n="ai.p2_title">02 · Top-Down Map</h3>
           <div class="phase-tools">
+            <span class="tools-label" data-i18n="ai.tools_label">Tools used in this phase:</span>
             <span class="tool-chip">Claude</span>
             <span class="tool-chip">HTML output</span>
           </div>
@@ -274,6 +421,7 @@
         <div class="phase-header">
           <h3 data-i18n="ai.p3_title">03 · Blockout & Guidance Validation</h3>
           <div class="phase-tools">
+            <span class="tools-label" data-i18n="ai.tools_label">Tools used in this phase:</span>
             <span class="tool-chip">Claude</span>
             <span class="tool-chip">Gemini</span>
           </div>
@@ -319,6 +467,7 @@
         <div class="phase-header">
           <h3 data-i18n="ai.p4_title">04 · Assisted Dressing</h3>
           <div class="phase-tools">
+            <span class="tools-label" data-i18n="ai.tools_label">Tools used in this phase:</span>
             <span class="tool-chip">Claude</span>
             <span class="tool-chip">ChatGPT / Gemini</span>
           </div>
@@ -357,6 +506,7 @@
         <div class="phase-header">
           <h3 data-i18n="ai.p5_title">05 · QA Validation</h3>
           <div class="phase-tools">
+            <span class="tools-label" data-i18n="ai.tools_label">Tools used in this phase:</span>
             <span class="tool-chip">Jenkins</span>
             <span class="tool-chip">Custom Dashboard</span>
           </div>

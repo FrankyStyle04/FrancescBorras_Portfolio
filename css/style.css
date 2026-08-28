@@ -2240,3 +2240,260 @@ main { position: relative; }
   .ph-shot-btn:hover img,
   .tg-shot:hover img { transform: none; }
 }
+
+/* Language note under the thesis download button on the AI pipeline page */
+.doc-lang-note {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--surface-soft);
+  margin: 0.85rem 0 0;
+  letter-spacing: 0.02em;
+}
+
+/* Label preceding the tool chips on each AI pipeline phase */
+.tools-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--surface-soft);
+  margin-right: 0.15rem;
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* ===============================================
+   Traditional Pipeline - Interactive flip cards
+   =============================================== */
+.trad-pipeline {
+  margin-top: 2.5rem;
+  padding: 2.5rem 1.5rem 2rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--surface-line);
+  border-radius: var(--radius);
+  position: relative;
+}
+
+.trad-hint {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--surface-soft);
+  text-align: center;
+  margin: 0 0 2rem;
+  opacity: 0.75;
+}
+
+.trad-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+/* Arrows between cards */
+.trad-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pine-soft);
+  opacity: 0.55;
+  flex: 0 0 auto;
+  padding: 0 0.15rem;
+}
+.trad-arrow svg { width: 22px; height: 22px; display: block; }
+
+/* Each phase card - 3D flip container */
+.trad-card {
+  flex: 1 1 160px;
+  min-width: 150px;
+  max-width: 200px;
+  aspect-ratio: 3/4;
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+  animation: trad-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+@keyframes trad-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.trad-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.trad-card:hover .trad-inner,
+.trad-card:focus-visible .trad-inner,
+.trad-card.is-flipped .trad-inner {
+  transform: rotateY(180deg);
+}
+
+.trad-front,
+.trad-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  padding: 1.2rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid var(--surface-line);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trad-front {
+  background: linear-gradient(160deg, rgba(var(--paper-rgb), 0.04) 0%, rgba(var(--paper-rgb), 0.02) 100%), var(--surface-bg);
+  color: var(--surface-text);
+}
+.trad-card:hover .trad-front,
+.trad-card:focus-visible .trad-front {
+  border-color: var(--pine-soft);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+.trad-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--pine-soft);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
+}
+.trad-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--pine-soft);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trad-icon svg { width: 100%; height: 100%; }
+.trad-front h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--surface-text);
+}
+
+.trad-back {
+  transform: rotateY(180deg);
+  background: var(--pine-soft);
+  color: var(--dark);
+  padding: 1rem 0.85rem;
+  justify-content: flex-start;
+}
+.trad-back h5 {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  margin: 0.3rem 0 0.7rem;
+  color: var(--dark);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+.trad-back ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--dark);
+  text-align: left;
+  width: 100%;
+}
+.trad-back li {
+  padding: 0.28rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+  padding-left: 0.9rem;
+}
+.trad-back li:last-child { border-bottom: none; }
+.trad-back li::before {
+  content: "•";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.28rem;
+  color: var(--dark);
+  opacity: 0.65;
+}
+
+.trad-caption {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--surface-soft);
+  letter-spacing: 0.04em;
+  margin: 1.8rem 0 0.3rem;
+}
+.trad-loops-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--surface-soft);
+  margin: 0.2rem auto 0;
+  max-width: 60ch;
+  line-height: 1.5;
+}
+
+/* Mobile: cards wrap to 2-3 columns; arrows hide */
+@media (max-width: 720px) {
+  .trad-arrow { display: none; }
+  .trad-cards { gap: 0.75rem; }
+  .trad-card { flex: 1 1 45%; max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trad-inner { transition: none; }
+  .trad-card { animation: none; }
+}
+
+/* Self-loops on top of cards 02 and 03 */
+.trad-card.has-loop { position: relative; overflow: visible; }
+.trad-selfloop {
+  position: absolute;
+  top: -46px;
+  left: 8%;
+  right: 8%;
+  height: 40px;
+  pointer-events: none;
+  color: var(--pine-soft);
+  opacity: 0.85;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.trad-selfloop .loop-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--pine-soft);
+  margin-bottom: 1px;
+  white-space: nowrap;
+}
+.trad-selfloop svg {
+  width: 100%;
+  height: 26px;
+  display: block;
+}
+
+/* Give the pipeline extra top padding so the loops don't get cropped */
+.trad-pipeline { padding-top: 3.5rem; }
+
+@media (max-width: 720px) {
+  /* On mobile the cards stack, so hide the visual loops - keep only the note */
+  .trad-selfloop { display: none; }
+  .trad-pipeline { padding-top: 2rem; }
+}
