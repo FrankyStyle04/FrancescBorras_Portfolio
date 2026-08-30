@@ -2861,3 +2861,45 @@ main { position: relative; }
   .hpp-row, .hpp-delta { transition: none; }
 }
 
+
+/* ==========================================================
+   AI page: unified section titles + wider text measure
+   ========================================================== */
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  line-height: 1.15;
+  color: var(--surface-text);
+  margin: 0 0 1.1rem;
+  max-width: 30ch;
+}
+
+/* Use the available width instead of hugging the left edge */
+.cc-question { max-width: 30ch; }
+.cc-answer { max-width: 74ch; font-size: clamp(1.08rem, 1.8vw, 1.3rem); }
+.cc-answer-sub { max-width: 80ch; }
+.cc-catch-body { max-width: 82ch; }
+.cc-numbers-foot { max-width: 82ch; }
+.cc-redo-intro { max-width: 82ch; }
+.cc-redo-list p { max-width: none; }
+.cc-redo-close { max-width: 84ch; }
+.cc-shift-body p { max-width: 84ch; }
+.cc-pipe-intro { max-width: 84ch; }
+.cc-pipe-foot { max-width: 70ch; }
+.cc-road-body p { max-width: none; }
+.cc-final-line { max-width: 68ch; }
+.cc-final-punch { max-width: 30ch; }
+.hpp-note { max-width: none; }
+.section-lede { max-width: 84ch; }
+.cc-card p { font-size: .95rem; }
+
+/* Tighter vertical rhythm on the conclusions block */
+.cc-opening { padding-bottom: 0; }
+.cc-numbers { padding-top: clamp(2rem, 4vw, 3rem); }
+.cc-catch { padding-top: clamp(2rem, 4vw, 3rem); }
+
+/* Lead-in sentence style for the promoted headings */
+.section-lede strong {
+  color: var(--surface-text);
+  font-weight: 700;
+}
