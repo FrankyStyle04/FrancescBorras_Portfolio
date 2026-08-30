@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=23">
+<link rel="stylesheet" href="../css/style.css?v=27">
 <script>
 (function(){
   try {
@@ -151,18 +151,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </li>
 
-          <li class="trad-card has-loop" tabindex="0" style="--i:1">
-            <span class="trad-selfloop" aria-hidden="true">
-              <span class="loop-label" data-i18n="ai.trad_loop_feedback">Get feedback</span>
-              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
-                <defs>
-                  <marker id="trad-arrow-down" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="7" markerHeight="7" orient="auto">
-                    <path d="M0 0 L5 8 L10 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </marker>
-                </defs>
-                <path d="M20 28 C 20 2, 60 2, 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" marker-end="url(#trad-arrow-down)"/>
-              </svg>
-            </span>
+          <li class="trad-card" tabindex="0" style="--i:1">
             <div class="trad-inner">
               <div class="trad-front">
                 <span class="trad-num">02</span>
@@ -191,13 +180,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </li>
 
-          <li class="trad-card has-loop" tabindex="0" style="--i:2">
-            <span class="trad-selfloop" aria-hidden="true">
-              <span class="loop-label" data-i18n="ai.trad_loop_feedback">Get feedback</span>
-              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
-                <path d="M20 28 C 20 2, 60 2, 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" marker-end="url(#trad-arrow-down)"/>
-              </svg>
-            </span>
+          <li class="trad-card" tabindex="0" style="--i:2">
             <div class="trad-inner">
               <div class="trad-front">
                 <span class="trad-num">03</span>
@@ -282,7 +265,7 @@
         </ol>
 
         <p class="trad-caption" data-i18n="ai.problem_caption">The traditional five-phase pipeline used on Lyra.</p>
-        <p class="trad-loops-note" data-i18n="ai.trad_loops_note">Also includes a playtesting loop from QA back to Blockout for manual iteration.</p>
+        <p class="trad-loops-note" data-i18n="ai.trad_loops_note">The pipeline is iterative: Top-Down Map and Blockout each cycle through feedback rounds, and QA loops back to Blockout via playtesting.</p>
       </div>
 
       <div style="display:grid; grid-template-columns:1fr; gap:1.5rem; margin-top:2.5rem;" class="problem-grid">
@@ -593,88 +576,468 @@
         </div>
       </div>
 
-      <div class="case-media" style="margin-top:3rem;">
-        <img src="../assets/img/ai-hoursphase-chart.jpg" alt="Bar chart comparing hours per pipeline phase between Hills and Cave levels.">
-        <p style="text-align:center; font-family:var(--font-mono); font-size:0.78rem; color:var(--surface-soft); margin-top:0.75rem; letter-spacing:0.04em;" data-i18n="ai.caption_hours">Hours per phase · Hills Level vs Cave Level.</p>
+      <figure class="hpp" style="margin-top:3rem;">
+        <div class="hpp-panel">
+
+          <div class="hpp-head">
+            <div>
+              <span class="hpp-eyebrow" data-i18n="ai.hpp_title">Hours per phase</span>
+              <p class="hpp-hint" data-i18n="ai.hpp_hint">Hover a phase to isolate it.</p>
+            </div>
+            <div class="hpp-legend">
+              <span class="hpp-key"><i class="hpp-swatch hpp-swatch-trad"></i><span data-i18n="ai.hpp_legend_trad">Hills (Traditional)</span></span>
+              <span class="hpp-key"><i class="hpp-swatch hpp-swatch-ai"></i><span data-i18n="ai.hpp_legend_ai">Cave (AI-assisted)</span></span>
+            </div>
+          </div>
+
+          <ul class="hpp-rows">
+
+            <li class="hpp-row" tabindex="0">
+              <div class="hpp-label">
+                <span class="hpp-idx">01</span>
+                <span class="hpp-phase" data-i18n="ai.hpp_r1">Research</span>
+              </div>
+              <div class="hpp-bars">
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-trad" style="--w:50%"></div>
+                  <span class="hpp-val">6&ndash;8h</span>
+                </div>
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-ai" style="--w:14%"></div>
+                  <span class="hpp-val">&lt;2h</span>
+                </div>
+              </div>
+              <span class="hpp-delta">&minus;79<i>%</i></span>
+            </li>
+
+            <li class="hpp-row" tabindex="0">
+              <div class="hpp-label">
+                <span class="hpp-idx">02</span>
+                <span class="hpp-phase" data-i18n="ai.hpp_r2">Top-down map</span>
+              </div>
+              <div class="hpp-bars">
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-trad" style="--w:29%"></div>
+                  <span class="hpp-val">2&ndash;6h</span>
+                </div>
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-ai" style="--w:21%"></div>
+                  <span class="hpp-val">&lt;3h</span>
+                </div>
+              </div>
+              <span class="hpp-delta">&minus;38<i>%</i></span>
+            </li>
+
+            <li class="hpp-row" tabindex="0">
+              <div class="hpp-label">
+                <span class="hpp-idx">03</span>
+                <span class="hpp-phase" data-i18n="ai.hpp_r3">Blockout</span>
+              </div>
+              <div class="hpp-bars">
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-trad" style="--w:93%"></div>
+                  <span class="hpp-val">12&ndash;14h</span>
+                </div>
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-ai" style="--w:71%"></div>
+                  <span class="hpp-val">9&ndash;11h</span>
+                </div>
+              </div>
+              <span class="hpp-delta hpp-delta-low">&minus;23<i>%</i></span>
+            </li>
+
+            <li class="hpp-row" tabindex="0">
+              <div class="hpp-label">
+                <span class="hpp-idx">04</span>
+                <span class="hpp-phase" data-i18n="ai.hpp_r4">Dressing</span>
+              </div>
+              <div class="hpp-bars">
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-trad" style="--w:86%"></div>
+                  <span class="hpp-val">12h</span>
+                </div>
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-ai" style="--w:54%"></div>
+                  <span class="hpp-val">7&ndash;8h</span>
+                </div>
+              </div>
+              <span class="hpp-delta">&minus;38<i>%</i></span>
+            </li>
+
+            <li class="hpp-row" tabindex="0">
+              <div class="hpp-label">
+                <span class="hpp-idx">05</span>
+                <span class="hpp-phase" data-i18n="ai.hpp_r5">QA validation</span>
+              </div>
+              <div class="hpp-bars">
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-trad" style="--w:96%"></div>
+                  <span class="hpp-val" data-i18n="ai.hpp_high">High*</span>
+                </div>
+                <div class="hpp-track">
+                  <div class="hpp-bar hpp-bar-ai" style="--w:5%"></div>
+                  <span class="hpp-val" data-i18n="ai.hpp_auto">Auto</span>
+                </div>
+              </div>
+              <span class="hpp-delta hpp-delta-auto" data-i18n="ai.hpp_delta_auto">Auto</span>
+            </li>
+
+          </ul>
+
+          <div class="hpp-foot">
+            <span class="hpp-scale" data-i18n="ai.hpp_scale">Bars scaled to a 14h maximum</span>
+            <span class="hpp-total"><span data-i18n="ai.hpp_total_label">Total tracked</span> <strong>~36h &rarr; ~24h</strong></span>
+          </div>
+
+          <p class="hpp-note" data-i18n="ai.hpp_note">* QA validation hours on the Hills Level were never tracked reliably, which is itself part of the finding. Bar shown as an estimate.</p>
+        </div>
+        <figcaption data-i18n="ai.caption_hours">Hours per phase · Hills Level vs Cave Level.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============================================
+       CONCLUSIONS - Interactive portfolio experience
+       ============================================ -->
+
+  <!-- 1. OPENING -->
+  <section class="cc-opening">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cc.open_eyebrow">Conclusions</span>
+      <h2 class="cc-question" data-i18n="cc.open_question">So… did AI actually make me a better Level Designer?</h2>
+      <p class="cc-answer" data-i18n="cc.open_answer">Not exactly. It made me a <strong>faster</strong> one in some places, a <strong>more precise</strong> one in others, and a considerably more <strong>suspicious</strong> one everywhere else.</p>
+      <p class="cc-answer-sub" data-i18n="cc.open_sub">The interesting part isn't the speed. It's discovering exactly which parts of my job AI could touch, and which parts it had no business touching at all.</p>
+      <div class="cc-scroll-cue" aria-hidden="true">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THE NUMBERS -->
+  <section class="cc-numbers">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cc.num_eyebrow">The numbers</span>
+      <h3 class="cc-h3" data-i18n="cc.num_title">What the A/B test measured.</h3>
+
+      <div class="cc-metrics">
+        <div class="cc-metric" data-count-to="33" data-prefix="−" data-suffix="%">
+          <span class="cc-metric-num">−0%</span>
+          <span class="cc-metric-label" data-i18n="cc.num_1_label">Tracked production time</span>
+        </div>
+        <div class="cc-metric" data-count-from="55" data-count-to="88" data-decimal="2" data-arrow="true">
+          <span class="cc-metric-num">0.55 → 0.55</span>
+          <span class="cc-metric-label" data-i18n="cc.num_2_label">Communication specificity</span>
+        </div>
+        <div class="cc-metric" data-count-from="62" data-count-to="85" data-decimal="1" data-arrow="true">
+          <span class="cc-metric-num">6.2 → 6.2</span>
+          <span class="cc-metric-label" data-i18n="cc.num_3_label">Top-down map legibility</span>
+        </div>
+        <div class="cc-metric cc-metric-text">
+          <span class="cc-metric-num" data-i18n="cc.num_4_value">Minutes, not hours</span>
+          <span class="cc-metric-label" data-i18n="cc.num_4_label">Visual iteration cycle</span>
+        </div>
       </div>
 
-      <div class="case-media" style="margin-top:2rem;">
-        <img src="../assets/img/ai-testab-summary.jpg" alt="Summary panel of the A/B production test with headline metrics.">
-        <p style="text-align:center; font-family:var(--font-mono); font-size:0.78rem; color:var(--surface-soft); margin-top:0.75rem; letter-spacing:0.04em;" data-i18n="ai.caption_ab">Interactive A/B summary panel produced as a companion deliverable.</p>
-      </div>
+      <p class="cc-numbers-foot" data-i18n="cc.num_foot">Two levels of the same game. Hills under the traditional pipeline, Cave under the AI-assisted one. Same team, same engine, same target player.</p>
+    </div>
+  </section>
 
-      <div style="text-align:center; margin-top:2rem;">
-        <a class="btn btn-solid" href="../assets/html/ab-comparison.html" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h5V3H3v18h18v-7h-2v5H5V5z"/></svg>
-          <span data-i18n="ai.open_ab_full">Open the full interactive A/B report</span>
-        </a>
+  <!-- 3. THE CATCH -->
+  <section class="cc-catch">
+    <div class="wrap">
+      <h3 class="cc-catch-hook" data-i18n="cc.catch_hook">Sounds great. There's a catch.</h3>
+      <p class="cc-catch-body" data-i18n="cc.catch_body">Those numbers describe <strong>this team, on these two levels, at this scope</strong>. They are not proof that AI makes game development a third faster. They're evidence that a specific set of bottlenecks responded well to a specific set of tools.</p>
+
+      <div class="cc-swap" aria-hidden="true">
+        <div class="cc-swap-track">
+          <div class="cc-slot cc-slot-designer">
+            <span class="cc-slot-tag" data-i18n="cc.catch_slot_designer">Designer</span>
+            <span class="cc-slot-role" data-i18n="cc.catch_slot_designer_role">Owns the decisions</span>
+          </div>
+          <div class="cc-ai-chip" id="cc-ai-chip">AI</div>
+          <div class="cc-slot cc-slot-support">
+            <span class="cc-slot-tag" data-i18n="cc.catch_slot_support">Assistant · Validator · Accelerator</span>
+            <span class="cc-slot-role" data-i18n="cc.catch_slot_support_role">Removes friction around them</span>
+          </div>
+        </div>
+        <p class="cc-swap-caption" data-i18n="cc.catch_swap_caption">AI kept trying to sit in the designer's chair. It works much better one seat over.</p>
       </div>
     </div>
   </section>
 
   <hr class="rule">
 
-  <!-- KEY FINDINGS -->
+  <!-- 4. WHAT I ACTUALLY LEARNED -->
+  <section class="cc-learned">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cc.learn_eyebrow">What I actually learned</span>
+      <h3 class="cc-h3" data-i18n="cc.learn_title">Three things the data couldn't tell me on its own.</h3>
+
+      <div class="cc-cards">
+
+        <!-- CARD 01 -->
+        <article class="cc-card" tabindex="0">
+          <span class="cc-card-num">01</span>
+          <h4 data-i18n="cc.card1_title">AI doesn't replace creation. It removes friction.</h4>
+          <p data-i18n="cc.card1_body">The phases that improved dramatically were the ones where the manual cost was <strong>organising and aligning information across roles</strong>: briefing, documentation, visualisation, validation. The phases that barely moved were the ones where the work was construction inside the engine. That work still needed a human with a mouse and an opinion.</p>
+          <blockquote data-i18n="cc.card1_quote">The biggest gains happened in the seams between disciplines.</blockquote>
+
+          <div class="cc-card-viz cc-viz-seams" aria-hidden="true">
+            <div class="cc-seam-row">
+              <span class="cc-seam-block" data-i18n="cc.card1_viz_design">Design</span>
+              <span class="cc-seam-gap"><span class="cc-seam-spark"></span></span>
+              <span class="cc-seam-block" data-i18n="cc.card1_viz_art">Art</span>
+              <span class="cc-seam-gap"><span class="cc-seam-spark"></span></span>
+              <span class="cc-seam-block" data-i18n="cc.card1_viz_qa">QA</span>
+            </div>
+            <span class="cc-viz-note" data-i18n="cc.card1_viz_note">The gain lives in the gaps, not in the boxes.</span>
+          </div>
+        </article>
+
+        <!-- CARD 02 -->
+        <article class="cc-card" tabindex="0">
+          <span class="cc-card-num">02</span>
+          <h4 data-i18n="cc.card2_title">Every shortcut creates a checkpoint.</h4>
+          <p data-i18n="cc.card2_body">The dressing prompt returned a usable visual reference in about ten minutes, work that would have taken hours of concept art. But every single generation needed a manual review pass, because it liked to add decorative elements that were never in the blockout. The net gain stays positive. The review time doesn't disappear just because you didn't plan for it.</p>
+          <blockquote data-i18n="cc.card2_quote">AI doesn't remove work. It changes where the work happens.</blockquote>
+
+          <div class="cc-card-viz cc-viz-shift" aria-hidden="true">
+            <div class="cc-shift-lane">
+              <span class="cc-shift-label" data-i18n="cc.card2_viz_creation">Creation</span>
+              <span class="cc-shift-label" data-i18n="cc.card2_viz_verification">Verification</span>
+            </div>
+            <div class="cc-shift-track">
+              <span class="cc-shift-block" data-i18n="cc.card2_viz_work">work</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 03 -->
+        <article class="cc-card" tabindex="0">
+          <span class="cc-card-num">03</span>
+          <h4 data-i18n="cc.card3_title">Don't try to eliminate bias. Catch it earlier.</h4>
+          <p data-i18n="cc.card3_body">After thirty hours inside a level, I stop seeing it the way a player sees it for the first time. That familiarity bias is <strong>structural</strong>: it comes with owning the space. AI doesn't cure it. What it does is let a reader with zero context look at the blockout on day two instead of at external playtesting on week six.</p>
+          <blockquote data-i18n="cc.card3_quote">The earlier you catch the problem, the cheaper it is to fix.</blockquote>
+
+          <div class="cc-card-viz cc-viz-timeline" aria-hidden="true">
+            <div class="cc-tl-row cc-tl-before">
+              <span class="cc-tl-tag" data-i18n="cc.card3_viz_before">Before</span>
+              <span class="cc-tl-step">Blockout</span>
+              <span class="cc-tl-step">Dressing</span>
+              <span class="cc-tl-step cc-tl-signal">Playtest</span>
+            </div>
+            <div class="cc-tl-row cc-tl-after">
+              <span class="cc-tl-tag" data-i18n="cc.card3_viz_after">After</span>
+              <span class="cc-tl-step">Blockout</span>
+              <span class="cc-tl-step cc-tl-signal cc-tl-ai">AI check</span>
+              <span class="cc-tl-step">Dressing</span>
+              <span class="cc-tl-step">Playtest</span>
+            </div>
+            <span class="cc-viz-note" data-i18n="cc.card3_viz_note">Same bias. Much earlier warning. Still not a substitute for playtesting.</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 5. WHAT I WOULD DO DIFFERENTLY -->
+  <section class="cc-redo">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cc.redo_eyebrow">Honest reading</span>
+      <h3 class="cc-h3" data-i18n="cc.redo_title">If I did this project again…</h3>
+      <p class="cc-redo-intro" data-i18n="cc.redo_intro">This is the part I'd want a hiring manager to read carefully, because knowing where my evidence stops is the whole point of running the experiment in the first place.</p>
+
+      <ul class="cc-redo-list">
+        <li>
+          <span class="cc-redo-mark" aria-hidden="true"></span>
+          <div>
+            <h5 data-i18n="cc.redo_1_title">I'd build the same level twice.</h5>
+            <p data-i18n="cc.redo_1_body">I compared two different levels, not the same level produced twice. Layout, scope and beat count all differ, so the pipeline isn't the only variable moving. Rebuilding Hills under the AI pipeline would isolate it properly.</p>
+          </div>
+        </li>
+        <li>
+          <span class="cc-redo-mark" aria-hidden="true"></span>
+          <div>
+            <h5 data-i18n="cc.redo_2_title">I'd account for the team getting better.</h5>
+            <p data-i18n="cc.redo_2_body">We built Cave after Hills. The team was more experienced, knew the engine better, and had already made the obvious mistakes once. Some of that 33% is simply us not being beginners any more.</p>
+          </div>
+        </li>
+        <li>
+          <span class="cc-redo-mark" aria-hidden="true"></span>
+          <div>
+            <h5 data-i18n="cc.redo_3_title">I'd get someone else to evaluate it.</h5>
+            <p data-i18n="cc.redo_3_body">I designed the pipeline, I operated it, and I measured it. That's three roles that would normally sit with three different people, and I'd be naive to pretend it introduces no bias into the reading.</p>
+          </div>
+        </li>
+        <li>
+          <span class="cc-redo-mark" aria-hidden="true"></span>
+          <div>
+            <h5 data-i18n="cc.redo_4_title">I'd budget the prompt-stabilising cost up front.</h5>
+            <p data-i18n="cc.redo_4_body">The briefing and dressing prompts worked on the first try. The guidance validation prompt took three to four revisions before it behaved. That development cost never showed up in the time metric, and any team adopting this would pay it on day one.</p>
+          </div>
+        </li>
+        <li>
+          <span class="cc-redo-mark" aria-hidden="true"></span>
+          <div>
+            <h5 data-i18n="cc.redo_5_title">I'd keep every playtest exactly where it was.</h5>
+            <p data-i18n="cc.redo_5_body">AI moved the first bias-free signal earlier. It never replaced a single session with a real player, and treating a compositional read as a verdict rather than an early warning would put the blindness straight back in.</p>
+          </div>
+        </li>
+      </ul>
+
+      <p class="cc-redo-close" data-i18n="cc.redo_close">The experiment gave me usable evidence and a working pipeline. It didn't give me a magic number, and I'd rather present it as the first than pretend it's the second.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 6. THE BIGGEST THING I LEARNED -->
+  <section class="cc-shift">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cc.shift_eyebrow">The biggest thing I learned</span>
+      <h3 class="cc-shift-headline">
+        <span class="cc-strike" data-i18n="cc.shift_strike">AI as a generator</span>
+        <span class="cc-shift-arrow" aria-hidden="true">→</span>
+        <span class="cc-shift-new" data-i18n="cc.shift_new">AI as part of a pipeline</span>
+      </h3>
+
+      <div class="cc-shift-body">
+        <p data-i18n="cc.shift_p1">I started this project thinking about <strong>output</strong>. What can it make, how fast, how good. I finished it thinking about <strong>placement</strong>: which phase, which input, which decision stays mine.</p>
+        <p data-i18n="cc.shift_p2">That shift changed how I write prompts. A prompt stopped being a wish and became a <strong>spec</strong>, with the same constraints I'd hand a collaborator: this is the metric, this is the guidance technique, these are the elements you may not add. It changed what I measure, because "it looks nicer" is not a result and specificity ratio is. And it changed where I let AI near the work at all: close to communication, documentation and validation, nowhere near the decision about what the space should ask the player to do.</p>
+        <p data-i18n="cc.shift_p3">The blockout still needs a designer standing in the level asking whether the path reads. What changed is how many bad versions of that path I can afford to look at before I commit.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 7. THE PIPELINE IS THE REAL RESULT -->
+  <section class="cc-pipeline">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cc.pipe_eyebrow">The real deliverable</span>
+      <h3 class="cc-h3" data-i18n="cc.pipe_title">The pipeline is the result. Not the percentage.</h3>
+      <p class="cc-pipe-intro" data-i18n="cc.pipe_intro">What survives this project isn't a number on a slide. It's a five-phase workflow, a set of reusable prompts, evaluation criteria that produce comparable data, and a clear map of where AI earns its place. Watch where the tag actually lands.</p>
+
+      <ol class="cc-pipe-flow" role="list">
+        <li class="cc-pipe-step" data-ai="none">
+          <span class="cc-pipe-name">GDD</span>
+          <span class="cc-pipe-role" data-i18n="cc.pipe_gdd">Human source of truth</span>
+        </li>
+        <li class="cc-pipe-step" data-ai="high">
+          <span class="cc-pipe-name">Briefing</span>
+          <span class="cc-pipe-role" data-i18n="cc.pipe_brief">Structure and specificity</span>
+        </li>
+        <li class="cc-pipe-step" data-ai="high">
+          <span class="cc-pipe-name">Top-Down</span>
+          <span class="cc-pipe-role" data-i18n="cc.pipe_top">Legibility and reading time</span>
+        </li>
+        <li class="cc-pipe-step" data-ai="mid">
+          <span class="cc-pipe-name">Guidance</span>
+          <span class="cc-pipe-role" data-i18n="cc.pipe_guid">Early unbiased read</span>
+        </li>
+        <li class="cc-pipe-step" data-ai="mid">
+          <span class="cc-pipe-name">Dressing</span>
+          <span class="cc-pipe-role" data-i18n="cc.pipe_dress">Shared visual anchor</span>
+        </li>
+        <li class="cc-pipe-step" data-ai="none">
+          <span class="cc-pipe-name">Blockout</span>
+          <span class="cc-pipe-role" data-i18n="cc.pipe_block">Still built by hand</span>
+        </li>
+        <li class="cc-pipe-step" data-ai="auto">
+          <span class="cc-pipe-name">QA</span>
+          <span class="cc-pipe-role" data-i18n="cc.pipe_qa">Automated, not generated</span>
+        </li>
+      </ol>
+
+      <p class="cc-pipe-legend">
+        <span class="cc-legend-item"><i class="cc-dot cc-dot-high"></i><span data-i18n="cc.pipe_legend_high">AI does the heavy lifting</span></span>
+        <span class="cc-legend-item"><i class="cc-dot cc-dot-mid"></i><span data-i18n="cc.pipe_legend_mid">AI assists, designer decides</span></span>
+        <span class="cc-legend-item"><i class="cc-dot cc-dot-auto"></i><span data-i18n="cc.pipe_legend_auto">Automation, no generative AI</span></span>
+        <span class="cc-legend-item"><i class="cc-dot cc-dot-none"></i><span data-i18n="cc.pipe_legend_none">Human only</span></span>
+      </p>
+
+      <p class="cc-pipe-foot" data-i18n="cc.pipe_foot">Three of seven phases have no generative AI in them at all. That's not an oversight. That's the finding.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 8. FUTURE WORK -->
+  <section class="cc-roadmap">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cc.road_eyebrow">Future work</span>
+      <h3 class="cc-h3" data-i18n="cc.road_title">Where I'd take this next.</h3>
+
+      <ol class="cc-road-list" role="list">
+        <li class="cc-road-item" tabindex="0">
+          <span class="cc-road-id">01</span>
+          <div class="cc-road-body">
+            <h5 data-i18n="cc.road_1_title">Same level, twice</h5>
+            <p data-i18n="cc.road_1_body">Rebuild Hills under the AI pipeline so the layout stops being a confounding variable and the pipeline is the only thing that changed.</p>
+          </div>
+        </li>
+        <li class="cc-road-item" tabindex="0">
+          <span class="cc-road-id">02</span>
+          <div class="cc-road-body">
+            <h5 data-i18n="cc.road_2_title">More genres</h5>
+            <p data-i18n="cc.road_2_body">This was validated on a cozy stylised puzzle-adventure. Horror, cyberpunk and hyper-realistic work would expose which prompts carry hidden assumptions about the target aesthetic.</p>
+          </div>
+        </li>
+        <li class="cc-road-item" tabindex="0">
+          <span class="cc-road-id">03</span>
+          <div class="cc-road-body">
+            <h5 data-i18n="cc.road_3_title">More disciplines</h5>
+            <p data-i18n="cc.road_3_body">Narrative, sound, encounter design and combat balancing share the same friction patterns: cross-discipline communication, repeated iteration, familiarity bias. Each could carry its own validated prompt set.</p>
+          </div>
+        </li>
+        <li class="cc-road-item" tabindex="0">
+          <span class="cc-road-id">04</span>
+          <div class="cc-road-body">
+            <h5 data-i18n="cc.road_4_title">Engine integration</h5>
+            <p data-i18n="cc.road_4_body">Right now everything lives outside Unreal and gets exported by hand. Model Context Protocol integration would let the model read scenes, blueprints and asset metadata straight from the editor.</p>
+          </div>
+        </li>
+        <li class="cc-road-item" tabindex="0">
+          <span class="cc-road-id">05</span>
+          <div class="cc-road-body">
+            <h5 data-i18n="cc.road_5_title">Professional validation</h5>
+            <p data-i18n="cc.road_5_body">My baseline was a student team building a cozy game for the first time. Running this where the manual process has already been optimised for years would tell me whether the pipeline compensates for inexperience or raises a real ceiling.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 9. FINAL STATEMENT -->
+  <section class="cc-final">
+    <div class="wrap">
+      <p class="cc-final-line" data-i18n="cc.final_line">The next few years of AI in level design won't be decided by how much the models can generate.</p>
+      <p class="cc-final-punch" data-i18n="cc.final_punch">They'll be decided by whether the designer knows what to ask for, and what to keep.</p>
+    </div>
+  </section>
+
+
+  <hr class="rule">
+
+  <!-- PROJECT DETAILS -->
   <section>
     <div class="wrap">
-      <span class="eyebrow" data-i18n="ai.findings_eyebrow">Findings</span>
-      <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:22ch;" data-i18n="ai.findings_title">Three learnings from the production.</h2>
-
-      <div class="findings-grid">
-        <div class="finding">
-          <span class="finding-num">01</span>
-          <h4 data-i18n="ai.f1_title">AI helps where the bottleneck is communication, not creation.</h4>
-          <p data-i18n="ai.f1_body">The phases that crossed the 40% reduction threshold by a wide margin were the ones where the manual cost was time spent organising and aligning information across roles. AI underperformed where the work itself was construction in the engine.</p>
-        </div>
-        <div class="finding">
-          <span class="finding-num">02</span>
-          <h4 data-i18n="ai.f2_title">AI introduces verification work that scales with output volume.</h4>
-          <p data-i18n="ai.f2_body">The dressing prompt returned references in 10 minutes that would have required hours of concept art, but each generation still needed a manual review pass to catch decorative elements introduced beyond the blockout geometry.</p>
-        </div>
-        <div class="finding">
-          <span class="finding-num">03</span>
-          <h4 data-i18n="ai.f3_title">Bias mitigation timing matters more than bias elimination.</h4>
-          <p data-i18n="ai.f3_body">The designer's familiarity bias is a structural condition of the role. AI can't eliminate it, but it can shift the moment at which the first bias-free signal enters the loop, from external playtesting to the blockout phase itself.</p>
-        </div>
-      </div>
-
-      <div class="honest-caveat">
-        <span class="eyebrow" style="color:var(--pine-soft);" data-i18n="ai.honest_label">Honest reading</span>
-        <p data-i18n="ai.honest_body">The 33% reduction reflects this team, on these levels, with this scope. It doesn't generalise to a universal claim. The defensible finding is narrower and more useful: the pipeline reliably reduces the cost of communication-heavy phases and eliminates QA distribution overhead, but does not meaningfully change the construction work itself, and introduces verification costs that scale with the volume of AI output. Used in that frame, it delivers measurable gains.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- FUTURE WORK / PROJECT DETAILS -->
-  <section>
-    <div class="wrap" style="display:grid; grid-template-columns:1fr; gap:3rem;" id="details-grid">
-      <div>
-        <span class="eyebrow" data-i18n="ai.future_eyebrow">Future Work</span>
-        <h3 style="font-size:clamp(1.4rem,2.8vw,1.8rem); margin-top:0.5rem;" data-i18n="ai.future_title">Where this could go next.</h3>
-        <ul class="task-list" style="max-width:none; margin-top:1.5rem;">
-          <li data-i18n="ai.fut1">Replicating the Hills Level under the AI pipeline to <strong>neutralise the level layout</strong> as a confounding variable.</li>
-          <li data-i18n="ai.fut2">Extending the study to <strong>other genres and visual styles</strong> (horror, cyberpunk, hyper-realistic).</li>
-          <li data-i18n="ai.fut3">Adapting the pipeline to <strong>adjacent design disciplines</strong>: narrative, sound, encounter, combat balancing.</li>
-          <li data-i18n="ai.fut4">Engine-side integration through the <strong>Model Context Protocol</strong> so Claude reads scenes and blueprints directly.</li>
-          <li data-i18n="ai.fut5">Replicating the A/B test with a <strong>professional studio</strong> where the traditional baseline is harder to beat.</li>
-        </ul>
-      </div>
-
-      <div>
-        <span class="eyebrow" data-i18n="ai.details_eyebrow">Project Details</span>
-        <h3 style="font-size:clamp(1.4rem,2.8vw,1.8rem); margin-top:0.5rem;" data-i18n="ai.details_title">At a glance.</h3>
-        <ul class="detail-list">
-          <li><span data-i18n="ai.d_type">Type</span><strong data-i18n="ai.d_type_v">Applied thesis · Research</strong></li>
-          <li><span data-i18n="ai.d_case">Case study</span><strong data-i18n="ai.d_case_v">Lyra · 3D puzzle-adventure</strong></li>
-          <li><span data-i18n="ai.d_engine">Engine</span><strong data-i18n="ai.d_engine_v">Unreal Engine 5.6.1</strong></li>
-          <li><span data-i18n="ai.d_tools">AI tools</span><strong data-i18n="ai.d_tools_v">Claude, ChatGPT, Gemini</strong></li>
-          <li><span data-i18n="ai.d_auto">Automation</span><strong data-i18n="ai.d_auto_v">Jenkins, custom dashboard</strong></li>
-          <li><span data-i18n="ai.d_coord">Coordination</span><strong data-i18n="ai.d_coord_v">Confluence, Jira, Perforce</strong></li>
-          <li><span data-i18n="ai.d_year">Year</span><strong data-i18n="ai.years">2025 - 2026</strong></li>
-        </ul>
-      </div>
+      <span class="eyebrow" data-i18n="ai.details_eyebrow">Project Details</span>
+      <h3 style="font-size:clamp(1.4rem,2.8vw,1.8rem); margin-top:0.5rem;" data-i18n="ai.details_title">At a glance.</h3>
+      <ul class="detail-list" style="max-width:620px;">
+        <li><span data-i18n="ai.d_type">Type</span><strong data-i18n="ai.d_type_v">Applied thesis · Research</strong></li>
+        <li><span data-i18n="ai.d_case">Case study</span><strong data-i18n="ai.d_case_v">Lyra · 3D puzzle-adventure</strong></li>
+        <li><span data-i18n="ai.d_engine">Engine</span><strong data-i18n="ai.d_engine_v">Unreal Engine 5.6.1</strong></li>
+        <li><span data-i18n="ai.d_tools">AI tools</span><strong data-i18n="ai.d_tools_v">Claude, ChatGPT, Gemini</strong></li>
+        <li><span data-i18n="ai.d_auto">Automation</span><strong data-i18n="ai.d_auto_v">Jenkins, custom dashboard</strong></li>
+        <li><span data-i18n="ai.d_coord">Coordination</span><strong data-i18n="ai.d_coord_v">Confluence, Jira, Perforce</strong></li>
+        <li><span data-i18n="ai.d_year">Year</span><strong data-i18n="ai.years">2025 - 2026</strong></li>
+      </ul>
     </div>
   </section>
 

@@ -363,3 +363,129 @@
     });
   });
 })();
+
+/* ==========================================================
+   Conclusions experience (AI pipeline page)
+   Scroll reveal + metric counters + section triggers
+   ========================================================== */
+(function () {
+  var root = document.querySelector('.cc-opening');
+  if (!root) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- Scroll reveal on major blocks --- */
+  var revealTargets = document.querySelectorAll(
+    '.cc-opening .wrap > *, .cc-numbers .wrap > *, .cc-catch .wrap > *, ' +
+    '.cc-learned .wrap > *, .cc-redo .wrap > *, .cc-shift .wrap > *, ' +
+    '.cc-pipeline .wrap > *, .cc-roadmap .wrap > *, .cc-final .wrap > *'
+  );
+  revealTargets.forEach(function (el) { el.classList.add('cc-reveal'); });
+
+  if (reduced) {
+    revealTargets.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealTargets.forEach(function (el) { revealObs.observe(el); });
+  }
+
+  /* --- Metric counters --- */
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateMetric(el) {
+    var numEl = el.querySelector('.cc-metric-num');
+    if (!numEl) return;
+
+    var to = parseFloat(el.dataset.countTo);
+    if (isNaN(to)) return;
+
+    var from = el.dataset.countFrom !== undefined ? parseFloat(el.dataset.countFrom) : 0;
+    var decimal = el.dataset.decimal ? parseInt(el.dataset.decimal, 10) : 0;
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var isArrow = el.dataset.arrow === 'true';
+
+    function fmt(v) {
+      if (decimal === 2) return (v / 100).toFixed(2);
+      if (decimal === 1) return (v / 10).toFixed(1);
+      return Math.round(v).toString();
+    }
+
+    if (reduced) {
+      numEl.textContent = isArrow ? fmt(from) + ' → ' + fmt(to) : prefix + fmt(to) + suffix;
+      return;
+    }
+
+    var duration = 1400;
+    var start = null;
+
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = easeOut(p);
+      var current = from + (to - from) * eased;
+      numEl.textContent = isArrow
+        ? fmt(from) + ' → ' + fmt(current)
+        : prefix + fmt(current) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var metrics = document.querySelectorAll('.cc-metric[data-count-to]');
+  if (metrics.length) {
+    var metricObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateMetric(entry.target);
+          metricObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    metrics.forEach(function (m) { metricObs.observe(m); });
+  }
+
+  /* --- Trigger the AI chip nudge and the pipeline tags when in view --- */
+  function triggerOnce(selector) {
+    var el = document.querySelector(selector);
+    if (!el) return;
+    if (reduced) { el.classList.add('is-in'); return; }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    obs.observe(el);
+  }
+  triggerOnce('.cc-swap');
+  triggerOnce('.cc-pipe-flow');
+})();
+
+/* Hours-per-phase chart: grow bars when scrolled into view */
+(function () {
+  var chart = document.querySelector('.hpp');
+  if (!chart) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    chart.classList.add('is-in');
+    return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(chart);
+})();
