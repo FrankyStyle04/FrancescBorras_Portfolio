@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=28">
+<link rel="stylesheet" href="../css/style.css?v=31">
 <script>
 (function(){
   try {
@@ -695,6 +695,188 @@
   <hr class="rule">
 
   <!-- ============================================
+       A. BEFORE / AFTER COMPARATOR
+       ============================================ -->
+  <section class="ba">
+    <div class="wrap">
+      <h2 class="sec-title" data-i18n="ba.title">Blockout to dressing, in one prompt</h2>
+      <p class="section-lede" data-i18n="ba.lede"><strong>Drag the handle to see what the model was allowed to change.</strong> The input was a raw greybox screenshot from the Cave Level. The output came back in a single iteration, with the camera, the geometry and the brightness hierarchy left where the blockout put them.</p>
+
+      <div class="ba-stage" id="ba-stage">
+        <img class="ba-img ba-after" src="../assets/img/ai-dressed-after.jpg" alt="AI-generated dressing reference for the Cave Level.">
+        <img class="ba-img ba-before" id="ba-clip" src="../assets/img/ai-blockout-before.jpg" alt="Raw blockout of the Cave Level before dressing.">
+
+        <span class="ba-tag ba-tag-before" data-i18n="ba.tag_before">Blockout</span>
+        <span class="ba-tag ba-tag-after" data-i18n="ba.tag_after">AI reference</span>
+
+        <div class="ba-handle" id="ba-handle" role="slider" tabindex="0"
+             aria-label="Compare blockout and dressed reference" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="ba-grip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6"/><path d="m15 6 6 6-6 6"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <ul class="ba-constraints">
+        <li data-i18n="ba.c1">Camera angle preserved</li>
+        <li data-i18n="ba.c2">Base geometry preserved</li>
+        <li data-i18n="ba.c3">Brightest region stays the principal affordance</li>
+        <li data-i18n="ba.c4">No new interactive elements</li>
+      </ul>
+
+      <p class="ba-note" data-i18n="ba.note">Those four lines were constraints written into the prompt, and checking the output against them is the verification pass that every generation needs.</p>
+
+      <div class="ba-scope">
+        <span class="ba-scope-label" data-i18n="ba.scope_label">What this is for</span>
+        <p data-i18n="ba.scope_body">A reference like this validates a <strong>direction</strong> before the art pass begins. The output stays approximate on purpose, and its job is to show quickly whether the guidance intent survives contact with the visual language. The engine work still happens in the engine, by an artist.</p>
+        <p data-i18n="ba.scope_body2">The constraints get rewritten per project. Lyra needed rules about interactable crystals and brightness hierarchy; another game would need its own. <a href="#prompts" class="ba-link" data-i18n="ba.link">Read the full prompt below.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============================================
+       B. PROMPT EXPLORER
+       ============================================ -->
+  <section class="px" id="prompts">
+    <div class="wrap">
+      <h2 class="sec-title" data-i18n="px.title">The prompts I actually shipped</h2>
+      <p class="section-lede" data-i18n="px.lede"><strong>Four prompts carried the whole pipeline.</strong> Each one names the metric it serves, the technique it supports and the elements the model may not add, which is the same brief I would hand a collaborator.</p>
+
+      <p class="px-disclaimer" data-i18n="px.disclaimer">These were written for Lyra: its metrics, its visual language, its rules. The structure carries over to another project, the contents get rewritten.</p>
+
+      <div class="px-tabs" role="tablist" aria-label="Prompt library">
+        <button class="px-tab is-active" role="tab" aria-selected="true" data-px="briefing">
+          <span class="px-tool px-tool-claude" aria-hidden="true">
+            <img src="https://cdn.simpleicons.org/anthropic/FF6B2C" alt="" onerror="this.replaceWith(document.createTextNode('C'))">
+          </span>
+          <span class="px-tab-body">
+            <span class="px-tab-n">01</span>
+            <span class="px-tab-name" data-i18n="px.t1">Briefing</span>
+          </span>
+        </button>
+        <button class="px-tab" role="tab" aria-selected="false" data-px="topdown">
+          <span class="px-tool px-tool-claude" aria-hidden="true">
+            <img src="https://cdn.simpleicons.org/anthropic/FF6B2C" alt="" onerror="this.replaceWith(document.createTextNode('C'))">
+          </span>
+          <span class="px-tab-body">
+            <span class="px-tab-n">02</span>
+            <span class="px-tab-name" data-i18n="px.t2">Top-Down Map</span>
+          </span>
+        </button>
+        <button class="px-tab" role="tab" aria-selected="false" data-px="guidance">
+          <span class="px-tool px-tool-claude" aria-hidden="true">
+            <img src="https://cdn.simpleicons.org/anthropic/FF6B2C" alt="" onerror="this.replaceWith(document.createTextNode('C'))">
+          </span>
+          <span class="px-tab-body">
+            <span class="px-tab-n">03</span>
+            <span class="px-tab-name" data-i18n="px.t3">Guidance Analysis</span>
+          </span>
+        </button>
+        <button class="px-tab" role="tab" aria-selected="false" data-px="dressing">
+          <span class="px-tool px-tool-gpt" aria-hidden="true">
+            <img src="https://cdn.simpleicons.org/openai/4EC5B5" alt="" onerror="this.replaceWith(document.createTextNode('G'))">
+          </span>
+          <span class="px-tab-body">
+            <span class="px-tab-n">04</span>
+            <span class="px-tab-name" data-i18n="px.t4">Dressing</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Panel 01 -->
+      <div class="px-panel is-active" data-px="briefing" role="tabpanel">
+        <div class="px-meta">
+          <span class="px-chip px-chip-claude">Claude</span>
+          <span class="px-purpose" data-i18n="px.p1_purpose">Turns GDD parameters into a visual brief the art team can execute without follow-up questions.</span>
+          <button class="px-copy" type="button" data-i18n-copy="px.copy">Copy</button>
+        </div>
+        <pre class="px-code"><code>[Your GDD Attached] I'm designing a level for a 3D puzzle-adventure game called Lyra. The player controls a character with the following metrics: movement speed of 500, a dragon companion with a throwing range of 200 and a shooting range of 100.
+
+The level I'm designing is the Cave Level. It is a mid-game area. The intended emotional arc is: the player enters feeling enclosed and slightly disoriented, and gradually discovers a sense of wonder as they progress deeper into the space.
+
+The game's existing visual language is stylized with a cozy/wholesome tone, with references to titles like Kena: Bridge of Spirits or A Short Hike dungeon design. The target audience are people with no much time, on average 15-30 years old looking for a relaxing themed game.
+
+Based on this, generate a narrative and technical brief called "Claude_[LevelName]_Briefing" that includes:
+
+1. A one-paragraph narrative framing for the level (lore/tone).
+2. A list of visual priorities directly tied to player guidance. For each one, specify which gameplay mechanic or navigation goal it supports.
+3. A recommended color palette (3-4 colors max) with a justification for each color based on guidance logic, not just aesthetics.
+4. A list of visual elements that should be suppressed or de-emphasized to avoid distracting the player from the main path.</code></pre>
+      </div>
+
+      <!-- Panel 02 -->
+      <div class="px-panel" data-px="topdown" role="tabpanel">
+        <div class="px-meta">
+          <span class="px-chip px-chip-claude">Claude</span>
+          <span class="px-purpose" data-i18n="px.p2_purpose">Rebuilds a dense Confluence bubble diagram as a browsable HTML document with an inline legibility audit.</span>
+          <button class="px-copy" type="button" data-i18n-copy="px.copy">Copy</button>
+        </div>
+        <pre class="px-code"><code>[YOUR TOP-DOWN IMAGE HERE] "I'm attaching a top-down map / bubble diagram image of a level from a game. Analyze the image and generate a clean, interactive HTML bubble diagram that reconstructs and improves it.
+
+From the image, extract: (1) the zone names and their hierarchical order (e.g. height levels, acts, or regions), (2) the connections between zones — distinguishing primary player flow from special transitions like teleports, vehicles, or loading zones, (3) any mechanic or objective labels visible on nodes.
+
+Build the HTML with: horizontal lanes per hierarchy level, color-coded node cards by zone type (entry, tutorial, puzzle, transition, exit), edge-to-edge SVG arrows that connect to card borders and never overlap card text, animated dashed lines for special transitions, hover tooltips explaining each zone's mechanic and guidance role, and an inline legibility analysis section at the bottom comparing the original diagram to the generated output with scores.
+
+Use a light background with high-contrast accent colors. No external dependencies except Google Fonts. The SVG must sit behind all node cards using z-index."</code></pre>
+        <p class="px-foot" data-i18n="px.p2_foot">Reading time dropped from around 30 minutes to under 10, and the auto-audit surfaced two design gaps the original diagram never exposed.</p>
+      </div>
+
+      <!-- Panel 03 -->
+      <div class="px-panel" data-px="guidance" role="tabpanel">
+        <div class="px-meta">
+          <span class="px-chip px-chip-claude">Claude</span>
+          <span class="px-purpose" data-i18n="px.p3_purpose">Reads a blockout screenshot as a first-time player would, then writes the image prompt that fixes what it found.</span>
+          <button class="px-copy" type="button" data-i18n-copy="px.copy">Copy</button>
+        </div>
+        <pre class="px-code"><code>"I am attaching a screenshot from a game level. Analyze it strictly from a player guidance perspective — do not comment on visual quality, art style, or technical aspects. Provide your analysis in exactly this structure:
+
+1. DOMINANT FOCAL POINT — What is the first element the player's eye is drawn to? Is this the intended navigation target or an unintended distraction?
+
+2. DIRECTIONAL VECTORS — List every implicit line in the composition (geometry edges, light shafts, path curvature, object placement) and indicate where each one leads the player's gaze. Flag any vectors that contradict each other.
+
+3. PRINCIPAL AFFORDANCE — Identify the most visually dominant interactive or navigational element. State whether its scale, contrast, and position are sufficient to communicate its role to a first-time player.
+
+4. PATH HIERARCHY — Assess whether the main path is visually dominant over secondary routes. If secondary paths compete with the main one, specify where and why.
+
+5. GUIDANCE FAILURES — List any specific areas where the composition actively misleads the player or fails to communicate direction. Be precise: describe the location in the frame (top-left, centre, background, etc.).
+
+6. IMPROVEMENT SUGGESTIONS — For each failure identified in point 5, give one concrete change that could be made at blockout stage (geometry, scale, or lighting only — no dressing). Format each suggestion as: [PROBLEM] → [SPECIFIC FIX]. Do not summarise. Do not add conclusions. After point 6, add a seventh section:
+
+7. GEMINI IMAGE PROMPT — Write a prompt ready to paste into an image editing tool (Gemini or ChatGPT). The prompt must: open by attaching the same screenshot and instructing the tool not to change the art style, geometry, camera angle, or character design; then list each failure from point 5 as a numbered correction with a specific visual instruction (what to change, in which direction, and to what degree); close by specifying the intended brightness hierarchy of the final image from highest to lowest contrast. Write it in the second person, addressed directly to the image tool. Do not explain or justify the corrections — only instruct."</code></pre>
+        <p class="px-foot" data-i18n="px.p3_foot">This one took three to four revisions before it behaved, and that development cost never showed up in the time metric.</p>
+      </div>
+
+      <!-- Panel 04 -->
+      <div class="px-panel" data-px="dressing" role="tabpanel">
+        <div class="px-meta">
+          <span class="px-chip px-chip-gpt">ChatGPT / Gemini</span>
+          <span class="px-purpose" data-i18n="px.p4_purpose">Dresses a blockout screenshot in the target visual language while holding the gameplay-critical composition in place.</span>
+          <button class="px-copy" type="button" data-i18n-copy="px.copy">Copy</button>
+        </div>
+        <pre class="px-code"><code>"I am attaching a screenshot from a 3D game level blockout. Apply the visual style described below while strictly preserving the original composition.
+
+Constraints:
+
+1. Do not change the geometry, camera angle, scale, or composition of the original image. The basaltic columns, ground plane, and overall spatial layout must remain in their exact positions.
+
+2. Apply the following visual style: stylized cozy fantasy with a cool color palette dominated by deep blues, layered with magenta and cyan accents. Add bioluminescent details on rocks and vegetation, particularly on edges and crevices. Use soft volumetric lighting to create atmospheric depth, with a slightly hazy quality in the background.
+
+3. Preserve any guidance cues visible in the blockout. The bright open area in the background should remain the brightest region of the dressed image, acting as the principal affordance for the player. Do not introduce light sources elsewhere that compete with it.
+
+4. Do not add new gameplay elements such as doors, mechanisms, switches, interactable crystals, or any object that the player could read as a puzzle component. Decorative bioluminescent vegetation or ambient particles are acceptable, but they must remain clearly non-interactive.
+
+Output a single dressed image that an art team member could use as a visual reference before working on the actual dressing in the engine."</code></pre>
+        <p class="px-foot" data-i18n="px.p4_foot">The output still needs a human pass, since constraint 4 is exactly the kind of rule a model will quietly bend.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <hr class="rule">
+
+  <!-- ============================================
        CONCLUSIONS - Interactive portfolio experience
        ============================================ -->
 
@@ -839,66 +1021,55 @@
   <section class="cc-redo">
     <div class="wrap">
       <h2 class="sec-title" data-i18n="cc.redo_title">If I did this project again…</h2>
-      <p class="cc-redo-intro" data-i18n="cc.redo_intro">This is the part I'd want a hiring manager to read carefully, because knowing where my evidence stops is the whole point of running the experiment in the first place.</p>
+      <p class="cc-redo-intro" data-i18n="cc.redo_intro">Knowing where my evidence stops is the whole point of having run the experiment, so this is the part I would want a hiring manager to read carefully.</p>
 
       <ul class="cc-redo-list">
         <li>
           <span class="cc-redo-mark" aria-hidden="true"></span>
           <div>
-            <h5 data-i18n="cc.redo_1_title">I'd build the same level twice.</h5>
-            <p data-i18n="cc.redo_1_body">I compared two different levels, not the same level produced twice. Layout, scope and beat count all differ, so the pipeline isn't the only variable moving. Rebuilding Hills under the AI pipeline would isolate it properly.</p>
+            <h5 data-i18n="cc.redo_1_title">Build the same level twice.</h5>
+            <p data-i18n="cc.redo_1_body">I compared two different levels. Layout, scope and beat count all differ, so the pipeline was never the only variable moving.</p>
           </div>
         </li>
         <li>
           <span class="cc-redo-mark" aria-hidden="true"></span>
           <div>
-            <h5 data-i18n="cc.redo_2_title">I'd account for the team getting better.</h5>
-            <p data-i18n="cc.redo_2_body">We built Cave after Hills. The team was more experienced, knew the engine better, and had already made the obvious mistakes once. Some of that 33% is simply us not being beginners any more.</p>
+            <h5 data-i18n="cc.redo_2_title">Account for the team getting better.</h5>
+            <p data-i18n="cc.redo_2_body">Cave came after Hills. Part of that 33% is simply a team that had already made the obvious mistakes once.</p>
           </div>
         </li>
         <li>
           <span class="cc-redo-mark" aria-hidden="true"></span>
           <div>
-            <h5 data-i18n="cc.redo_3_title">I'd get someone else to evaluate it.</h5>
-            <p data-i18n="cc.redo_3_body">I designed the pipeline, I operated it, and I measured it. That's three roles that would normally sit with three different people, and I'd be naive to pretend it introduces no bias into the reading.</p>
+            <h5 data-i18n="cc.redo_3_title">Hand the evaluation to someone else.</h5>
+            <p data-i18n="cc.redo_3_body">I designed the pipeline, operated it and measured it. Three roles that would normally sit with three people.</p>
           </div>
         </li>
         <li>
           <span class="cc-redo-mark" aria-hidden="true"></span>
           <div>
-            <h5 data-i18n="cc.redo_4_title">I'd budget the prompt-stabilising cost up front.</h5>
-            <p data-i18n="cc.redo_4_body">The briefing and dressing prompts worked on the first try. The guidance validation prompt took three to four revisions before it behaved. That development cost never showed up in the time metric, and any team adopting this would pay it on day one.</p>
+            <h5 data-i18n="cc.redo_4_title">Budget the prompt-stabilising cost up front.</h5>
+            <p data-i18n="cc.redo_4_body">The guidance prompt took three to four revisions before it behaved. That cost never appeared in the time metric, and any team adopting this pays it on day one.</p>
           </div>
         </li>
         <li>
           <span class="cc-redo-mark" aria-hidden="true"></span>
           <div>
-            <h5 data-i18n="cc.redo_5_title">I'd keep every playtest exactly where it was.</h5>
-            <p data-i18n="cc.redo_5_body">AI moved the first bias-free signal earlier. It never replaced a single session with a real player, and treating a compositional read as a verdict rather than an early warning would put the blindness straight back in.</p>
+            <h5 data-i18n="cc.redo_5_title">Keep every playtest where it was.</h5>
+            <p data-i18n="cc.redo_5_body">AI moved the first bias-free signal earlier. Treating a compositional read as a verdict would put the blindness straight back in.</p>
           </div>
         </li>
       </ul>
 
       <p class="cc-redo-close" data-i18n="cc.redo_close">The experiment gave me usable evidence and a working pipeline. I'd rather present it as evidence than dress it up as a magic number.</p>
-    </div>
-  </section>
 
-  <hr class="rule">
-
-  <!-- 6. THE BIGGEST THING I LEARNED -->
-  <section class="cc-shift">
-    <div class="wrap">
-      <h2 class="sec-title" data-i18n="cc.shift_eyebrow">The Biggest Thing I Learned</h2>
-      <h3 class="cc-shift-headline">
-        <span class="cc-strike" data-i18n="cc.shift_strike">AI as a generator</span>
-        <span class="cc-shift-arrow" aria-hidden="true">→</span>
-        <span class="cc-shift-new" data-i18n="cc.shift_new">AI as part of a pipeline</span>
-      </h3>
-
-      <div class="cc-shift-body">
-        <p data-i18n="cc.shift_p1">I started this project thinking about <strong>output</strong>. What can it make, how fast, how good. I finished it thinking about <strong>placement</strong>: which phase, which input, which decision stays mine.</p>
-        <p data-i18n="cc.shift_p2">That shift changed how I write prompts. A prompt stopped being a wish and became a <strong>spec</strong>, with the same constraints I'd hand a collaborator: this is the metric, this is the guidance technique, these are the elements you may not add. It changed what I measure, because a specificity ratio can be compared across levels and "it looks nicer" cannot. And it changed where I let AI near the work at all: close to communication, documentation and validation, nowhere near the decision about what the space should ask the player to do.</p>
-        <p data-i18n="cc.shift_p3">The blockout still needs a designer standing in the level asking whether the path reads. What changed is how many bad versions of that path I can afford to look at before I commit.</p>
+      <div class="cc-shift-inline">
+        <h3 class="cc-shift-headline">
+          <span class="cc-strike" data-i18n="cc.shift_strike">AI as a generator</span>
+          <span class="cc-shift-arrow" aria-hidden="true">&rarr;</span>
+          <span class="cc-shift-new" data-i18n="cc.shift_new">AI as part of a pipeline</span>
+        </h3>
+        <p data-i18n="cc.shift_merged">That is the shift this project actually produced. A prompt stopped being a wish and became a spec, with the same constraints I would hand a collaborator: this is the metric, this is the guidance technique, these are the elements you may not add. The blockout still needs a designer standing in the level asking whether the path reads. What changed is how many bad versions of that path I can afford to look at before I commit.</p>
       </div>
     </div>
   </section>

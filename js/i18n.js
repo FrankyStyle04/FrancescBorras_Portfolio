@@ -8,6 +8,40 @@ window.I18N = {
 /* ================= ENGLISH ================= */
 en: {
 
+  ba: {
+    scope_body2: "The constraints get rewritten per project. Lyra needed rules about interactable crystals and brightness hierarchy; another game would need its own.",
+    scope_body: "A reference like this validates a <strong>direction</strong> before the art pass begins. The output stays approximate on purpose, and its job is to show quickly whether the guidance intent survives contact with the visual language. The engine work still happens in the engine, by an artist.",
+    scope_label: "What this is for",
+    title: "Blockout to dressing, in one prompt",
+    lede: "<strong>Drag the handle to see what the model was allowed to change.</strong> The input was a raw greybox screenshot from the Cave Level. The output came back in a single iteration, with the camera, the geometry and the brightness hierarchy left where the blockout put them.",
+    tag_before: "Blockout",
+    tag_after: "AI reference",
+    c1: "Camera angle preserved",
+    c2: "Base geometry preserved",
+    c3: "Brightest region stays the principal affordance",
+    c4: "No new interactive elements",
+    note: "Those four lines were constraints written into the prompt, and checking the output against them is the verification pass that every generation needs.",
+    link: "Read the full prompt below.",
+  },
+
+  px: {
+    disclaimer: "These were written for Lyra: its metrics, its visual language, its rules. The structure carries over to another project, the contents get rewritten.",
+    title: "The prompts I actually shipped",
+    lede: "<strong>Four prompts carried the whole pipeline.</strong> Each one names the metric it serves, the technique it supports and the elements the model may not add, which is the same brief I would hand a collaborator.",
+    t1: "Briefing",
+    t2: "Top-Down Map",
+    t3: "Guidance Analysis",
+    t4: "Dressing",
+    copy: "Copy",
+    p1_purpose: "Turns GDD parameters into a visual brief the art team can execute without follow-up questions.",
+    p2_purpose: "Rebuilds a dense Confluence bubble diagram as a browsable HTML document with an inline legibility audit.",
+    p2_foot: "Reading time dropped from around 30 minutes to under 10, and the auto-audit surfaced two design gaps the original diagram never exposed.",
+    p3_purpose: "Reads a blockout screenshot as a first-time player would, then writes the image prompt that fixes what it found.",
+    p3_foot: "This one took three to four revisions before it behaved, and that development cost never showed up in the time metric.",
+    p4_purpose: "Dresses a blockout screenshot in the target visual language while holding the gameplay-critical composition in place.",
+    p4_foot: "The output still needs a human pass, since constraint 4 is exactly the kind of rule a model will quietly bend.",
+  },
+
   common: {
     nav_home: "Home",
     nav_about: "About",
@@ -244,6 +278,7 @@ en: {
   },
 
   cc: {
+    shift_merged: "That is the shift this project actually produced. A prompt stopped being a wish and became a spec, with the same constraints I would hand a collaborator: this is the metric, this is the guidance technique, these are the elements you may not add. The blockout still needs a designer standing in the level asking whether the path reads. What changed is how many bad versions of that path I can afford to look at before I commit.",
     open_eyebrow: "Conclusions",
     open_question: "So… did AI actually make me a better Level Designer?",
     open_answer: "Not exactly. It made me a <strong>faster</strong> one in some places, a <strong>more precise</strong> one in others, and a considerably more <strong>suspicious</strong> one everywhere else.",
@@ -537,6 +572,40 @@ en: {
 /* ================= SPANISH ================= */
 es: {
 
+  ba: {
+    scope_body2: "Las restricciones se reescriben en cada proyecto. Lyra necesitaba reglas sobre cristales interactuables y jerarquía de brillos; otro juego necesitaría las suyas.",
+    scope_body: "Una referencia así valida una <strong>dirección</strong> antes de que empiece la pasada de arte. El output se queda aproximado a propósito, y su función es enseñar rápido si la intención de guidance sobrevive al contacto con el lenguaje visual. El trabajo de motor lo sigue haciendo un artista en el motor.",
+    scope_label: "Para qué sirve esto",
+    title: "Del blockout al dressing, en un solo prompt",
+    lede: "<strong>Arrastra el tirador para ver qué podía cambiar el modelo.</strong> El input fue una captura de greybox en crudo del Cave Level. El output volvió en una sola iteración, con la cámara, la geometría y la jerarquía de brillos donde las había dejado el blockout.",
+    tag_before: "Blockout",
+    tag_after: "Referencia IA",
+    c1: "Ángulo de cámara preservado",
+    c2: "Geometría base preservada",
+    c3: "La zona más brillante sigue siendo el affordance principal",
+    c4: "Sin elementos interactivos nuevos",
+    note: "Esas cuatro líneas eran restricciones escritas en el prompt, y comprobar el output contra ellas es la pasada de verificación que necesita cada generación.",
+    link: "Lee el prompt completo más abajo.",
+  },
+
+  px: {
+    disclaimer: "Están escritos para Lyra: sus métricas, su lenguaje visual, sus reglas. La estructura se traslada a otro proyecto, el contenido se reescribe.",
+    title: "Los prompts que realmente usé",
+    lede: "<strong>Cuatro prompts sostuvieron todo el pipeline.</strong> Cada uno nombra la métrica a la que sirve, la técnica que apoya y los elementos que el modelo no puede añadir, que es el mismo brief que le daría a un colaborador.",
+    t1: "Briefing",
+    t2: "Mapa Top-Down",
+    t3: "Análisis de Guidance",
+    t4: "Dressing",
+    copy: "Copiar",
+    p1_purpose: "Convierte los parámetros del GDD en un brief visual que el equipo de arte puede ejecutar sin preguntas adicionales.",
+    p2_purpose: "Reconstruye un bubble diagram denso de Confluence como un HTML navegable con auditoría de legibilidad integrada.",
+    p2_foot: "El tiempo de lectura bajó de unos 30 minutos a menos de 10, y la auto-auditoría destapó dos gaps de diseño que el diagrama original no exponía.",
+    p3_purpose: "Lee una captura del blockout como lo haría un jugador que entra por primera vez, y luego escribe el prompt de imagen que corrige lo que ha encontrado.",
+    p3_foot: "Este necesitó de tres a cuatro revisiones antes de comportarse, y ese coste de desarrollo nunca apareció en la métrica de tiempo.",
+    p4_purpose: "Viste una captura del blockout con el lenguaje visual objetivo manteniendo en su sitio la composición crítica para el gameplay.",
+    p4_foot: "El output sigue necesitando una pasada humana, porque la restricción 4 es justo el tipo de regla que un modelo dobla sin avisar.",
+  },
+
   common: {
     nav_home: "Inicio",
     nav_about: "Sobre mí",
@@ -773,6 +842,7 @@ es: {
   },
 
   cc: {
+    shift_merged: "Ese es el cambio que este proyecto produjo de verdad. Un prompt dejó de ser un deseo y pasó a ser una especificación, con las mismas restricciones que le daría a un colaborador: esta es la métrica, esta es la técnica de guidance, estos son los elementos que no puedes añadir. El blockout sigue necesitando a un diseñador plantado en el nivel preguntándose si el camino se lee. Lo que cambió es cuántas versiones malas de ese camino puedo permitirme mirar antes de comprometerme.",
     open_eyebrow: "Conclusiones",
     open_question: "Entonces… ¿la IA me ha hecho mejor Level Designer?",
     open_answer: "No exactamente. Me ha hecho <strong>más rápido</strong> en algunos sitios, <strong>más preciso</strong> en otros, y bastante más <strong>desconfiado</strong> en todos los demás.",
@@ -1066,6 +1136,40 @@ es: {
 /* ================= CATALAN ================= */
 cat: {
 
+  ba: {
+    scope_body2: "Les restriccions es reescriuen a cada projecte. Lyra necessitava regles sobre cristalls interactuables i jerarquia de brillantors; un altre joc necessitaria les seves.",
+    scope_body: "Una referència així valida una <strong>direcció</strong> abans que comenci la passada d'art. L'output es queda aproximat expressament, i la seva funció és ensenyar ràpid si la intenció de guidance sobreviu al contacte amb el llenguatge visual. La feina de motor la segueix fent un artista al motor.",
+    scope_label: "Per a què serveix això",
+    title: "Del blockout al dressing, en un sol prompt",
+    lede: "<strong>Arrossega el tirador per veure què podia canviar el model.</strong> L'input va ser una captura de greybox en cru del Cave Level. L'output va tornar en una sola iteració, amb la càmera, la geometria i la jerarquia de brillantors on les havia deixat el blockout.",
+    tag_before: "Blockout",
+    tag_after: "Referència IA",
+    c1: "Angle de càmera preservat",
+    c2: "Geometria base preservada",
+    c3: "La zona més brillant segueix sent l'affordance principal",
+    c4: "Sense elements interactius nous",
+    note: "Aquestes quatre línies eren restriccions escrites al prompt, i comprovar l'output contra elles és la passada de verificació que necessita cada generació.",
+    link: "Llegeix el prompt complet més avall.",
+  },
+
+  px: {
+    disclaimer: "Estan escrits per a Lyra: les seves mètriques, el seu llenguatge visual, les seves regles. L'estructura es trasllada a un altre projecte, el contingut es reescriu.",
+    title: "Els prompts que realment vaig fer servir",
+    lede: "<strong>Quatre prompts van sostenir tot el pipeline.</strong> Cadascun anomena la mètrica a què serveix, la tècnica que dona suport i els elements que el model no pot afegir, que és el mateix brief que donaria a un col·laborador.",
+    t1: "Briefing",
+    t2: "Mapa Top-Down",
+    t3: "Anàlisi de Guidance",
+    t4: "Dressing",
+    copy: "Copiar",
+    p1_purpose: "Converteix els paràmetres del GDD en un brief visual que l'equip d'art pot executar sense preguntes addicionals.",
+    p2_purpose: "Reconstrueix un bubble diagram dens de Confluence com un HTML navegable amb auditoria de llegibilitat integrada.",
+    p2_foot: "El temps de lectura va baixar d'uns 30 minuts a menys de 10, i l'auto-auditoria va destapar dos gaps de disseny que el diagrama original no exposava.",
+    p3_purpose: "Llegeix una captura del blockout com ho faria un jugador que hi entra per primer cop, i després escriu el prompt d'imatge que corregeix el que ha trobat.",
+    p3_foot: "Aquest va necessitar de tres a quatre revisions abans de comportar-se, i aquest cost de desenvolupament mai no va aparèixer a la mètrica de temps.",
+    p4_purpose: "Vesteix una captura del blockout amb el llenguatge visual objectiu mantenint al seu lloc la composició crítica per al gameplay.",
+    p4_foot: "L'output segueix necessitant una passada humana, perquè la restricció 4 és just el tipus de regla que un model doblega sense avisar.",
+  },
+
   common: {
     nav_home: "Inici",
     nav_about: "Sobre mi",
@@ -1302,6 +1406,7 @@ cat: {
   },
 
   cc: {
+    shift_merged: "Aquest és el canvi que aquest projecte va produir de debò. Un prompt va deixar de ser un desig i va passar a ser una especificació, amb les mateixes restriccions que donaria a un col·laborador: aquesta és la mètrica, aquesta és la tècnica de guidance, aquests són els elements que no pots afegir. El blockout segueix necessitant un dissenyador plantat al nivell preguntant-se si el camí es llegeix. El que va canviar és quantes versions dolentes d'aquest camí em puc permetre mirar abans de comprometre'm.",
     open_eyebrow: "Conclusions",
     open_question: "Llavors… la IA m'ha fet millor Level Designer?",
     open_answer: "No exactament. M'ha fet <strong>més ràpid</strong> en alguns llocs, <strong>més precís</strong> en d'altres, i força més <strong>desconfiat</strong> a tota la resta.",
