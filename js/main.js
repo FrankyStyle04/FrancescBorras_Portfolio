@@ -467,7 +467,6 @@
     }, { threshold: 0.4 });
     obs.observe(el);
   }
-  triggerOnce('.cc-swap');
   triggerOnce('.cc-pipe-flow');
 })();
 
