@@ -8,6 +8,19 @@ window.I18N = {
 /* ================= ENGLISH ================= */
 en: {
 
+  contact: {
+    title: "Get in touch",
+    lede: "Drop me a message and I'll get back to you.",
+    f_name: "Your name",
+    f_email: "Your email",
+    f_msg: "Message",
+    send: "Send message",
+    sending: "Sending…",
+    ok: "Message sent. Thanks, I'll reply soon.",
+    err_fields: "Please fill in every field with a valid email.",
+    err_send: "Something went wrong. Try again in a moment.",
+  },
+
   st: {
     title: "How I'd bring this into a studio",
     lede: "<strong>A thesis is not a rollout plan.</strong> If I joined a team tomorrow and someone asked me to put AI into the level design pipeline, this is the order I would do it in, and the reasoning comes from what did and didn't work on Lyra.",
@@ -59,6 +72,7 @@ en: {
   },
 
   common: {
+    footer_email_cta: "Send me a message",
     nav_home: "Home",
     nav_about: "About",
     nav_experience: "Experience",
@@ -577,6 +591,19 @@ en: {
 /* ================= SPANISH ================= */
 es: {
 
+  contact: {
+    title: "Contacta conmigo",
+    lede: "Escríbeme un mensaje y te respondo enseguida.",
+    f_name: "Tu nombre",
+    f_email: "Tu email",
+    f_msg: "Mensaje",
+    send: "Enviar mensaje",
+    sending: "Enviando…",
+    ok: "Mensaje enviado. Gracias, te respondo pronto.",
+    err_fields: "Rellena todos los campos con un email válido.",
+    err_send: "Algo ha fallado. Inténtalo de nuevo en un momento.",
+  },
+
   st: {
     title: "Cómo lo llevaría a un estudio",
     lede: "<strong>Un TFG no es un plan de despliegue.</strong> Si mañana entrara en un equipo y alguien me pidiera meter IA en el pipeline de level design, este es el orden en el que lo haría, y el razonamiento sale de lo que funcionó y lo que no en Lyra.",
@@ -628,6 +655,7 @@ es: {
   },
 
   common: {
+    footer_email_cta: "Envíame un mensaje",
     nav_home: "Inicio",
     nav_about: "Sobre mí",
     nav_experience: "Experiencia",
@@ -1146,6 +1174,19 @@ es: {
 /* ================= CATALAN ================= */
 cat: {
 
+  contact: {
+    title: "Contacta amb mi",
+    lede: "Escriu-me un missatge i et responc de seguida.",
+    f_name: "El teu nom",
+    f_email: "El teu email",
+    f_msg: "Missatge",
+    send: "Enviar missatge",
+    sending: "Enviant…",
+    ok: "Missatge enviat. Gràcies, et responc aviat.",
+    err_fields: "Omple tots els camps amb un email vàlid.",
+    err_send: "Alguna cosa ha fallat. Torna-ho a provar en un moment.",
+  },
+
   st: {
     title: "Com ho portaria a un estudi",
     lede: "<strong>Un TFG no és un pla de desplegament.</strong> Si demà entrés en un equip i algú em demanés posar IA al pipeline de level design, aquest és l'ordre en què ho faria, i el raonament surt del que va funcionar i del que no a Lyra.",
@@ -1197,6 +1238,7 @@ cat: {
   },
 
   common: {
+    footer_email_cta: "Envia'm un missatge",
     nav_home: "Inici",
     nav_about: "Sobre mi",
     nav_experience: "Experiència",

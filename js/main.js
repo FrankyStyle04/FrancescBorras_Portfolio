@@ -588,3 +588,143 @@
     });
   });
 })();
+
+/* ==========================================================
+   Contact modal
+   Injected once per page. Every .js-contact trigger opens it.
+   Posts to Web3Forms so the address never appears in the markup.
+   ========================================================== */
+(function () {
+  "use strict";
+
+  // ---- Replace with the access key from https://web3forms.com ----
+    var ACCESS_KEY = "6bd6ee26-5034-4dca-9320-1280bf9f072a";
+
+  var triggers = document.querySelectorAll('.js-contact');
+  if (!triggers.length) return;
+
+  var modal = document.createElement('div');
+  modal.className = 'cm';
+  modal.id = 'contact-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'cm-title');
+  modal.hidden = true;
+  modal.innerHTML = [
+    '<div class="cm-backdrop" data-cm-close></div>',
+    '<div class="cm-panel" role="document">',
+      '<button type="button" class="cm-x" data-cm-close aria-label="Close">&times;</button>',
+      '<h2 class="cm-title" id="cm-title" data-i18n="contact.title">Get in touch</h2>',
+      '<p class="cm-lede" data-i18n="contact.lede">Drop me a message and I\'ll get back to you.</p>',
+      '<form class="cm-form" novalidate>',
+        '<input type="hidden" name="access_key" value="' + ACCESS_KEY + '">',
+        '<input type="hidden" name="subject" value="New message from your portfolio">',
+        '<input type="checkbox" name="botcheck" class="cm-hp" tabindex="-1" autocomplete="off">',
+        '<label class="cm-field">',
+          '<span data-i18n="contact.f_name">Your name</span>',
+          '<input type="text" name="name" required autocomplete="name">',
+        '</label>',
+        '<label class="cm-field">',
+          '<span data-i18n="contact.f_email">Your email</span>',
+          '<input type="email" name="email" required autocomplete="email">',
+        '</label>',
+        '<label class="cm-field">',
+          '<span data-i18n="contact.f_msg">Message</span>',
+          '<textarea name="message" rows="5" required></textarea>',
+        '</label>',
+        '<button type="submit" class="btn btn-solid cm-send" data-i18n="contact.send">Send message</button>',
+        '<p class="cm-status" role="status" aria-live="polite"></p>',
+      '</form>',
+    '</div>'
+  ].join('');
+  document.body.appendChild(modal);
+
+  // Re-apply translations to the freshly injected markup
+  try {
+    var lang = localStorage.getItem('fb-lang') || 'en';
+    if (typeof window.applyI18n === 'function') window.applyI18n(lang);
+  } catch (e) {}
+
+  var panel = modal.querySelector('.cm-panel');
+  var form = modal.querySelector('.cm-form');
+  var status = modal.querySelector('.cm-status');
+  var sendBtn = modal.querySelector('.cm-send');
+  var lastFocused = null;
+
+  function t(key, fallback) {
+    try {
+      var l = localStorage.getItem('fb-lang') || 'en';
+      var pack = window.I18N && window.I18N[l] && window.I18N[l].contact;
+      if (pack && pack[key]) return pack[key];
+    } catch (e) {}
+    return fallback;
+  }
+
+  function open(e) {
+    if (e) e.preventDefault();
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function () { modal.classList.add('is-open'); });
+    var first = form.querySelector('input[name="name"]');
+    if (first) setTimeout(function () { first.focus(); }, 120);
+  }
+
+  function close() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function () { modal.hidden = true; }, 220);
+    if (lastFocused) lastFocused.focus();
+  }
+
+  triggers.forEach(function (el) { el.addEventListener('click', open); });
+  modal.querySelectorAll('[data-cm-close]').forEach(function (el) {
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (modal.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'Tab') {
+      var f = panel.querySelectorAll('button, input, textarea, a[href]');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      status.textContent = t('err_fields', 'Please fill in every field with a valid email.');
+      status.className = 'cm-status is-err';
+      return;
+    }
+    var data = Object.fromEntries(new FormData(form));
+    sendBtn.disabled = true;
+    status.className = 'cm-status';
+    status.textContent = t('sending', 'Sending…');
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res.success) {
+          status.textContent = t('ok', 'Message sent. Thanks, I\'ll reply soon.');
+          status.className = 'cm-status is-ok';
+          form.reset();
+          setTimeout(close, 2200);
+        } else {
+          throw new Error('rejected');
+        }
+      })
+      .catch(function () {
+        status.textContent = t('err_send', 'Something went wrong. Try again in a moment.');
+        status.className = 'cm-status is-err';
+      })
+      .then(function () { sendBtn.disabled = false; });
+  });
+})();

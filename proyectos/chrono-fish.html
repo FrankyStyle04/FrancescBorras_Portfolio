@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=35">
+<link rel="stylesheet" href="../css/style.css?v=36">
 <script>
 (function(){
   try {
@@ -43,7 +43,7 @@
           <span class="lang-label">EN</span>
         </button>
       </li>
-      <li><a class="nav-cta" href="../index.html#contact" data-i18n="common.nav_cta">Get in touch</a></li>
+      <li><a class="nav-cta js-contact" href="#contact" data-i18n="common.nav_cta">Get in touch</a></li>
     </ul>
   </div>
 </nav>
@@ -63,7 +63,7 @@
     <span class="rail-label" data-i18n="common.rail_linkedin">Let's connect!</span>
     <span class="sr-only">LinkedIn</span>
   </a>
-  <a class="rail-item" href="mailto:fborrasslleida@gmail.com">
+  <button type="button" class="rail-item js-contact" aria-haspopup="dialog">
     <span class="rail-icon">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6Z"/>
@@ -71,7 +71,7 @@
     </span>
     <span class="rail-label" data-i18n="common.rail_email">Let's talk!</span>
     <span class="sr-only">Email</span>
-  </a>
+  </button>
 </aside>
 
 <main>
@@ -211,7 +211,7 @@
 <footer class="site-footer" id="contact">
   <div class="wrap footer-contact">
     <div><span data-i18n="common.footer_location">LOCATION</span><a href="https://www.google.com/maps/search/Vilanova+i+la+Geltru" target="_blank" rel="noopener">Vilanova i la Geltrú, Barcelona</a></div>
-    <div><span data-i18n="common.footer_email">EMAIL</span><a href="mailto:fborrasslleida@gmail.com">fborrasslleida@gmail.com</a></div>
+    <div><span data-i18n="common.footer_email">EMAIL</span><button type="button" class="footer-mail js-contact" data-i18n="common.footer_email_cta" aria-haspopup="dialog">Send me a message</button></div>
   </div>
   <div class="wrap footer-columns">
     <div>
@@ -250,7 +250,7 @@
       <a href="../index.html#about" data-i18n="common.foot_about">ABOUT</a>
       <a href="../index.html#experience" data-i18n="common.foot_experience">EXPERIENCE</a>
       <a href="../index.html#projects" data-i18n="common.foot_projects">PROJECTS</a>
-      <a href="../index.html#contact" data-i18n="common.foot_contact">CONTACT</a>
+      <a href="#contact" class="js-contact" data-i18n="common.foot_contact">CONTACT</a>
     </div>
     <div class="socials">
       <a href="https://www.linkedin.com/in/francesc-borras-lleida-88ab5a254/" target="_blank" rel="noopener">LinkedIn</a>
